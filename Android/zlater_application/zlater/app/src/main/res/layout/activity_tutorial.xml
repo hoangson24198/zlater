@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
+    tools:context="com.example.zlater.Activity.TutorialActivity">
+    <LinearLayout
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="50dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:text="Các chức năng chính của ứng dụng"
+            android:textColor="@color/title"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/vpager_tutorial"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </androidx.viewpager.widget.ViewPager>
+    </LinearLayout>
+    <RelativeLayout
+        android:layout_weight="0"
+        android:layout_marginBottom="20dp"
+        android:padding="10dp"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/btn_prev_tutorial"
+            android:layout_alignParentLeft="true"
+            android:text="Prev"
+            android:textColor="@color/title"
+            android:background="@android:color/transparent"
+            android:drawableLeft="@drawable/ic_arrow_left_blue"
+            android:layout_width="100dp"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_height="40dp" />
+        <Button
+            android:id="@+id/btn_next_tutorial"
+            android:layout_alignParentRight="true"
+            android:text="Next"
+            android:background="@android:color/transparent"
+            android:textColor="@color/title"
+            style="?android:attr/borderlessButtonStyle"
+            android:drawableRight="@drawable/ic_arrow_right_blue"
+            android:layout_width="100dp"
+            android:layout_height="40dp" />
+    </RelativeLayout>
+</LinearLayout>

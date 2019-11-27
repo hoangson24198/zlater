@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:keepScreenOn="true"
+    android:id="@+id/viewReminder"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    tools:context="com.example.zlater.Activity.ReminderScreenActivity"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/layoutClock"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginTop="150dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextClock
+            android:text="22:22"
+            android:textSize="150sp"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:fontFamily="@font/digital"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </TextClock>
+    </LinearLayout>
+
+  <RelativeLayout
+      android:layout_marginBottom="20dp"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content">
+    <RelativeLayout
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <com.agik.AGIKSwipeButton.View.Swipe_Button_View
+            android:id="@+id/stopReminder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            app:sb_swipe_text="Swipe to stop"
+            app:sb_swipe_animate_text="true"
+            app:sb_swipe_bg_color="@color/primary"
+            app:sb_thumb_bg_color="@color/primary"
+            android:layout_marginRight="16dp"
+            android:layout_marginLeft="16dp"
+            />
+    </RelativeLayout>
+  </RelativeLayout>
+</LinearLayout>

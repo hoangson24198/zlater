@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.zlater.Activity.Login.LoginActivity">
+    <FrameLayout
+        android:id="@+id/iv_header_login"
+        android:layout_width="match_parent"
+        android:layout_height="250dp">
+        <ImageView
+            android:src="@drawable/background_head_login"
+            android:scaleType="centerCrop"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_below="@+id/iv_header_login"
+        app:layout_flexBasisPercent="75%"
+        android:orientation="vertical"
+        android:layout_weight="5"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <LinearLayout
+            android:background="#191E1E"
+            android:layout_weight="3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="50dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+           <EditText
+               android:id="@+id/edt_username"
+               android:paddingLeft="20sp"
+               android:textCursorDrawable="@color/place_holder"
+               android:fontFamily="@font/roboto"
+               android:hint="Email or username"
+               android:background="@drawable/backround_button_login_users"
+               android:layout_width="match_parent"
+               android:layout_height="50dp"/>
+                <EditText
+                    android:id="@+id/edt_password"
+                    android:inputType="textPassword"
+                    android:layout_marginVertical="20dp"
+                    android:paddingLeft="20sp"
+                    android:textCursorDrawable="@color/place_holder"
+                    android:fontFamily="@font/roboto"
+                    android:hint="Password"
+                    android:background="@drawable/backround_button_login_users"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"/>
+                <LinearLayout
+                    android:id="@+id/btn_Login"
+                    android:layout_marginTop="30dp"
+                    android:background="@drawable/back_ground_button_gradient"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp">
+                    <TextView
+                        android:gravity="center"
+                        android:layout_gravity="center"
+                        android:textColor="#FFFF"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/roboto"
+                        android:textSize="20sp"
+                        android:text="Login"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_weight="6"
+                    android:layout_marginTop="80dp"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp">
+                    <TextView
+                        android:fontFamily="@font/roboto"
+                        android:layout_weight="4"
+                        android:textAlignment="textEnd"
+                        android:textColor="#C5C5C5"
+                        android:text="Bạn vẫn chưa có tài khoản? "
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="end" />
+                    <TextView
+                        android:fontFamily="@font/roboto"
+                        android:id="@+id/tvSignUp"
+                        android:textColor="#FFFFFF"
+                        android:layout_weight="2"
+                        android:text="Đăng ký ngay"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_alignBottom="@id/iv_header_login"
+        android:layout_width="match_parent"
+        android:layout_marginBottom="-45dp"
+        android:layout_height="90dp">
+        <ImageView
+            android:src="@drawable/polyfit"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </FrameLayout>
+
+</RelativeLayout>

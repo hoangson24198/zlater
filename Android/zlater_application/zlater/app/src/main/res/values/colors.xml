@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#39375b</color>
+    <color name="colorAccent">#008577</color>
+    <color name="place_holder">#FF3C00</color>
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="gray">#30000000</color>
+    <color name="blue">#1890ff</color>
+    <color name="textClock">#0016e6</color>
+<!--    Change color here-->
+    <color name="primary">#39375b</color>
+    <color name="secondary">#4F515B</color>
+    <color name="dark_blue">#4F515B</color>
+    <color name="title">#39375b</color>
+    <color name="subTitle">#797C88</color>
+    <color name="content">#407088</color>
+    <color name="background">#3c4245</color>
+    <color name="positive">#21BA45</color>
+    <color name="negative">#C10015</color>
+    <color name="social">#3b5998</color>
+<!--    Meal's color-->
+    <color name="morning">#DBB3B3</color>
+    <color name="noon">#ddb6c6</color>
+    <color name="night">#946D97</color>
+<!--    Level-->
+    <color name="gain">#f6ad7b</color>
+    <color name="balance">#c2e8ce</color>
+    <color name="burn">#be7575</color>
+
+<!--    histories-->
+    <color name="textColor">#39375C</color>
+</resources>
