@@ -11,14 +11,14 @@ import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.zlater.Activity.Login.LoginMethod;
+import com.example.zlater.Activity.Login.LoginActivity;
 import com.example.zlater.R;
 import com.example.zlater.Utils.Constants;
 
 import java.util.Objects;
 
 public class SplashScreen extends AppCompatActivity {
-    private final int SPLASH_DISPLAY_LENGTH = 3000;
+    private final int SPLASH_DISPLAY_LENGTH = 4000;
     private ImageView logo;
     private Animation animation;
 
@@ -30,7 +30,7 @@ public class SplashScreen extends AppCompatActivity {
         Objects.requireNonNull(getSupportActionBar()).hide();
         logo = findViewById(R.id.logo);
         animation = AnimationUtils.loadAnimation(getApplicationContext(),
-                R.anim.fade_out);
+                R.anim.fade_in);
         logo.startAnimation(animation);
         new Handler().postDelayed(new Runnable() {
             @Override
@@ -42,7 +42,7 @@ public class SplashScreen extends AppCompatActivity {
                     startActivity(intentToMain);
                     finish();
                 } else {
-                    Intent mainIntent = new Intent(SplashScreen.this, LoginMethod.class);
+                    Intent mainIntent = new Intent(SplashScreen.this, LoginActivity.class);
                     startActivity(mainIntent);
                     finish();
                 }

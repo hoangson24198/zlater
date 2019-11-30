@@ -1,41 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_gravity="center"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <RelativeLayout
-        android:id="@+id/layoutHome"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/white">
+    android:layout_height="match_parent"
+    android:background="@color/ghost">
 
-        <FrameLayout
-            android:id="@+id/header"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:id="@+id/ctolbar"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:fitsSystemWindows="true"
+            app:contentScrim="@color/coral"
+            app:collapsedTitleTextAppearance="@style/collapsed"
+            app:expandedTitleMargin="5dp"
+            app:expandedTitleMarginStart="48dp"
+            app:expandedTitleTextAppearance="@style/CollapsingToolbarLayoutExpandedTextStyle"
+            app:layout_scrollFlags="enterAlways|enterAlwaysCollapsed|scroll"
+            app:title="Hello">
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:background="@drawable/header_gradient">
+                android:layout_height="match_parent"
+                android:background="@drawable/background_head_login"
+                android:orientation="vertical">
 
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/gradient_cover" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="20dp"
                     android:layout_marginTop="40dp"
                     android:fontFamily="@font/montserrat_bold"
-                    android:text="Khám phá"
+                    android:text="@string/hello"
                     android:textColor="@color/white"
-                    android:textSize="@dimen/text_xl" />
-
-                <com.skyfishjy.library.RippleBackground xmlns:android="http://schemas.android.com/apk/res/android"
-                    xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:textSize="30sp" />
+                <com.skyfishjy.library.RippleBackground
                     android:id="@+id/ripple_reminder"
+                    android:layout_alignParentEnd="true"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:layout_alignParentRight="true"
                     android:layout_margin="10dp"
                     app:rb_color="#ddb6c6"
                     app:rb_duration="3000"
@@ -54,499 +67,448 @@
                             android:layout_height="35dp"
                             android:src="@drawable/ic_access_alarm_white_24dp" />
                     </LinearLayout>
-
                 </com.skyfishjy.library.RippleBackground>
             </RelativeLayout>
-        </FrameLayout>
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
 
-        <FrameLayout
-            android:id="@+id/layout_avatar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignBottom="@id/header"
-            android:layout_marginLeft="20dp"
-            android:layout_marginBottom="-30dp">
+    </com.google.android.material.appbar.AppBarLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <androidx.cardview.widget.CardView
-                    android:layout_width="61dp"
-                    android:layout_height="61dp"
-                    app:cardCornerRadius="30.25dp">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:gravity="center">
-
-                        <de.hdodenhof.circleimageview.CircleImageView
-                            android:id="@+id/iv_avatar"
-                            android:layout_width="60dp"
-                            android:layout_height="60dp"
-                            android:layout_weight="0"
-                            android:src="@drawable/ic_avatar"
-                            app:civ_border_color="#FFFFFF"
-                            app:civ_border_width="2dp"
-                            app:civ_circle_background_color="#fff" />
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_margin="5dp"
-                    android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:paddingLeft="5dp">
-
-                    <TextView
-                        android:id="@+id/tv_UserName"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:fontFamily="@font/montserrat_medium"
-                        android:text="Quoc phu"
-                        android:textColor="@color/white"
-                        android:textSize="@dimen/text_md" />
-
-                    <TextView
-                        android:id="@+id/tv_startDate"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:fontFamily="@font/montserrat_semi_bold"
-                        android:text="2019-09-01"
-                        android:textColor="@color/primary"
-                        android:textSize="@dimen/text_sm" />
-                </LinearLayout>
-            </LinearLayout>
-        </FrameLayout>
-
-        <FrameLayout
-            android:id="@+id/profile_card"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/layout_avatar"
-            android:layout_alignParentRight="true"
-            android:layout_marginTop="40dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="15dp"
-                android:layout_weight="3"
-                android:gravity="right">
-
-                <androidx.cardview.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="60dp"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_weight="1"
-                    app:cardBackgroundColor="@color/balance"
-                    app:cardCornerRadius="5dp">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:gravity="center"
-                            android:text="Đánh giá"
-                            android:fontFamily="@font/montserrat_semi_bold"
-                            android:textColor="@color/primary"
-                            android:textSize="@dimen/text_sm"></TextView>
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:gravity="center"
-                            android:paddingBottom="5dp"
-                            android:text="Bình thường"
-                            android:fontFamily="@font/montserrat_bold"
-                            android:textColor="@color/content"
-                            android:textStyle="bold"></TextView>
-
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
-
-
-                <androidx.cardview.widget.CardView
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    app:cardBackgroundColor="@color/night"
-                    app:cardCornerRadius="5dp">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_margin="5dp"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:text="Height"
-                            android:fontFamily="@font/montserrat_regular"
-                            android:textAlignment="center"
-                            android:textColor="@color/primary"
-                            android:textSize="@dimen/text_md"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:id="@+id/tv_height"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:text="175"
-                            android:textAlignment="center"
-                            android:textColor="@color/morning"
-                            android:textFontWeight="1"
-                            android:textSize="@dimen/text_md" />
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
-
-                <androidx.cardview.widget.CardView
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:layout_marginHorizontal="10dp"
-                    app:cardBackgroundColor="@color/noon"
-                    app:cardCornerRadius="5dp">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_margin="5dp"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:text="Weight"
-                            android:fontFamily="@font/montserrat_regular"
-                            android:textAlignment="center"
-                            android:textColor="@color/title"
-                            android:textSize="13sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:id="@+id/tv_weight"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:text="65kg"
-                            android:textAlignment="center"
-                            android:textColor="@color/content"
-                            android:textFontWeight="1"
-                            android:textSize="@dimen/text_md" />
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
-
-                <androidx.cardview.widget.CardView
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    app:cardBackgroundColor="@color/morning"
-                    app:cardCornerRadius="5dp">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_margin="5dp"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:text="BMI"
-                            android:fontFamily="@font/montserrat_regular"
-                            android:textAlignment="center"
-                            android:textColor="@color/title"
-                            android:textSize="13sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:id="@+id/tv_BMI"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:text="23.3"
-                            android:textAlignment="center"
-                            android:textColor="@color/content"
-                            android:textFontWeight="1"
-                            android:textSize="@dimen/text_md" />
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
-            </LinearLayout>
-        </FrameLayout>
-
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:scrollbars="none"
+        app:behavior_overlapTop="100dp"
+        app:layout_anchor="@id/appbar"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
         <FrameLayout
             android:id="@+id/content_home"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/profile_card"
             android:paddingLeft="10dp"
             android:paddingRight="10dp">
+
+        <LinearLayout
+            android:id="@+id/layoutHome"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:id="@+id/flmiddle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="30dp"
+                android:paddingRight="30dp">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="35dp"
+                    android:background="@drawable/background_round">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="40dp"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical"
+                        android:paddingLeft="16dp"
+                        android:paddingRight="16dp">
+
+                        <TextView
+                            android:id="@+id/tv_UserName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginBottom="5dp"
+                            android:fontFamily="@font/montserrat_regular"
+                            android:gravity="center"
+                            android:text="Jack Sparrow"
+                            android:textColor="#ff3f4751"
+                            android:textSize="25sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tv_startDate"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="16dp"
+                            android:gravity="center"
+                            android:fontFamily="@font/roboto_regular"
+                            android:text="2019-09-01"
+                            android:textSize="15sp" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginBottom="16dp"
+                            android:orientation="horizontal"
+                            android:weightSum="3">
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="center_horizontal"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/height"
+                                    android:fontFamily="@font/josefinsans_semibold"
+                                    android:textAllCaps="true"
+                                    android:textColor="#ff878b91"
+                                    android:textSize="10sp" />
+
+                                <TextView
+                                    android:id="@+id/tv_height"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="sans-serif-condensed"
+                                    android:text="175cm"
+                                    android:textColor="#ff3f4751"
+                                    android:textSize="24sp"
+                                    android:textStyle="normal"/>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="center_horizontal"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/weight"
+                                    android:textAllCaps="true"
+                                    android:fontFamily="@font/josefinsans_semibold"
+                                    android:textColor="#ff878b91"
+                                    android:textSize="10sp" />
+
+                                <TextView
+                                    android:id="@+id/tv_weight"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="sans-serif-condensed"
+                                    android:text="65kg"
+                                    android:textColor="#ff3f4751"
+                                    android:textSize="24sp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="center_horizontal"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/josefinsans_semibold"
+                                    android:text="BMI"
+                                    android:textAllCaps="true"
+                                    android:textColor="#ff878b91"
+                                    android:textSize="10sp" />
+
+                                <TextView
+                                    android:id="@+id/tv_BMI"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="sans-serif-condensed"
+                                    android:text="24"
+                                    android:textColor="#ff3f4751"
+                                    android:textSize="24sp" />
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+                </FrameLayout>
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/iv_avatar"
+                    android:layout_width="68dp"
+                    android:layout_height="68dp"
+                    android:src="@drawable/ic_avatar"
+                    android:layout_gravity="center|top" />
+            </FrameLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="16dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/righteous_regular"
+                        android:text="@string/collection"
+                        android:textColor="#ff3f4751"
+                        android:textSize="20sp" />
+                </LinearLayout>
+
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rv_bodyparts_home"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="5dp"
                     android:layout_marginTop="20dp"
-                    android:layout_marginBottom="10dp" />
+                    android:clipToPadding="false"
+                    android:nestedScrollingEnabled="false"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginVertical="5dp"
-                    android:layout_marginTop="10dp"
-                    android:orientation="vertical">
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginRight="16dp"
+                    android:orientation="horizontal">
 
                     <TextView
-                        android:layout_width="match_parent"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:text="Chế độ ăn phổ biến"
-                        android:textColor="@color/title"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
-
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/rv_challenges"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp" />
+                        android:layout_weight="1"
+                        android:fontFamily="@font/righteous_regular"
+                        android:text="@string/popular_diet"
+                        android:textColor="#ff3f4751"
+                        android:textSize="20sp" />
                 </LinearLayout>
 
-                <LinearLayout
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_challenges"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="20dp"
+                    android:nestedScrollingEnabled="false"
+                    android:clipToPadding="false"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
+                    android:text="@string/what_eat_today"
+                    android:textColor="@color/title"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:orientation="vertical">
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="10dp"
-                        android:text="Ăn gì hôm nay ?"
-                        android:textColor="@color/title"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-                        <RelativeLayout
-                            android:id="@+id/layout_morning"
-                            android:layout_width="match_parent"
-                            android:layout_height="120dp"
-                            android:layout_marginVertical="5dp">
-
-                            <ImageView
-                                android:id="@+id/image_bg_morning"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:src="@color/morning" />
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginVertical="10dp"
-                                android:orientation="vertical"
-                                android:paddingTop="20dp">
-
-                                <TextView
-                                    android:layout_width="150dp"
-                                    android:layout_gravity="right"
-                                    android:padding="5dp"
-                                    android:gravity="center"
-                                    android:layout_height="wrap_content"
-                                    android:background="#80FFFFFF"
-                                    android:text="Buổi sáng"
-                                    android:textColor="@color/title"
-                                    android:textSize="18sp"
-                                    android:textStyle="bold" />
-
-                            </LinearLayout>
-                        </RelativeLayout>
-
-                        <RelativeLayout
-                            android:id="@+id/layout_noon"
-                            android:layout_width="match_parent"
-                            android:layout_height="120dp"
-                            android:layout_marginVertical="5dp">
-
-                            <ImageView
-                                android:id="@+id/image_bg_noon"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent" />
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginBottom="10dp"
-                                android:orientation="vertical"
-                                android:paddingTop="20dp"
-                                android:paddingBottom="20dp">
-
-                                <TextView
-                                    android:layout_width="150dp"
-                                    android:layout_gravity="left"
-                                    android:padding="5dp"
-                                    android:gravity="center"
-                                    android:layout_height="wrap_content"
-                                    android:background="#80FFFFFF"
-                                    android:text="Buổi trưa"
-                                    android:textColor="@color/title"
-                                    android:textSize="18sp"
-                                    android:textStyle="bold" />
-
-                            </LinearLayout>
-                        </RelativeLayout>
-
-                        <RelativeLayout
-                            android:id="@+id/layout_night"
-                            android:layout_width="match_parent"
-                            android:layout_height="120dp"
-                            android:layout_marginVertical="5dp">
-
-                            <ImageView
-                                android:id="@+id/image_bg_night"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent" />
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:orientation="vertical"
-                                android:paddingTop="20dp"
-                                android:paddingBottom="20dp">
-
-                                <TextView
-                                    android:layout_width="150dp"
-                                    android:layout_gravity="right"
-                                    android:gravity="center"
-                                    android:padding="5dp"
-                                    android:layout_height="wrap_content"
-                                    android:background="#80FFFFFF"
-                                    android:text="Buổi chiều"
-                                    android:textColor="@color/title"
-                                    android:textSize="18sp"
-                                    android:textStyle="bold" />
-
-                            </LinearLayout>
-                        </RelativeLayout>
-                    </LinearLayout>
-
-                    <androidx.cardview.widget.CardView
+                    <RelativeLayout
+                        android:id="@+id/layout_morning"
                         android:layout_width="match_parent"
                         android:layout_height="120dp"
-                        android:layout_marginTop="5dp"
-                        app:cardBackgroundColor="@color/dark_blue">
-
-                        <RelativeLayout
-                            android:id="@+id/layout_reminder"
+                        android:layout_marginVertical="5dp">
+                        <ImageView
+                            android:id="@+id/image_bg_morning"
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent">
+                            android:layout_height="match_parent"
+                            android:src="@drawable/gradient4" />
 
-                            <LinearLayout
-                                android:layout_width="match_parent"
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginVertical="10dp"
+                            android:orientation="vertical"
+                            android:paddingTop="20dp">
+
+                            <TextView
+                                android:layout_width="150dp"
+                                android:layout_gravity="right"
+                                android:padding="5dp"
+                                android:gravity="center"
                                 android:layout_height="wrap_content"
-                                android:layout_margin="20dp"
-                                android:orientation="vertical">
+                                android:background="#80FFFFFF"
+                                android:text="@string/morning"
+                                android:textColor="@color/title"
+                                android:textSize="18sp"
+                                android:textStyle="bold" />
 
-                                <TextView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:text="Tạo nhắc nhở"
-                                    android:textColor="@color/white"
-                                    android:textSize="18sp"
-                                    android:textStyle="bold" />
+                        </LinearLayout>
+                    </RelativeLayout>
 
-                                <TextView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="5dp"
-                                    android:text="Tạo lịch nhắc để giúp \nbản thân đạt được mục tiêu"
-                                    android:textColor="@color/white"
-                                    android:textSize="@dimen/text_sm"
-                                    android:textStyle="bold" />
-                            </LinearLayout>
-
-                            <ImageView
-                                android:layout_width="60dp"
-                                android:layout_height="60dp"
-                                android:layout_alignParentRight="true"
-                                android:layout_margin="20dp"
-                                android:src="@drawable/phone_alarm" />
-                        </RelativeLayout>
-                    </androidx.cardview.widget.CardView>
-
-                    <androidx.cardview.widget.CardView
+                    <RelativeLayout
+                        android:id="@+id/layout_noon"
                         android:layout_width="match_parent"
                         android:layout_height="120dp"
-                        android:layout_marginTop="8dp"
-                        app:cardBackgroundColor="@color/social">
+                        android:layout_marginVertical="5dp">
 
-                        <RelativeLayout
-                            android:id="@+id/layout_social"
+                        <ImageView
+                            android:id="@+id/image_bg_noon"
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent">
+                            android:layout_height="match_parent"
+                            android:src="@drawable/gradient2"/>
 
-                            <LinearLayout
-                                android:layout_width="match_parent"
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp"
+                            android:orientation="vertical"
+                            android:paddingTop="20dp"
+                            android:paddingBottom="20dp">
+
+                            <TextView
+                                android:layout_width="150dp"
+                                android:layout_gravity="left"
+                                android:padding="5dp"
+                                android:gravity="center"
                                 android:layout_height="wrap_content"
-                                android:layout_margin="20dp"
-                                android:orientation="vertical">
+                                android:background="#80FFFFFF"
+                                android:text="@string/afternoon"
+                                android:textColor="@color/title"
+                                android:textSize="18sp"
+                                android:textStyle="bold" />
 
-                                <TextView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:text="Cộng đồng"
-                                    android:textColor="@color/white"
-                                    android:textSize="18sp"
-                                    android:textStyle="bold" />
+                        </LinearLayout>
+                    </RelativeLayout>
 
-                                <TextView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="5dp"
-                                    android:text="Tham gia cộng đồng cùng \ntrao đổi kinh nghiệm với nhau"
-                                    android:textColor="@color/white"
-                                    android:textSize="@dimen/text_sm"
-                                    android:textStyle="bold" />
-                            </LinearLayout>
+                    <RelativeLayout
+                        android:id="@+id/layout_night"
+                        android:layout_width="match_parent"
+                        android:layout_height="120dp"
+                        android:layout_marginVertical="5dp">
 
-                            <ImageView
-                                android:layout_width="60dp"
-                                android:layout_height="60dp"
-                                android:layout_alignParentRight="true"
-                                android:layout_margin="20dp"
-                                android:src="@drawable/connection" />
-                        </RelativeLayout>
-                    </androidx.cardview.widget.CardView>
+                        <ImageView
+                            android:id="@+id/image_bg_night"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/gradient3"/>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:paddingTop="20dp"
+                            android:paddingBottom="20dp">
+
+                            <TextView
+                                android:layout_width="150dp"
+                                android:layout_gravity="right"
+                                android:gravity="center"
+                                android:padding="5dp"
+                                android:layout_height="wrap_content"
+                                android:background="#80FFFFFF"
+                                android:text="@string/night"
+                                android:textColor="@color/title"
+                                android:textSize="18sp"
+                                android:textStyle="bold" />
+
+                        </LinearLayout>
+                    </RelativeLayout>
                 </LinearLayout>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    android:layout_marginTop="5dp"
+                    app:cardBackgroundColor="@color/dark_blue">
+
+                    <RelativeLayout
+                        android:id="@+id/layout_reminder"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="20dp"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/creat_reminder"
+                                android:textColor="@color/white"
+                                android:textSize="18sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="5dp"
+                                android:text="@string/reminder_quote"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/text_sm"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <ImageView
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_margin="20dp"
+                            android:src="@drawable/phone_alarm" />
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    android:layout_marginTop="8dp"
+                    app:cardBackgroundColor="@color/social">
+
+                    <RelativeLayout
+                        android:id="@+id/layout_social"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="20dp"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/community"
+                                android:textColor="@color/white"
+                                android:textSize="18sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="5dp"
+                                android:text="@string/community_quote"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/text_sm"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <ImageView
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_margin="20dp"
+                            android:src="@drawable/connection" />
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
             </LinearLayout>
 
         </FrameLayout>
-    </RelativeLayout>
-</ScrollView>
+    </androidx.core.widget.NestedScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

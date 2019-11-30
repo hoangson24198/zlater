@@ -38,7 +38,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/montserrat_bold"
-                    android:text="Bò hầm cải chua"
+                    android:text="@string/dish_name"
                     android:textColor="@color/title"
                     android:textSize="@dimen/text_md" />
 
@@ -49,7 +49,7 @@
                     android:gravity="right"
                     android:fontFamily="@font/montserrat_light"
                     android:layout_marginTop="5dp"
-                    android:text="Xem chi tiết"
+                    android:text="@string/more_details"
                     android:textColor="@color/content"
                     android:textSize="@dimen/text_md" />
             </LinearLayout>

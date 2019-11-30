@@ -22,7 +22,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.zlater.Activity.Login.LoginMethod;
+import com.example.zlater.Activity.Login.LoginActivity;
 import com.example.zlater.Adapter.RoutineAdapter;
 import com.example.zlater.Model.History;
 import com.example.zlater.Model.Responses.HistoryResponse;
@@ -32,8 +32,8 @@ import com.example.zlater.Model.Routine;
 import com.example.zlater.Model.StepCount;
 import com.example.zlater.Model.User;
 import com.example.zlater.R;
-import com.example.zlater.Service.local.PolyfitDatabase;
-import com.example.zlater.Service.remote.PolyFitService;
+import com.example.zlater.Service.local.ZlaterDatabase;
+import com.example.zlater.Service.remote.ZlaterService;
 import com.example.zlater.Service.remote.RetrofitClient;
 import com.example.zlater.Service.remote.RoutineAPI;
 import com.example.zlater.Utils.Constants;
@@ -61,7 +61,7 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
     private LineChartView history_chart;
     public final static String[] hours = new String[]{"6", "12", "18", "24"};
     ProgressDialog progressDialog;
-    private PolyFitService polyFitService;
+    private ZlaterService zlaterService;
     private String mParam1;
     private String mParam2;
     SharedPreferences sharedPreferences;
@@ -99,7 +99,7 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_user, container, false);
         Retrofit retrofit = RetrofitClient.getInstance();
-        polyFitService = retrofit.create(PolyFitService.class);
+        zlaterService = retrofit.create(ZlaterService.class);
         routineAPI=retrofit.create(RoutineAPI.class);
         connectView(view);
         sharedPreferences = getActivity().getSharedPreferences(Constants.LOGIN, Context.MODE_PRIVATE);
@@ -157,7 +157,7 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
         } else {
             float bmi = Float.valueOf(edtWeight.getText().toString()) / (Float.valueOf(edtHeight.getText().toString()) * 2);
             History history = new History(bmi * 100, sharedPreferences.getInt("id", 0));
-            Call<HistoryResponse> calledRegister = polyFitService.addHistory(history);
+            Call<HistoryResponse> calledRegister = zlaterService.addHistory(history);
             calledRegister.enqueue(new Callback<HistoryResponse>() {
                 @Override
                 public void onResponse(Call<HistoryResponse> call, Response<HistoryResponse> response) {
@@ -195,7 +195,7 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
         setUserInf();
         List<AxisValue> axisValues = new ArrayList<AxisValue>();
         List<StepCount> listStep = new ArrayList<>();
-        listStep = PolyfitDatabase.getInstance(getActivity()).stepDAO().getStepCount();
+        listStep = ZlaterDatabase.getInstance(getActivity()).stepDAO().getStepCount();
         List<PointValue> values = new ArrayList<PointValue>();
         Collections.reverse(listStep);
         StepCount stepCount = new StepCount();
@@ -239,7 +239,7 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
     //User logout
     private void logoutUser(Integer userId) {
         showProgressDialog();
-        Call<UserResponse> callLogout = polyFitService.userLogout(userId);
+        Call<UserResponse> callLogout = zlaterService.userLogout(userId);
         callLogout.enqueue(new Callback<UserResponse>() {
             @Override
             public void onResponse(Call<UserResponse> call, Response<UserResponse> response) {
@@ -248,7 +248,7 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
                     sharedPreferences.putString("username", "");
                     sharedPreferences.putString("password", "");
                     sharedPreferences.apply();
-                    startActivity(new Intent(getActivity(), LoginMethod.class));
+                    startActivity(new Intent(getActivity(), LoginActivity.class));
                     getActivity().finish();
                 }
                 if (!response.isSuccessful()) {
@@ -303,7 +303,7 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
 
     private void updateUser(int user_id) {
         User user = new User(user_id, Float.valueOf(edtWeight.getText().toString()), Float.valueOf(edtHeight.getText().toString()));
-        Call<UserResponse> callUpdate = polyFitService.updateUser(user);
+        Call<UserResponse> callUpdate = zlaterService.updateUser(user);
         callUpdate.enqueue(new Callback<UserResponse>() {
             @Override
             public void onResponse(Call<UserResponse> call, Response<UserResponse> response) {

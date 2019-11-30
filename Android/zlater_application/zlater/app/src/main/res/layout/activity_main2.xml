@@ -22,8 +22,8 @@
         app:ntb_typeface="fonts/custom_typeface.ttf"
         app:ntb_badge_use_typeface="true"
         app:ntb_swiped="true"
-        app:ntb_bg_color="@color/primary"
-        app:ntb_inactive_color="@color/noon"
+        app:ntb_bg_color="@color/white"
+        app:ntb_inactive_color="@color/coral"
         app:ntb_badge_size="10sp"
         app:ntb_title_size="10sp"/>
 

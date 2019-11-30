@@ -18,7 +18,7 @@
 
         <TextView
             android:id="@+id/tv_item_title_diet_home"
-            android:text="Thanh lọc cơ thể 30 ngày"
+            android:text="@string/item_diet_des"
             android:textColor="@color/title"
             android:textStyle="bold"
             android:gravity="center"

@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -15,7 +16,7 @@ import com.example.zlater.R;
 
 public class StepOneSignUpActivity extends AppCompatActivity implements View.OnClickListener {
     ImageView ic_closeSignUpStepOne;
-    LinearLayout nextStepSignUp;
+    Button nextStepSignUp;
 
     EditText edtDisplayName, edtUsername, edtPassword, edtRetypePassword;
 

@@ -20,7 +20,7 @@
             android:textStyle="bold"
             android:textSize="18sp"
             android:gravity="center"
-            android:text="Bài tập đa dạng"
+            android:text="@string/diverse_exercises"
             android:fontFamily="@font/roboto"
             android:layout_marginTop="20dp"
             android:layout_width="match_parent"
@@ -42,7 +42,7 @@
             android:fontFamily="@font/roboto"
             android:textSize="14sp"
             android:gravity="center"
-            android:text="Bài tập đa dạng với đầy đủ các gói bài tập phù hợp với nhiều cấp độ khác nhau. Bạn có thể tùy chọn theo giáo trình hoặc có thể tự lên lịch tập tùy ý"
+            android:text="@string/tutor_des"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </LinearLayout>

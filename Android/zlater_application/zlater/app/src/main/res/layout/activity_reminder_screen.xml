@@ -41,10 +41,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            app:sb_swipe_text="Swipe to stop"
+            app:sb_swipe_text="@string/swipe_to_stop"
             app:sb_swipe_animate_text="true"
-            app:sb_swipe_bg_color="@color/primary"
-            app:sb_thumb_bg_color="@color/primary"
+            app:sb_swipe_bg_color="@color/gray"
+            app:sb_thumb_bg_color="@color/coral"
             android:layout_marginRight="16dp"
             android:layout_marginLeft="16dp"
             />

@@ -136,6 +136,7 @@
     <orderEntry type="library" name="Gradle: com.google.android.material:material:1.0.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.github.bloderxd:deck:0.1@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.github.devlight.navigationtabstrip:navigationtabstrip:1.0.4@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.github.scottyab:showhidepasswordedittext:0.8@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.github.f0ris.sweetalert:library:1.5.1@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.pnikosis:materialish-progress:1.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: androidx.appcompat:appcompat:1.1.0@aar" level="project" />
@@ -216,5 +217,6 @@
     <orderEntry type="library" name="Gradle: com.google.android:flexbox:1.1.1@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.yarolegovich:discrete-scrollview:1.4.9@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.romandanylyk:pageindicatorview:1.0.3@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.github.bhargavms:DotLoader:1.1.1@aar" level="project" />
   </component>
 </module>

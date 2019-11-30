@@ -207,7 +207,7 @@
         android:paddingVertical="10dp"
         android:background="@drawable/frame_label"
         android:paddingHorizontal="10dp"
-        android:text="Thành phần"
+        android:text="@string/element"
         android:textColor="@color/white"
         android:textSize="@dimen/text_lg"
         android:textStyle="bold"
@@ -239,7 +239,7 @@
             android:paddingVertical="10dp"
             android:background="@drawable/frame_label"
             android:paddingHorizontal="10dp"
-            android:text="Miêu tả"
+            android:text="@string/description"
             android:textColor="@color/white"
             android:textSize="@dimen/text_lg"
             android:textStyle="bold"
@@ -249,7 +249,7 @@
             android:layout_marginVertical="12dp"
             android:id="@+id/tv_description_dishes_details"
             android:textColor="@color/content"
-            android:text="- 2 cai trung - 3 cai hot vit lon"
+            android:text="example"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
     </LinearLayout>

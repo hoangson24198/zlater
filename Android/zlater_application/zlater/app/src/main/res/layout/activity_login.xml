@@ -6,34 +6,168 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="com.example.zlater.Activity.Login.LoginActivity">
-    <FrameLayout
-        android:id="@+id/iv_header_login"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="250dp">
-        <ImageView
-            android:src="@drawable/background_head_login"
-            android:scaleType="centerCrop"
+        android:layout_height="match_parent"
+        android:background="#F6F6F6">
+        <FrameLayout
+            android:id="@+id/fm1"
             android:layout_width="match_parent"
-            android:layout_height="250dp"/>
-    </FrameLayout>
+            android:layout_height="180dp"
+            android:background="@drawable/background_circle">
 
-    <FrameLayout
-        android:layout_below="@+id/iv_header_login"
-        app:layout_flexBasisPercent="75%"
-        android:orientation="vertical"
-        android:layout_weight="5"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+            <ImageView
+                android:id="@+id/tvtitle"
+                android:layout_width="250dp"
+                android:layout_height="150dp"
+                android:layout_gravity="bottom|center_horizontal"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/logo"
+                />
+        </FrameLayout>
+        <FrameLayout
+            android:id="@+id/fm2"
+            android:layout_width="50dp"
+            android:layout_height="100dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/background_circle1">
+
+        </FrameLayout>
+        <FrameLayout
+            android:id="@+id/fm3"
+            android:layout_width="120dp"
+            android:layout_height="100dp"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/background_circle2">
+
+        </FrameLayout>
+        <customfonts.EditText_Poppins_Regular
+            android:id="@+id/edt_username"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/email"
+            android:gravity="center"
+            android:background="@drawable/background_gradient2"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="20dp"
+            android:textCursorDrawable="@drawable/cursor_color"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="50dp"
+            android:inputType="text"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            android:textSize="15sp"
+            android:layout_below="@id/fm1"/>
+
+        <customfonts.EditText_Poppins_Regular
+            android:id="@+id/edt_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/password"
+            android:layout_marginBottom="10dp"
+            android:layout_below="@+id/edt_username"
+            android:textCursorDrawable="@drawable/sky_blue_cursor_color"
+            android:inputType="textPassword"
+            android:gravity="center"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            android:textSize="15sp"
+            android:background="@drawable/background_gradient2"/>
+
+
+
+        <customfonts.Button_Poppins_Regular
+            android:id="@+id/btn_Login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/login"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:layout_below="@id/edt_password"
+            android:textCursorDrawable="@drawable/sky_blue_cursor_color"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            android:background="@drawable/background_gradient"/>
+
+        <customfonts.MyTextView_Poppins_Regular
+            android:id="@+id/tvSignUp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/sign_up_now"
+            android:layout_below="@id/btn_Login"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"/>
+
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-        <LinearLayout
-            android:background="#191E1E"
-            android:layout_weight="3"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:orientation="vertical">
+
             <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginBottom="13.7dp"
+                android:orientation="horizontal">
+
+
+                <customfonts.MyTextView_Poppins_Regular
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="@string/or"
+                    android:textColor="#aeaeae"
+                    android:textSize="13.3sp" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginBottom="35dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="26.7dp"
+                    android:layout_height="26.7dp"
+                    android:src="@drawable/fb"/>
+
+                <ImageView
+                    android:layout_width="26.7dp"
+                    android:layout_height="26.7dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:src="@drawable/instagram"/>
+
+                <ImageView
+                    android:layout_width="26.7dp"
+                    android:layout_height="26.7dp"
+                    android:layout_marginRight="20dp"
+                    android:src="@drawable/twitter"/>
+
+                <ImageView
+                    android:layout_width="26.7dp"
+                    android:layout_height="26.7dp"
+                    android:src="@drawable/linkedin"/>
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+    </RelativeLayout>
+
+            <!--<LinearLayout
                 android:layout_gravity="center"
                 android:layout_marginHorizontal="50dp"
                 android:orientation="vertical"
@@ -101,19 +235,6 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"/>
                 </LinearLayout>
-            </LinearLayout>
-        </LinearLayout>
-    </FrameLayout>
-
-    <FrameLayout
-        android:layout_alignBottom="@id/iv_header_login"
-        android:layout_width="match_parent"
-        android:layout_marginBottom="-45dp"
-        android:layout_height="90dp">
-        <ImageView
-            android:src="@drawable/polyfit"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
-    </FrameLayout>
+            </LinearLayout>-->
 
 </RelativeLayout>

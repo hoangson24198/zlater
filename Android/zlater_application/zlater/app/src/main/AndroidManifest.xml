@@ -19,9 +19,9 @@
     <application
         android:name="com.example.zlater.Service.ForegroundServices"
         android:allowBackup="true"
-        android:icon="@drawable/logo"
+        android:icon="@drawable/icon_logo_dark"
         android:label="@string/app_name"
-        android:roundIcon="@drawable/logo"
+        android:roundIcon="@drawable/icon_logo_dark"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
@@ -47,7 +47,6 @@
         <activity android:name="com.example.zlater.Activity.Login.StepTwoSignUpActivity" />
         <activity android:name="com.example.zlater.Activity.Login.StepOneSignUpActivity" />
         <activity android:name="com.example.zlater.Activity.Login.LoginActivity" />
-        <activity android:name="com.example.zlater.Activity.Login.LoginMethod" />
         <activity android:name="com.soundcloud.android.crop.CropImageActivity" />
         <activity android:name="com.example.zlater.Activity.ReminderScreenActivity" />
 

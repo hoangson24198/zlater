@@ -15,7 +15,7 @@ import rx.schedulers.Schedulers;
 
 public class RetrofitClient {
 
-    public static PolyFitService getRetrofit() {
+    public static ZlaterService getRetrofit() {
 
         RxJavaCallAdapterFactory rxAdapter = RxJavaCallAdapterFactory.createWithScheduler(Schedulers.io());
 
@@ -23,11 +23,11 @@ public class RetrofitClient {
                 .baseUrl(Constants.BASE_URL)
                 .addCallAdapterFactory(rxAdapter)
                 .addConverterFactory(GsonConverterFactory.create())
-                .build().create(PolyFitService.class);
+                .build().create(ZlaterService.class);
 
     }
 
-    public static PolyFitService getRetrofit(String email, String password) {
+    public static ZlaterService getRetrofit(String email, String password) {
 
         String credentials = email + ":" + password;
         String basic = "Basic " + Base64.encodeToString(credentials.getBytes(), Base64.NO_WRAP);
@@ -50,10 +50,10 @@ public class RetrofitClient {
                 .client(httpClient.build())
                 .addCallAdapterFactory(rxAdapter)
                 .addConverterFactory(GsonConverterFactory.create())
-                .build().create(PolyFitService.class);
+                .build().create(ZlaterService.class);
     }
 
-    public static PolyFitService getRetrofit(String token) {
+    public static ZlaterService getRetrofit(String token) {
 
         OkHttpClient.Builder httpClient = new OkHttpClient.Builder();
 
@@ -74,11 +74,11 @@ public class RetrofitClient {
                 .client(httpClient.build())
                 .addCallAdapterFactory(rxAdapter)
                 .addConverterFactory(GsonConverterFactory.create())
-                .build().create(PolyFitService.class);
+                .build().create(ZlaterService.class);
     }
 
-    public static PolyFitService getPolyFitService() {
-        return RetrofitClient.getClient(Constants.BASE_URL).create(PolyFitService.class);
+    public static ZlaterService getPolyFitService() {
+        return RetrofitClient.getClient(Constants.BASE_URL).create(ZlaterService.class);
     }
 
 

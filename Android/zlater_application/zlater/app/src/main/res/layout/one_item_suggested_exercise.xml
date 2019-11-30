@@ -42,7 +42,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/montserrat_bold"
-                        android:text="Dumpel press"
+                        android:text="@string/title_name"
                         android:textColor="@color/white"
                         android:textSize="@dimen/text_md"
                         android:textStyle="bold" />
@@ -53,7 +53,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="2dp"
                         android:fontFamily="@font/montserrat_light"
-                        android:text="Đẩy ngực trên"
+                        android:text="@string/des"
                         android:textColor="@color/white"
                         android:textSize="@dimen/text_sm" />
                 </LinearLayout>
@@ -76,7 +76,7 @@
                     android:textColor="@color/primary"
                     android:paddingHorizontal="5dp"
                     android:paddingVertical="10dp"
-                    android:text="- Bước 1 cần phải thế này thế nọ lọ chai"
+                    android:text="@string/dummy"
                     android:textSize="@dimen/text_sm" />
 
             </LinearLayout>

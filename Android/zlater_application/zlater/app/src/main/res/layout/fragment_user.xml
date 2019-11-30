@@ -16,7 +16,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/header_gradient"
+            android:background="@drawable/gradient_cover"
             android:orientation="vertical">
 
             <ImageView
@@ -46,7 +46,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="20dp"
-                            android:text="Lời khuyên"
+                            android:text="@string/advice"
                             android:textColor="@color/white"
                             android:textSize="15sp"
                             android:textStyle="bold"></TextView>
@@ -60,7 +60,7 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Current BMI"
+                            android:text="@string/curr_bmi"
                             android:textColor="@color/white"
                             android:textSize="@dimen/text_md"
                             android:textStyle="bold"></TextView>
@@ -85,7 +85,7 @@
                             android:layout_marginTop="10dp"
                             android:layout_marginRight="30dp"
                             android:fontFamily="@font/montserrat_light"
-                            android:text="Cập nhập thông tin của bạn thường xuyên để chúng tôi gợi ý nhiều bài tập và chế độ ăn hơn"
+                            android:text="@string/advice_content"
                             android:textColor="@color/white"
                             android:textSize="@dimen/text_sm"
                             android:textStyle="bold">
@@ -102,7 +102,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="24.5"
-                            android:textColor="@color/noon"
+                            android:textColor="@color/white"
                             android:textSize="40sp"></TextView>
                     </LinearLayout>
                 </LinearLayout>
@@ -122,7 +122,7 @@
                         android:padding="5dp"
                         android:layout_marginVertical="10dp"
                         android:layout_marginLeft="15dp"
-                        android:text="Chỉ số hiện tại"
+                        android:text="@string/current_specifications"
                         android:textAlignment="center"
                         android:textColor="@color/primary"
                         android:textSize="@dimen/text_lg"
@@ -155,7 +155,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Chiều cao (cm)"
+                                android:text="@string/your_height"
                                 android:textAlignment="center"
                                 android:textColor="@color/primary"
                                 android:textSize="15sp"></TextView>
@@ -194,7 +194,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Cân nặng (kg)"
+                                android:text="@string/your_weight"
                                 android:textColor="@color/primary"
                                 android:textSize="15sp"></TextView>
                         </LinearLayout>
@@ -228,7 +228,7 @@
                 android:background="@drawable/frame_label"
                 android:paddingHorizontal="15dp"
                 android:paddingVertical="10dp"
-                android:text="Biểu đồ"
+                android:text="@string/chart"
                 android:textColor="@color/white"
                 android:textSize="@dimen/text_lg"
                 android:textStyle="bold"></TextView>
@@ -251,10 +251,10 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginBottom="20dp"
-                android:background="@drawable/header_gradient"
+                android:background="@drawable/background_gradient"
                 android:padding="20sp"
-                android:text="Tôi muốn cập nhật BMI"
-                android:textColor="#ffff">
+                android:text="@string/update_bmi"
+                android:textColor="@color/white">
 
             </Button>
         </LinearLayout>
@@ -266,7 +266,7 @@
             android:background="@drawable/frame_lable_right"
             android:paddingHorizontal="15dp"
             android:paddingVertical="10dp"
-            android:text="Lịch sử"
+            android:text="@string/history"
             android:textAlignment="textEnd"
             android:textColor="@color/white"
             android:textSize="@dimen/text_lg"

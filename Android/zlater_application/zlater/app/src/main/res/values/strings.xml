@@ -1,8 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Zlater</string>
-    <string name="title_activity_exercises">ExercisesActivity</string>
-    <string name="action_settings">Settings</string>
-    <string name="notification_channel_id">DefaultChanel</string>
+    <string name="title_activity_exercises" translatable="false">ExercisesActivity</string>
+    <string name="action_settings" translatable="false">Settings</string>
+    <string name="notification_channel_id" translatable="false">DefaultChanel</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
+    <string name="rule">
+        1. The product is designed and developed based on the needs of the user.\n2. All data of our application is collected from many reputable sources.\n3. Users must make sure to follow our instructions for the best results
+    </string>
+    <string name="email" translatable="false">Email</string>
+    <string name="password">Password</string>
+    <string name="display_name">Your Name</string>
+    <string name="confirm_password">Confirm password</string>
+    <string name="login">Login</string>
+    <string name="sign_up_now">Sign up now</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="or">or</string>
+    <string name="sets" translatable="false">Sets</string>
+    <string name="reps" translatable="false">Reps</string>
+    <string name="rest_time" translatable="false">Rest Time</string>
+    <string name="accept_rule">I agree with the policy &amp; rules</string>
+    <string name="hello">Hello</string>
+    <string name="height">Height</string>
+    <string name="weight">Weight</string>
+    <string name="your_height">Your height (cm)</string>
+    <string name="your_weight">Your weight(kg)</string>
+    <string name="collection">Collection</string>
+    <string name="popular_diet">Popular Diet</string>
+    <string name="what_eat_today">What to eat today?</string>
+    <string name="morning">Morning</string>
+    <string name="afternoon">Afternoon</string>
+    <string name="night">Night</string>
+    <string name="creat_reminder">Create reminder</string>
+    <string name="reminder_quote">Create a reminder calendar to help you \nbuy yourself on target</string>
+    <string name="community">Community</string>
+    <string name="community_quote">Join the community and exchange \nexperiences with each other</string>
+    <string name="swipe_to_stop">Swipe to stop</string>
+    <string name="step_one">Step 1</string>
+    <string name="step_two">Step 2</string>
+    <string name="next">Next</string>
+    <string name="complete_sign_up">Complete Sign Up</string>
+    <string name="main_func_of_app">The main functions of the application</string>
+    <string name="prev">Prev</string>
+    <string name="element">Element</string>
+    <string name="description">Description</string>
+    <string name="set_time">Set time</string>
+    <string name="save">Save</string>
+    <string name="everyday">Every day</string>
+    <string name="change_avt">Change avatar</string>
+    <string name="medium">Medium</string>
+    <string name="quote_content" translatable="false">No pain no gain</string>
+    <string name="quote_author" translatable="false">Author</string>
+    <string name="continues">Continues</string>
+    <string name="diet">Diet</string>
+    <string name="exercies">Exercise</string>
+    <string name="exercise_des">Basic to advanced hand exercises for you guys</string>
+    <string name="excercise_for_you">Exercise for you</string>
+    <string name="diverse_exercises">Diverse exercises</string>
+    <string name="tutor_des">Diverse exercises with full package of exercises suitable for many different levels. You can choose according to the curriculum or you can schedule arbitrary episodes</string>
+    <string name="advice">Advice</string>
+    <string name="advice_content">Update your information regularly so we recommend more exercises and diets</string>
+    <string name="curr_bmi">Current BMI</string>
+    <string name="current_specifications">Current specifications</string>
+    <string name="chart">Chart</string>
+    <string name="update_bmi">Update BMI</string>
+    <string name="history">History</string>
+    <string name="abs">Abs</string>
+    <string name="abs_des">Six packs is comming</string>
+    <string name="item_diet_des">Purify the body for 30 days</string>
+    <string name="dish_name">Dish name</string>
+    <string name="more_details">More details</string>
+    <string name="video_place_holder" translatable="false">Video</string>
+    <string name="dummy" translatable="false">Dummy</string>
+    <string name="title_name" translatable="false">Title name</string>
+    <string name="hour">Hours</string>
+    <string name="minute">Minutes</string>
+    <string name="cancel">Cancel</string>
+    <string name="date">Date</string>
+    <string name="des">This is description</string>
+
 </resources>

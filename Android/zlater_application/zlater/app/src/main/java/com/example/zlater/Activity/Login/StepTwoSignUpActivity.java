@@ -8,10 +8,10 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.Toast;
 
@@ -20,7 +20,7 @@ import com.example.zlater.Model.Responses.HistoryResponse;
 import com.example.zlater.Model.Responses.UserResponse;
 import com.example.zlater.Model.User;
 import com.example.zlater.R;
-import com.example.zlater.Service.remote.PolyFitService;
+import com.example.zlater.Service.remote.ZlaterService;
 import com.example.zlater.Service.remote.RetrofitClient;
 
 import java.text.SimpleDateFormat;
@@ -34,11 +34,11 @@ import rx.subscriptions.CompositeSubscription;
 
 public class StepTwoSignUpActivity extends AppCompatActivity implements View.OnClickListener {
     private ImageView ic_backToStepOneSignUp;
-    private LinearLayout btn_SignUpNow;
+    private Button btn_SignUpNow;
     private EditText edt_heigth, edt_weigth;
     private RadioButton rb_Male, rb_Female;
     private CheckBox cb_Accept;
-    private PolyFitService polyFitService;
+    private ZlaterService zlaterService;
     ProgressDialog progressDialog;
     private CompositeSubscription mSubscriptions = new CompositeSubscription();
 
@@ -49,7 +49,7 @@ public class StepTwoSignUpActivity extends AppCompatActivity implements View.OnC
         getSupportActionBar().hide();
         setContentView(R.layout.activity_step_two_sign_up);
         Retrofit retrofit = RetrofitClient.getInstance();
-        polyFitService = retrofit.create(PolyFitService.class);
+        zlaterService = retrofit.create(ZlaterService.class);
         connectView();
     }
 
@@ -111,7 +111,7 @@ public class StepTwoSignUpActivity extends AppCompatActivity implements View.OnC
         progressDialog.setCancelable(false);
         progressDialog.setTitle("Processing");
         progressDialog.show();
-        Call<UserResponse> calledRegister = polyFitService.registerUser(user);
+        Call<UserResponse> calledRegister = zlaterService.registerUser(user);
         calledRegister.enqueue(new Callback<UserResponse>() {
             @Override
             public void onResponse(Call<UserResponse> call, Response<UserResponse> response) {
@@ -134,7 +134,7 @@ public class StepTwoSignUpActivity extends AppCompatActivity implements View.OnC
                 Log.e("HS:::","failed"+call.request()+":::"+t.getMessage());
             }
         });
-//        mSubscriptions.add(polyFitService.registerUser(displayName, userName, password, weight, height, gender, createAt)
+//        mSubscriptions.add(zlaterService.registerUser(displayName, userName, password, weight, height, gender, createAt)
 //                .subscribeOn(Schedulers.io())
 //                .observeOn(AndroidSchedulers.mainThread())
 //                .subscribe(new Action1<String>() {
@@ -155,7 +155,7 @@ public class StepTwoSignUpActivity extends AppCompatActivity implements View.OnC
 
     private void addHistory(float user_bmi, int user_id) {
         History history=new History(user_bmi,user_id);
-        Call<HistoryResponse> calledRegister = polyFitService.addHistory(history);
+        Call<HistoryResponse> calledRegister = zlaterService.addHistory(history);
         calledRegister.enqueue(new Callback<HistoryResponse>() {
             @Override
             public void onResponse(Call<HistoryResponse> call, Response<HistoryResponse> response) {
@@ -179,7 +179,7 @@ public class StepTwoSignUpActivity extends AppCompatActivity implements View.OnC
     }
 
     private void getUserByUserName(String userName) {
-        Call<UserResponse> userResponseCall = polyFitService.getUserByUserName(userName);
+        Call<UserResponse> userResponseCall = zlaterService.getUserByUserName(userName);
         userResponseCall.enqueue(new Callback<UserResponse>() {
             @Override
             public void onResponse(Call<UserResponse> call, Response<UserResponse> response) {

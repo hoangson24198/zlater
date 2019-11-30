@@ -24,7 +24,7 @@ import com.example.zlater.Model.Routine;
 import com.example.zlater.Model.RoutineRequest;
 import com.example.zlater.R;
 
-import com.example.zlater.Service.local.PolyfitDatabase;
+import com.example.zlater.Service.local.ZlaterDatabase;
 import com.example.zlater.Service.local.StepCountServices;
 import com.example.zlater.Service.remote.RetrofitClient;
 import com.example.zlater.Service.remote.RoutineAPI;
@@ -122,7 +122,7 @@ public class MainActivity extends AppCompatActivity implements HomeFragment.OnFr
 
     //get routine
     private void getAndSaveRoutine() {
-        routines = PolyfitDatabase.getInstance(getApplicationContext()).routineDAO().getRoutine();
+        routines = ZlaterDatabase.getInstance(getApplicationContext()).routineDAO().getRoutine();
         if (!routines.isEmpty()) {
             postRoutine(routines);
         }
@@ -142,7 +142,7 @@ public class MainActivity extends AppCompatActivity implements HomeFragment.OnFr
                 public void onResponse(Call<RoutineResponse> call, Response<RoutineResponse> response) {
                     if (response.isSuccessful()) {
                         Log.e("routine", "save success");
-                        PolyfitDatabase.getInstance(MainActivity.this).routineDAO().deleteAll();
+                        ZlaterDatabase.getInstance(MainActivity.this).routineDAO().deleteAll();
                     }
                     if (!response.isSuccessful()) {
                         Log.e("routine", response.code() + " : " + response.body());

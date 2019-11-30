@@ -11,6 +11,6 @@
         android:minHeight="?attr/actionBarSize"
         app:titleTextColor="@color/white"
         app:navigationIcon="@drawable/ic_keyboard_arrow_left_white_36dp"
-        android:background="@drawable/header_gradient"
+        android:background="@drawable/gradient_cover"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
 </LinearLayout>

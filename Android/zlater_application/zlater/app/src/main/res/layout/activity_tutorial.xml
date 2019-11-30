@@ -15,9 +15,10 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <TextView
-            android:text="Các chức năng chính của ứng dụng"
+            android:text="@string/main_func_of_app"
             android:textColor="@color/title"
-            android:textStyle="bold"
+            android:textSize="16sp"
+            android:fontFamily="@font/josefinsans_bold"
             android:gravity="center"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
@@ -40,7 +41,7 @@
         <Button
             android:id="@+id/btn_prev_tutorial"
             android:layout_alignParentLeft="true"
-            android:text="Prev"
+            android:text="@string/prev"
             android:textColor="@color/title"
             android:background="@android:color/transparent"
             android:drawableLeft="@drawable/ic_arrow_left_blue"
@@ -50,7 +51,7 @@
         <Button
             android:id="@+id/btn_next_tutorial"
             android:layout_alignParentRight="true"
-            android:text="Next"
+            android:text="@string/next"
             android:background="@android:color/transparent"
             android:textColor="@color/title"
             style="?android:attr/borderlessButtonStyle"

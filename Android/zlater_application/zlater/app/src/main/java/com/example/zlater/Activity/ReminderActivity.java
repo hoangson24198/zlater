@@ -30,7 +30,7 @@ import com.example.zlater.Model.Reminder;
 import com.example.zlater.R;
 
 import com.example.zlater.Service.Reminder.ReminderServices;
-import com.example.zlater.Service.local.PolyfitDatabase;
+import com.example.zlater.Service.local.ZlaterDatabase;
 import com.google.android.material.card.MaterialCardView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -324,14 +324,14 @@ public class ReminderActivity extends AppCompatActivity implements View.OnClickL
             reminder.setSunday(1);
         }
 //        reminderService.insert(reminder);
-        PolyfitDatabase.getInstance(ReminderActivity.this).reminderDAO().insert(reminder);
+        ZlaterDatabase.getInstance(ReminderActivity.this).reminderDAO().insert(reminder);
         getListReminder();
 
     }
 
     public void getListReminder() {
         listReminder = new ArrayList<>();
-        listReminder = PolyfitDatabase.getInstance(ReminderActivity.this).reminderDAO().getReminder();
+        listReminder = ZlaterDatabase.getInstance(ReminderActivity.this).reminderDAO().getReminder();
         viewReminder.setHasFixedSize(true);
         LinearLayoutManager layoutManager = new LinearLayoutManager(ReminderActivity.this, LinearLayoutManager.VERTICAL, false);
         viewReminder.setLayoutManager(layoutManager);
@@ -351,7 +351,7 @@ public class ReminderActivity extends AppCompatActivity implements View.OnClickL
 
     //Setup reminder
     private void setupReminder() {
-        List<Reminder> reminderList = PolyfitDatabase.getInstance(ReminderActivity.this).reminderDAO().getReminder();
+        List<Reminder> reminderList = ZlaterDatabase.getInstance(ReminderActivity.this).reminderDAO().getReminder();
         for (int i = 0; i < reminderList.size(); i++) {
             if (listReminder.get(i).getTurnOn() == 0) {
                 Log.e("Alarm", "Cancel");

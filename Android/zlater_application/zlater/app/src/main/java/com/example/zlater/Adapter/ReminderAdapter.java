@@ -20,7 +20,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.zlater.Activity.ReminderActivity;
 import com.example.zlater.Model.Reminder;
 import com.example.zlater.R;
-import com.example.zlater.Service.local.PolyfitDatabase;
+import com.example.zlater.Service.local.ZlaterDatabase;
 import com.suke.widget.SwitchButton;
 
 import java.util.List;
@@ -135,7 +135,7 @@ public class ReminderAdapter extends RecyclerView.Adapter<ReminderAdapter.ViewHo
                     holder.layoutButton.setVisibility(View.GONE);
                     ((ReminderActivity) context).getListReminder();
                 }
-//                PolyfitDatabase.getInstance(context).reminderDAO().getReminder();
+//                ZlaterDatabase.getInstance(context).reminderDAO().getReminder();
 
             }
         });
@@ -149,7 +149,7 @@ public class ReminderAdapter extends RecyclerView.Adapter<ReminderAdapter.ViewHo
         holder.layoutDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                PolyfitDatabase.getInstance(context).reminderDAO().delete(listReminder.get(position));
+                ZlaterDatabase.getInstance(context).reminderDAO().delete(listReminder.get(position));
                 ((ReminderActivity)context).getListReminder();
 
             }
@@ -161,11 +161,11 @@ public class ReminderAdapter extends RecyclerView.Adapter<ReminderAdapter.ViewHo
                 Log.e("HS:::","switch");
                 if(holder.switchReminder.isChecked()){
                     holder.switchReminder.setChecked(false);
-                    PolyfitDatabase.getInstance(context).reminderDAO().switchState(0,id);
+                    ZlaterDatabase.getInstance(context).reminderDAO().switchState(0,id);
                     Log.e("HS:::","Un register");
                 }else {
                     holder.switchReminder.setChecked(true);
-                    PolyfitDatabase.getInstance(context).reminderDAO().switchState(1,id);
+                    ZlaterDatabase.getInstance(context).reminderDAO().switchState(1,id);
                     Log.e("HS:::","register");
                 }
             }
@@ -176,10 +176,10 @@ public class ReminderAdapter extends RecyclerView.Adapter<ReminderAdapter.ViewHo
                 int id=listReminder.get(position).getId();
                 Log.e("HS:::","switch");
                 if(holder.switchReminder.isChecked()){
-                    PolyfitDatabase.getInstance(context).reminderDAO().switchState(1,id);
+                    ZlaterDatabase.getInstance(context).reminderDAO().switchState(1,id);
                     Log.e("HS:::","register");
                 }else {
-                    PolyfitDatabase.getInstance(context).reminderDAO().switchState(0,id);
+                    ZlaterDatabase.getInstance(context).reminderDAO().switchState(0,id);
                     Log.e("HS:::","Un register");
                 }
             }
@@ -393,7 +393,7 @@ public class ReminderAdapter extends RecyclerView.Adapter<ReminderAdapter.ViewHo
         reminder.setFriday(friday);
         reminder.setSaturday(saturday);
         reminder.setSunday(sunday);
-        PolyfitDatabase.getInstance(context).reminderDAO().update(reminder);
+        ZlaterDatabase.getInstance(context).reminderDAO().update(reminder);
 
     }
 

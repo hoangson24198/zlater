@@ -104,7 +104,7 @@ public class StepCountServices extends Service implements SensorEventListener {
                 Log.e("currentTime","It time");
                 SharedPreferences sharedPreferences=getSharedPreferences(Constants.LOGIN,MODE_PRIVATE);
                 Routine routine=new Routine(step,dateFormatSave.format(date)+" 00:00:00",null,"2","5",sharedPreferences.getInt("id",0));
-                PolyfitDatabase.getInstance(getApplicationContext()).routineDAO().insert(routine);
+                ZlaterDatabase.getInstance(getApplicationContext()).routineDAO().insert(routine);
             }
 
             if(timeForUploadData.equals("05:00:00")){
@@ -169,7 +169,7 @@ public class StepCountServices extends Service implements SensorEventListener {
     }
     private void updateStepCount(int hour,int step){
         StepCount stepCount=new StepCount(hour,step);
-        PolyfitDatabase.getInstance(getApplicationContext()).stepDAO().insert(stepCount);
+        ZlaterDatabase.getInstance(getApplicationContext()).stepDAO().insert(stepCount);
     }
 
 

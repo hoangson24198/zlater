@@ -40,7 +40,7 @@ import com.example.zlater.Model.User;
 import com.example.zlater.R;
 import com.example.zlater.Service.remote.BodypartsAPI;
 import com.example.zlater.Service.remote.DietsAPI;
-import com.example.zlater.Service.remote.PolyFitService;
+import com.example.zlater.Service.remote.ZlaterService;
 import com.example.zlater.Service.remote.RetrofitClient;
 import com.example.zlater.Utils.Constants;
 import com.github.chrisbanes.photoview.PhotoView;
@@ -77,7 +77,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     private String mParam2;
     private OnFragmentInteractionListener mListener;
     private RecyclerView rv_diets;
-    private PolyFitService polyFitService;
+    private ZlaterService zlaterService;
     private TextView tv_UserName, tv_startDate, tv_height, tv_weight, tv_bmi;
     private ImageView iv_avatar, ic_reminder, iv_bg_morning, iv_bg_noon, iv_bg_night;
     private PhotoView viewAvatar;
@@ -151,7 +151,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         connectView(view);
         ripple_reminder.startRippleAnimation();
         Retrofit retrofit = RetrofitClient.getInstance();
-        polyFitService = retrofit.create(PolyFitService.class);
+        zlaterService = retrofit.create(ZlaterService.class);
         bodypartsAPI = retrofit.create(BodypartsAPI.class);
         dietsAPI = retrofit.create(DietsAPI.class);
         SharedPreferences sharedPreferences = getActivity().getSharedPreferences(Constants.LOGIN, MODE_PRIVATE);
@@ -315,7 +315,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         SharedPreferences sharedPreferences = getActivity().getSharedPreferences(Constants.LOGIN, MODE_PRIVATE);
 
         User user = new User(sharedPreferences.getInt("id", 0), linkAvatar);
-        Call<UserResponse> callUpdate = polyFitService.updateUser(user);
+        Call<UserResponse> callUpdate = zlaterService.updateUser(user);
         callUpdate.enqueue(new Callback<UserResponse>() {
             @Override
             public void onResponse(Call<UserResponse> call, Response<UserResponse> response) {
@@ -382,7 +382,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     }
 
     private void getUserById(int id) {
-        Call<UserResponse> userResponseCall = polyFitService.getCurrentUser(id);
+        Call<UserResponse> userResponseCall = zlaterService.getCurrentUser(id);
         userResponseCall.enqueue(new Callback<UserResponse>() {
             @Override
             public void onResponse(Call<UserResponse> call, Response<UserResponse> response) {
@@ -395,7 +395,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                         try {
                             Date date = format.parse(user.getCreatedAt());
                             String formattedDate = format.format(date);
-                            setData(user.getUsername(), formattedDate, user.getHeight(), user.getWeight(), user.getBmi(), user.getAvatar());
+                            setData(user.getDisplay_name(), formattedDate, user.getHeight(), user.getWeight(), user.getBmi(), user.getAvatar());
                             SharedPreferences.Editor editor = getActivity().getSharedPreferences(Constants.USER_INF, MODE_PRIVATE).edit();
                             editor.putString("height", String.valueOf(user.getHeight()));
                             editor.putString("weight", String.valueOf(user.getWeight()));

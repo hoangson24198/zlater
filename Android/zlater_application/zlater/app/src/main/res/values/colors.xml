@@ -20,6 +20,7 @@
     <color name="positive">#21BA45</color>
     <color name="negative">#C10015</color>
     <color name="social">#3b5998</color>
+    <color name="ghost">#f8f8ff</color>
 <!--    Meal's color-->
     <color name="morning">#DBB3B3</color>
     <color name="noon">#ddb6c6</color>
@@ -31,4 +32,14 @@
 
 <!--    histories-->
     <color name="textColor">#39375C</color>
+
+    <!--Gradient main color-->
+    <color name="coral">#1eadf0</color>
+    <color name="green_neon">#0afb60</color>
+
+    <array name="dot_colors">
+        <item>#03A9F4</item>
+        <item>#E65100</item>
+        <item>#FFBB00</item>
+    </array>
 </resources>

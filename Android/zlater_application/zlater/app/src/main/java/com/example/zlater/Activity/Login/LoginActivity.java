@@ -7,8 +7,8 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,7 +19,7 @@ import com.example.zlater.Activity.TutorialActivity;
 import com.example.zlater.Model.Responses.UserResponse;
 import com.example.zlater.Model.User;
 import com.example.zlater.R;
-import com.example.zlater.Service.remote.PolyFitService;
+import com.example.zlater.Service.remote.ZlaterService;
 import com.example.zlater.Service.remote.RetrofitClient;
 import com.example.zlater.Utils.Constants;
 import com.google.android.material.snackbar.Snackbar;
@@ -38,8 +38,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private EditText edt_username;
     private EditText edt_password;
     private TextView tvSignUp;
-    private LinearLayout btn_Login;
-    private PolyFitService polyFitService;
+    private Button btn_Login;
+    private ZlaterService zlaterService;
     private ProgressDialog progressDialog;
 
     private void connectView() {
@@ -60,7 +60,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         setContentView(R.layout.activity_login);
         connectView();
         Retrofit retrofit = RetrofitClient.getInstance();
-        polyFitService = retrofit.create(PolyFitService.class);
+        zlaterService = retrofit.create(ZlaterService.class);
     }
 
     @Override
@@ -83,7 +83,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             showProgressDialog();
             String token = FirebaseInstanceId.getInstance().getToken();
             User user = new User(userName, password,true,token);
-            Call<UserResponse> calledLogin = polyFitService.loginUser(user);
+            Call<UserResponse> calledLogin = zlaterService.loginUser(user);
             calledLogin.enqueue(new Callback<UserResponse>() {
                 @Override
                 public void onResponse(Call<UserResponse> call, Response<UserResponse> response) {

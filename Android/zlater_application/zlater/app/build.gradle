@@ -88,37 +88,37 @@ dependencies {
     //Deck (Custom viewpager);
     implementation 'com.github.bloderxd:deck:0.1'
     //Room DB
-    implementation 'android.arch.persistence.room:runtime:2.1.0'
-    annotationProcessor 'android.arch.persistence.room:compiler:2.1.0'
-    androidTestImplementation 'android.arch.persistence.room:testing:2.1.0'
+    implementation 'androidx.room:room-runtime:2.0.0'
+    annotationProcessor 'androidx.room:room-compiler:2.0.0'
+    androidTestImplementation 'androidx.room:room-testing:2.0.0'
 
     // ViewModel and LiveData
-    implementation "android.arch.lifecycle:extensions:1.1.0"
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.0.0'
     // alternatively, just ViewModel
-    implementation "android.arch.lifecycle:viewmodel:1.1.0"
+    implementation 'androidx.lifecycle:lifecycle-viewmodel:2.0.0'
     // alternatively, just LiveData
-    implementation "android.arch.lifecycle:livedata:1.1.0"
+    implementation 'androidx.lifecycle:lifecycle-livedata:2.0.0'
 
-    annotationProcessor "android.arch.lifecycle:compiler:1.1.0"
+    annotationProcessor 'androidx.lifecycle:lifecycle-compiler:2.0.0'
 
     // Room (use 1.1.0-alpha1 for latest alpha)
-    implementation "android.arch.persistence.room:runtime:1.0.0"
-    annotationProcessor "android.arch.persistence.room:compiler:1.0.0"
+    implementation 'androidx.room:room-runtime:2.0.0'
+    annotationProcessor 'androidx.room:room-compiler:2.0.0'
 
     // Paging
-    implementation "android.arch.paging:runtime:1.0.0-alpha5"
+    implementation 'androidx.paging:paging-runtime:2.0.0'
 
     // Test helpers for LiveData
-    testImplementation "android.arch.core:core-testing:1.1.0"
+    testImplementation 'androidx.arch.core:core-testing:2.0.0'
 
     // Test helpers for Room
-    testImplementation "android.arch.persistence.room:testing:1.0.0"
+    testImplementation 'androidx.room:room-testing:2.0.0'
     //Swith button
     implementation 'com.github.zcweng:switch-button:0.0.3@aar'
 
     //Chart
     implementation 'com.github.lecho:hellocharts-android:v1.5.8'
-    implementation 'com.android.support:multidex:1.0.3'
+    implementation 'androidx.multidex:multidex:2.0.0'
 
     //Glide to support loading image
     implementation 'com.github.bumptech.glide:glide:4.10.0'
@@ -151,4 +151,10 @@ dependencies {
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+    //dot loader
+    implementation 'com.github.bhargavms:DotLoader:1.1.1'
+
+    //custom edit text
+    implementation 'com.github.scottyab:showhidepasswordedittext:0.8'
 }

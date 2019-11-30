@@ -20,7 +20,7 @@
             android:textSize="18sp"
             android:layout_gravity="center"
             android:textColor="@color/textColor"
-            android:text="date"
+            android:text="@string/date"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
     </LinearLayout>
