@@ -28,7 +28,7 @@ import com.krahs.adminzlater.Utils.Constants;
 import com.krahs.adminzlater.Fragments.MixFragment;
 import com.krahs.adminzlater.Model.Level;
 import com.krahs.adminzlater.R;
-import com.krahs.adminzlater.Services.AdminPolyfitServices;
+import com.krahs.adminzlater.Services.AdminZlaterServices;
 import com.krahs.adminzlater.Services.RetrofitClient;
 import com.squareup.picasso.Picasso;
 
@@ -41,13 +41,13 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 
 /**
- * Created by Hades on 27,October,2019
+ * Created by Hoang Son on 27,October,2019
  **/
 public class LevelAdapter extends RecyclerView.Adapter<LevelAdapter.ViewHolder> {
 
     List<Level> levelList;
     Context context;
-    private AdminPolyfitServices adminPolyfitServices;
+    private AdminZlaterServices adminZlaterServices;
     MixFragment mixFragment;
     Dialog dialog, dialogEdit,dialogUpdate;
     FirebaseStorage storage = FirebaseStorage.getInstance();
@@ -67,7 +67,7 @@ public class LevelAdapter extends RecyclerView.Adapter<LevelAdapter.ViewHolder> 
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
         View itemView = layoutInflater.inflate(R.layout.one_item_level, parent, false);
         Retrofit retrofit = RetrofitClient.getInstance();
-        adminPolyfitServices = retrofit.create(AdminPolyfitServices.class);
+        adminZlaterServices = retrofit.create(AdminZlaterServices.class);
         return new ViewHolder(itemView);
     }
 
@@ -178,7 +178,7 @@ public class LevelAdapter extends RecyclerView.Adapter<LevelAdapter.ViewHolder> 
         cancelDelete.setVisibility(View.GONE);
         dialog.show();
 
-        adminPolyfitServices.deleteLevel(id).enqueue(new Callback<Level>() {
+        adminZlaterServices.deleteLevel(id).enqueue(new Callback<Level>() {
             @Override
             public void onResponse(Call<Level> call, Response<Level> response) {
                 if (response.isSuccessful()) {
@@ -233,7 +233,7 @@ public class LevelAdapter extends RecyclerView.Adapter<LevelAdapter.ViewHolder> 
     }
 
     private void handleUpdateLevel(Level level) {
-        Call<Level> call = adminPolyfitServices.updateLevel(level.getId(), level.getTitle(), level.getDescription());
+        Call<Level> call = adminZlaterServices.updateLevel(level.getId(), level.getTitle(), level.getDescription());
         call.enqueue(new Callback<Level>() {
             @Override
             public void onResponse(Call<Level> call, Response<Level> response) {

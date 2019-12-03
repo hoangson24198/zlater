@@ -29,7 +29,7 @@ import android.widget.Toast;
 
 import com.krahs.adminzlater.Utils.Constants;
 import com.krahs.adminzlater.R;
-import com.krahs.adminzlater.Services.AdminPolyfitServices;
+import com.krahs.adminzlater.Services.AdminZlaterServices;
 import com.krahs.adminzlater.Services.RetrofitClient;
 import com.ornach.nobobutton.NoboButton;
 
@@ -64,7 +64,7 @@ public class SplashScreenActivity extends AppCompatActivity implements View.OnCl
     private static final String KEY_NAME = "ZLATER";
     private Cipher cipher;
     ImageView fingerPrint;
-    private AdminPolyfitServices adminPolyfitServices;
+    private AdminZlaterServices adminZlaterServices;
     private CompositeSubscription mSubscriptions = new CompositeSubscription();
     EditText edtUserName, edtPassword;
     TextView tvOr,tvAuthentication;
@@ -80,7 +80,7 @@ public class SplashScreenActivity extends AppCompatActivity implements View.OnCl
         setContentView(R.layout.activity_splash_screen);
         connectView();
         Retrofit retrofit = RetrofitClient.getInstance();
-        adminPolyfitServices = retrofit.create(AdminPolyfitServices.class);
+        adminZlaterServices = retrofit.create(AdminZlaterServices.class);
         OnStartApplication();
         showLogo();
 //        setupFingerPrint();
@@ -263,7 +263,7 @@ public class SplashScreenActivity extends AppCompatActivity implements View.OnCl
         progressDialog.setIndeterminate(false);
         progressDialog.show();
 
-        mSubscriptions.add(adminPolyfitServices.loginAdmin(userName, password)
+        mSubscriptions.add(adminZlaterServices.loginAdmin(userName, password)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Action1<String>() {

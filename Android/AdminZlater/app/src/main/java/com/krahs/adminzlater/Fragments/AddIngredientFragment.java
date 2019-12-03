@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -31,7 +32,7 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.krahs.adminzlater.Utils.Constants;
 import com.krahs.adminzlater.R;
-import com.krahs.adminzlater.Services.AdminPolyfitServices;
+import com.krahs.adminzlater.Services.AdminZlaterServices;
 import com.krahs.adminzlater.Services.RetrofitClient;
 import com.soundcloud.android.crop.Crop;
 
@@ -49,18 +50,18 @@ import rx.subscriptions.CompositeSubscription;
 import static android.app.Activity.RESULT_OK;
 
 /**
- * Created by Hades on 27,October,2019
+ * Created by Hoang Son on 27,October,2019
  **/
 public class AddIngredientFragment extends DialogFragment implements View.OnClickListener {
 
     private ImageView imvAddIngredient, imvBackAddIngredient;
     private EditText edtTitleIngredient, edtPriceIngredient, edtUnitIngredient;
-    private CardView btnAddIngredient;
+    private Button btnAddIngredient;
     ProgressDialog progressDialog;
     FirebaseStorage storage = FirebaseStorage.getInstance();
     StorageReference storageRef = storage.getReferenceFromUrl(Constants.STORAGE_IMAGE);
     String imageLink;
-    AdminPolyfitServices adminPolyfitServices;
+    AdminZlaterServices adminZlaterServices;
     private CompositeSubscription mSubscriptions = new CompositeSubscription();
 
 
@@ -82,7 +83,7 @@ public class AddIngredientFragment extends DialogFragment implements View.OnClic
         View view = inflater.inflate(R.layout.fragment_add_ingredient, container, false);
         connectView(view);
         Retrofit retrofit = RetrofitClient.getInstance();
-        adminPolyfitServices = retrofit.create(AdminPolyfitServices.class);
+        adminZlaterServices = retrofit.create(AdminZlaterServices.class);
         progressDialog = new ProgressDialog(getActivity());
         progressDialog.setCancelable(false);
         progressDialog.setIndeterminate(false);
@@ -96,8 +97,6 @@ public class AddIngredientFragment extends DialogFragment implements View.OnClic
         imvBackAddIngredient = view.findViewById(R.id.imvBackIngredient);
         imvBackAddIngredient.setOnClickListener(this);
         edtTitleIngredient = view.findViewById(R.id.edtTitleIngredient);
-        edtPriceIngredient = view.findViewById(R.id.edtPriceIngredient);
-        edtUnitIngredient = view.findViewById(R.id.edtUnitIngredient);
         btnAddIngredient = view.findViewById(R.id.btnAddIngredient);
         btnAddIngredient.setOnClickListener(this);
     }
@@ -200,7 +199,7 @@ public class AddIngredientFragment extends DialogFragment implements View.OnClic
         String title = edtTitleIngredient.getText().toString();
        /* float prices = Float.parseFloat(edtPriceIngredient.getText().toString());
         String unit = edtUnitIngredient.getText().toString();*/
-        mSubscriptions.add(adminPolyfitServices.addIngredient(title,/* prices, unit,*/imageLink)
+        mSubscriptions.add(adminZlaterServices.addIngredient(title,/* prices, unit,*/imageLink)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Action1<String>() {

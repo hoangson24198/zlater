@@ -1,8 +1,13 @@
 <resources>
     <string name="app_name">Admin Zlater</string>
+    <string name="zlater">Zlater</string>
+    <string name="management">Managements</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="processing">Processing</string>
     <string name="notification_channel_id">DefaultChanel</string>
+    <string name="finger_authen">Please authenticate by fingerprint or retype the password</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
 </resources>

@@ -39,7 +39,7 @@ import com.krahs.adminzlater.Utils.Constants;
 import com.krahs.adminzlater.Model.Quotes;
 import com.krahs.adminzlater.Model.User;
 import com.krahs.adminzlater.R;
-import com.krahs.adminzlater.Services.AdminPolyfitServices;
+import com.krahs.adminzlater.Services.AdminZlaterServices;
 import com.krahs.adminzlater.Services.RetrofitClient;
 import com.soundcloud.android.crop.Crop;
 
@@ -74,14 +74,14 @@ import rx.subscriptions.CompositeSubscription;
 import static android.app.Activity.RESULT_OK;
 
 /**
- * Created by Hades on 23,October,2019
+ * Created by Hoang Son on 23,October,2019
  **/
 public class QuotesFragment extends DialogFragment implements View.OnClickListener {
 
     private ImageView imvBackQuotes, actionButtonAddQuotes, imvAddQuotes;
     private ShimmerRecyclerView viewQuotes;
     private EditText edtTitleAddQuotes;
-    AdminPolyfitServices adminPolyfitServices;
+    AdminZlaterServices adminZlaterServices;
     private CompositeSubscription mSubscriptions = new CompositeSubscription();
     List<Quotes> listQuotes;
     private CardView saveNewQuotes;
@@ -113,7 +113,7 @@ public class QuotesFragment extends DialogFragment implements View.OnClickListen
         Objects.requireNonNull(getActivity()).getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
         View view = inflater.inflate(R.layout.fragment_quotes, container, false);
         Retrofit retrofit = RetrofitClient.getInstance();
-        adminPolyfitServices = retrofit.create(AdminPolyfitServices.class);
+        adminZlaterServices = retrofit.create(AdminZlaterServices.class);
         connectView(view);
         getAllQuotes();
         getAllUser();
@@ -244,7 +244,7 @@ public class QuotesFragment extends DialogFragment implements View.OnClickListen
     private void handleAddQuotes() {
         String title = edtTitleAddQuotes.getText().toString();
         Log.e("phaytv", imageLink);
-        mSubscriptions.add(adminPolyfitServices.addQuotes(title, imageLink)
+        mSubscriptions.add(adminZlaterServices.addQuotes(title, imageLink)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Action1<String>() {
@@ -266,7 +266,7 @@ public class QuotesFragment extends DialogFragment implements View.OnClickListen
     }
 
     public void getAllQuotes() {
-        adminPolyfitServices.getAllQuotes().enqueue(new Callback<String>() {
+        adminZlaterServices.getAllQuotes().enqueue(new Callback<String>() {
             @Override
             public void onResponse(Call<String> call, Response<String> response) {
                 if (response.isSuccessful()) {
@@ -287,7 +287,7 @@ public class QuotesFragment extends DialogFragment implements View.OnClickListen
                         listImageLink.add(listQuotes.get(i).getImageUrl());
                     }*/
                     setData(listQuotes);
-                    Log.e("Phaytv", /*exercisesList.get(0).getId() +*/":: Success ::" + array);
+                    Log.e("HS::", /*exercisesList.get(0).getId() +*/":: Success ::" + array);
 
                 }
             }
@@ -310,7 +310,7 @@ public class QuotesFragment extends DialogFragment implements View.OnClickListen
     }
 
     private void getAllUser() {
-        adminPolyfitServices.getAllUsers().enqueue(new Callback<String>() {
+        adminZlaterServices.getAllUsers().enqueue(new Callback<String>() {
             @Override
             public void onResponse(Call<String> call, Response<String> response) {
                 if (response.isSuccessful()) {
@@ -330,7 +330,7 @@ public class QuotesFragment extends DialogFragment implements View.OnClickListen
                     for (int i = 0; i < userList.size(); i++) {
                         listToken.add(userList.get(i).getToken());
                     }
-                    Log.e("Phaytv", /*exercisesList.get(0).getId() +*/":: Success ::" + array);
+                    Log.e("HS::", /*exercisesList.get(0).getId() +*/":: Success ::" + array);
                 }
             }
 

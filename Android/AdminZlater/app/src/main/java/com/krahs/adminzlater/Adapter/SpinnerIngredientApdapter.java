@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Hades on 29,October,2019
+ * Created by Hoang Son on 29,October,2019
  **/
 public class SpinnerIngredientApdapter extends BaseAdapter {
     private List<Ingredients> ingredientsList;

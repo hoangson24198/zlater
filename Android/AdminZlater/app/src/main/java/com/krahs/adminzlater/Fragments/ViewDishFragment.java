@@ -35,7 +35,7 @@ import com.google.firebase.storage.UploadTask;
 import com.krahs.adminzlater.Utils.Constants;
 import com.krahs.adminzlater.Model.Dish;
 import com.krahs.adminzlater.R;
-import com.krahs.adminzlater.Services.AdminPolyfitServices;
+import com.krahs.adminzlater.Services.AdminZlaterServices;
 import com.krahs.adminzlater.Services.RetrofitClient;
 import com.soundcloud.android.crop.Crop;
 import com.squareup.picasso.Picasso;
@@ -55,7 +55,7 @@ import rx.subscriptions.CompositeSubscription;
 import static android.app.Activity.RESULT_OK;
 
 /**
- * Created by Hades on 18,October,2019
+ * Created by Hoang Son on 18,October,2019
  **/
 public class ViewDishFragment extends DialogFragment implements View.OnClickListener {
     private ImageView imvDish, imvBack, imvEdit, imvDelete;
@@ -68,7 +68,7 @@ public class ViewDishFragment extends DialogFragment implements View.OnClickList
     private FirebaseStorage storage = FirebaseStorage.getInstance();
     private StorageReference storageRef = storage.getReferenceFromUrl(Constants.STORAGE_IMAGE);
     private ProgressDialog progressDialog;
-    private AdminPolyfitServices adminPolyfitServices;
+    private AdminZlaterServices adminZlaterServices;
     private CardView cancelDelete, acceptDelete;
     private GifImageView processDelete;
     private Dialog dialog;
@@ -97,7 +97,7 @@ public class ViewDishFragment extends DialogFragment implements View.OnClickList
         connectView(view);
         disableFocus();
         Retrofit retrofit = RetrofitClient.getInstance();
-        adminPolyfitServices = retrofit.create(AdminPolyfitServices.class);
+        adminZlaterServices = retrofit.create(AdminZlaterServices.class);
         setData();
         return view;
     }
@@ -241,7 +241,7 @@ public class ViewDishFragment extends DialogFragment implements View.OnClickList
     }
 
     private void handleDeleteDish(final int id, final Dialog dialog, final String imageLink) {
-        adminPolyfitServices.deleteDish(id).enqueue(new Callback<Dish>() {
+        adminZlaterServices.deleteDish(id).enqueue(new Callback<Dish>() {
             @Override
             public void onResponse(Call<Dish> call, Response<Dish> response) {
                 if (response.isSuccessful()) {
@@ -273,7 +273,7 @@ public class ViewDishFragment extends DialogFragment implements View.OnClickList
     }
 
     private void handleUpdateDish(Dish dish) {
-        Call<Dish> call = adminPolyfitServices.updateDish(dish.getId(), dish.getTitle(), dish.getProtein(), dish.getFat(), dish.getCarb(), dish.getCalories(), dish.getImageUrl()/*, dish.getIdMeals()*//*, dish.getId_ingredients()*/);
+        Call<Dish> call = adminZlaterServices.updateDish(dish.getId(), dish.getTitle(), dish.getProtein(), dish.getFat(), dish.getCarb(), dish.getCalories(), dish.getImageUrl()/*, dish.getIdMeals()*//*, dish.getId_ingredients()*/);
         call.enqueue(new Callback<Dish>() {
             @Override
             public void onResponse(Call<Dish> call, Response<Dish> response) {

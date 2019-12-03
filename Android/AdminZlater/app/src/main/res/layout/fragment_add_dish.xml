@@ -1,168 +1,245 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black">
-    <LinearLayout
-        android:layout_margin="10dp"
+    android:background="@color/black"
+    tools:context=".Fragments.AddExercisesFragment">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-            <ImageView
-                android:id="@+id/imvBackAddDish"
-                android:layout_gravity="center"
-                android:src="@drawable/ic_back"
-                android:layout_width="30dp"
-                android:layout_height="30dp"/>
-            <TextView
-                android:layout_marginLeft="15dp"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:textSize="25sp"
-                android:textColor="@color/white"
-                android:text="Add Dish"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-        </LinearLayout>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_marginTop="50dp"
-        android:layout_marginHorizontal="20dp"
-        android:orientation="vertical"
+        android:layout_height="80dp"
+        android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
+        android:elevation="5dp">
+
+        <ImageButton
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:id="@+id/imvBackAddDish"
+            android:src="@drawable/ic_back"
+            android:background="@color/demo_light_transparent"
+            tools:ignore="VectorDrawableCompat"/>
+    </androidx.appcompat.widget.Toolbar>
+
+    <TextView
+        android:id="@+id/tvSignUp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:elevation="10dp"
+        android:transitionName="tvLogin"
+        android:text="Add Dishes"
+        android:textColor="@color/white"
+        android:textSize="28sp"
+        android:textStyle="bold" />
+
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <ImageView
-            android:layout_gravity="center"
-            android:id="@+id/imvAddDish"
-            android:src="@drawable/null_image"
-            android:layout_width="200dp"
-            android:layout_height="200dp"/>
-      <LinearLayout
-          android:orientation="horizontal"
-          android:layout_weight="2"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content">
-          <Spinner
-              android:layout_weight="1"
-              android:textAlignment="center"
-              android:id="@+id/spnMeals"
-              android:layout_marginTop="20dp"
-              android:layout_width="match_parent"
-              android:layout_marginRight="5dp"
-              android:layout_height="wrap_content"/>
-          <Spinner
-              android:layout_marginLeft="5dp"
-              android:layout_weight="1"
-              android:textAlignment="center"
-              android:id="@+id/spnIngredient"
-              android:layout_marginTop="20dp"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"/>
-      </LinearLayout>
-        <EditText
-            android:id="@+id/titleDish"
-            android:textColor="@color/white"
-            android:hint="Title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-        <LinearLayout
-            android:layout_weight="2"
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <EditText
-                android:id="@+id/proteinDish"
-                android:layout_marginRight="5dp"
-                android:inputType="numberDecimal"
-                android:textColor="@color/white"
-                android:hint="Protein"
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"/>
-            <EditText
-                android:id="@+id/fatDish"
-                android:layout_marginLeft="5dp"
-                android:inputType="numberDecimal"
-                android:textColor="@color/white"
-                android:hint="Fat"
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"/>
-        </LinearLayout>
-        <LinearLayout
-
-            android:layout_weight="2"
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <EditText
-                android:id="@+id/carbDish"
-                android:layout_marginRight="5dp"
-                android:inputType="numberDecimal"
-                android:textColor="@color/white"
-                android:hint="Carb"
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"/>
-            <EditText
-                android:id="@+id/caloriesDish"
-                android:layout_marginLeft="5dp"
-                android:inputType="numberDecimal"
-                android:textColor="@color/white"
-                android:hint="Calories"
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"/>
-
-        </LinearLayout>
-        <EditText
-            android:id="@+id/desDish"
-            android:textColor="@color/white"
-            android:hint="Description"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-    </LinearLayout>
-    <Button
-        android:id="@+id/send"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-
-
-
-
-
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:scrollbars="vertical"
+        android:scrollbarStyle="insideInset"
+        android:layout_below="@id/toolbar"
+        android:layout_margin="20dp">
         <RelativeLayout
-            android:layout_alignParentBottom="true"
+            android:id="@+id/rlayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/btnAddDish"
-                app:cardBackgroundColor="@color/white"
-                app:cardCornerRadius="15dp"
-                android:layout_marginBottom="10dp"
-                android:layout_marginHorizontal="50dp"
+                android:id="@+id/cv"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <TextView
-                    android:textColor="@color/black"
-                    android:textAlignment="center"
-                    android:textSize="25sp"
-                    android:text="Save"
-                    android:layout_margin="5dp"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="4dp"
+                >
+
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingBottom="50dp"
+                    android:background="@color/black">
+
+                    <RelativeLayout
+                        android:gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:padding="10dp">
+
+                        <ImageView
+                            android:id="@+id/imvAddDish"
+                            android:layout_width="200dp"
+                            android:layout_height="200dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/null_image"/>
+
+                    </RelativeLayout>
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_weight="2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <Spinner
+                            android:layout_weight="1"
+                            android:textAlignment="center"
+                            android:id="@+id/spnMeals"
+                            android:layout_marginTop="20dp"
+                            android:layout_width="match_parent"
+                            android:layout_marginRight="5dp"
+                            android:layout_height="wrap_content"/>
+                        <Spinner
+                            android:layout_marginLeft="5dp"
+                            android:layout_weight="1"
+                            android:textAlignment="center"
+                            android:id="@+id/spnIngredient"
+                            android:layout_marginTop="20dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"/>
+                    </LinearLayout>
+                    <com.github.florent37.materialtextfield.MaterialTextField
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:mtf_cardCollapsedHeight="1dp"
+                        app:mtf_labelColor="@color/white"
+                        android:padding="5dp">
+
+                        <EditText
+                            android:id="@+id/titleDish"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Title"
+                            android:textColor="@color/black"/>
+
+                    </com.github.florent37.materialtextfield.MaterialTextField>
+                    <LinearLayout
+                        android:layout_weight="2"
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <com.github.florent37.materialtextfield.MaterialTextField
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:mtf_cardCollapsedHeight="1dp"
+                            app:mtf_labelColor="@color/white"
+                            android:layout_marginRight="5dp"
+                            android:padding="5dp">
+
+                            <EditText
+                                android:id="@+id/proteinDish"
+                                android:inputType="numberDecimal"
+                                android:textColor="@color/black"
+                                android:hint="Protein"
+                                android:layout_weight="1"
+                                android:layout_width="80dp"
+                                android:layout_height="wrap_content"/>
+
+                        </com.github.florent37.materialtextfield.MaterialTextField>
+                        <com.github.florent37.materialtextfield.MaterialTextField
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:mtf_cardCollapsedHeight="1dp"
+                            app:mtf_labelColor="@color/white"
+                            android:layout_marginLeft="5dp"
+                            android:padding="5dp">
+
+                            <EditText
+                                android:id="@+id/fatDish"
+                                android:inputType="numberDecimal"
+                                android:textColor="@color/black"
+                                android:hint="Fat"
+                                android:layout_weight="1"
+                                android:layout_width="80dp"
+                                android:layout_height="wrap_content"/>
+
+                        </com.github.florent37.materialtextfield.MaterialTextField>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_weight="2"
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <com.github.florent37.materialtextfield.MaterialTextField
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:mtf_cardCollapsedHeight="1dp"
+                            app:mtf_labelColor="@color/white"
+                            android:layout_marginRight="5dp"
+                            android:padding="5dp">
+
+                            <EditText
+                                android:id="@+id/carbDish"
+                                android:inputType="numberDecimal"
+                                android:textColor="@color/black"
+                                android:hint="Carb"
+                                android:layout_weight="1"
+                                android:layout_width="80dp"
+                                android:layout_height="wrap_content"/>
+
+                        </com.github.florent37.materialtextfield.MaterialTextField>
+                        <com.github.florent37.materialtextfield.MaterialTextField
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:mtf_cardCollapsedHeight="1dp"
+                            app:mtf_labelColor="@color/white"
+                            android:layout_marginLeft="5dp"
+                            android:padding="5dp">
+
+                            <EditText
+                                android:id="@+id/caloriesDish"
+                                android:inputType="numberDecimal"
+                                android:textColor="@color/black"
+                                android:hint="Calories"
+                                android:layout_weight="1"
+                                android:layout_width="80dp"
+                                android:layout_height="wrap_content"/>
+
+                        </com.github.florent37.materialtextfield.MaterialTextField>
+                    </LinearLayout>
+                    <com.github.florent37.materialtextfield.MaterialTextField
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:mtf_cardCollapsedHeight="1dp"
+                        app:mtf_labelColor="@color/white"
+                        android:padding="5dp">
+
+                        <EditText
+                            android:id="@+id/desDish"
+                            android:textColor="@color/black"
+                            android:hint="Description"
+                            android:inputType="textMultiLine"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"/>
+
+                    </com.github.florent37.materialtextfield.MaterialTextField>
+                </LinearLayout>
+
             </androidx.cardview.widget.CardView>
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/cv"
+                android:layout_alignLeft="@+id/cv"
+                android:layout_alignRight="@+id/cv"
+                android:layout_marginLeft="35dp"
+                android:layout_marginTop="-30dp"
+                android:layout_marginRight="35dp"
+                android:elevation="10dp">
+
+                <Button
+                    android:id="@+id/btnAddDish"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:text="Save"
+                    android:textAllCaps="false"
+                    android:textColor="@color/black" />
+            </RelativeLayout>
+
         </RelativeLayout>
-    </RelativeLayout>
+    </ScrollView>
 
-
-</LinearLayout>
+</RelativeLayout>

@@ -41,7 +41,7 @@ import com.krahs.adminzlater.Model.Bodyparts;
 import com.krahs.adminzlater.Model.Level;
 import com.krahs.adminzlater.Model.Meals;
 import com.krahs.adminzlater.R;
-import com.krahs.adminzlater.Services.AdminPolyfitServices;
+import com.krahs.adminzlater.Services.AdminZlaterServices;
 import com.krahs.adminzlater.Services.RetrofitClient;
 import com.soundcloud.android.crop.Crop;
 
@@ -71,7 +71,7 @@ public class MixFragment extends Fragment implements View.OnClickListener {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
     Dialog processDialog;
-    AdminPolyfitServices adminPolyfitServices;
+    AdminZlaterServices adminZlaterServices;
     List<Level> listLevel;
     List<Bodyparts> bodypartsList;
     List<Meals> mealsList;
@@ -119,7 +119,7 @@ public class MixFragment extends Fragment implements View.OnClickListener {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_mix, container, false);
         Retrofit retrofit = RetrofitClient.getInstance();
-        adminPolyfitServices = retrofit.create(AdminPolyfitServices.class);
+        adminZlaterServices = retrofit.create(AdminZlaterServices.class);
         connectView(view);
         getAllLevel();
         getAllBodyParts();
@@ -208,7 +208,7 @@ public class MixFragment extends Fragment implements View.OnClickListener {
 
     //Handle getAllLevel
     public void getAllLevel() {
-        adminPolyfitServices.getAllLevel().enqueue(new Callback<String>() {
+        adminZlaterServices.getAllLevel().enqueue(new Callback<String>() {
             @Override
             public void onResponse(Call<String> call, Response<String> response) {
                 if (response.isSuccessful()) {
@@ -226,7 +226,7 @@ public class MixFragment extends Fragment implements View.OnClickListener {
                     }.getType();
                     listLevel = gson.fromJson(jsonOutput, listType);
                     setDataLevel(listLevel);
-                    Log.e("Phaytv", /*exercisesList.get(0).getId() +*/":: Success ::" + array);
+                    Log.e("HS::", /*exercisesList.get(0).getId() +*/":: Success ::" + array);
                 }
             }
 
@@ -247,7 +247,7 @@ public class MixFragment extends Fragment implements View.OnClickListener {
     }
 
     public void getAllBodyParts() {
-        adminPolyfitServices.getAllBodyParts().enqueue(new Callback<String>() {
+        adminZlaterServices.getAllBodyParts().enqueue(new Callback<String>() {
             @Override
             public void onResponse(Call<String> call, Response<String> response) {
                 if (response.isSuccessful()) {
@@ -265,7 +265,7 @@ public class MixFragment extends Fragment implements View.OnClickListener {
                     }.getType();
                     bodypartsList = gson.fromJson(jsonOutput, listType);
                     setDataBodyParts(bodypartsList);
-                    Log.e("Phaytv", /*exercisesList.get(0).getId() +*/":: Success ::" + array);
+                    Log.e("HS::", /*exercisesList.get(0).getId() +*/":: Success ::" + array);
                 }
             }
 
@@ -285,7 +285,7 @@ public class MixFragment extends Fragment implements View.OnClickListener {
     }
 
     public void handleGetAllMeals() {
-        adminPolyfitServices.getAllMeals().enqueue(new Callback<String>() {
+        adminZlaterServices.getAllMeals().enqueue(new Callback<String>() {
             @Override
             public void onResponse(Call<String> call, Response<String> response) {
                 if (response.isSuccessful()) {
@@ -486,7 +486,7 @@ public class MixFragment extends Fragment implements View.OnClickListener {
         String title = titleLevel.getText().toString();
         final String description = descriptionLevel.getText().toString();
         Log.e("phaytv", imageLink);
-        mSubscriptions.add(adminPolyfitServices.addLevel(title, imageLink, description)
+        mSubscriptions.add(adminZlaterServices.addLevel(title, imageLink, description)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Action1<String>() {
@@ -514,7 +514,7 @@ public class MixFragment extends Fragment implements View.OnClickListener {
     private void handleCreateBodyParts() {
         String title = titleBodyParts.getText().toString();
         Log.e("phaytv", imageLink);
-        mSubscriptions.add(adminPolyfitServices.addBodyParts(title, imageLink)
+        mSubscriptions.add(adminZlaterServices.addBodyParts(title, imageLink)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Action1<String>() {
@@ -539,7 +539,7 @@ public class MixFragment extends Fragment implements View.OnClickListener {
     private void handleCreateMeals() {
         String title = titleMeals.getText().toString();
         Log.e("phaytv", imageLink);
-        mSubscriptions.add(adminPolyfitServices.addMeals(title, imageLink,1)
+        mSubscriptions.add(adminZlaterServices.addMeals(title, imageLink,1)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Action1<String>() {

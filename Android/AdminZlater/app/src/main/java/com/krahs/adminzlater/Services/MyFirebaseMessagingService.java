@@ -39,7 +39,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         super.onMessageReceived(remoteMessage);
         RemoteMessage.Notification notification = remoteMessage.getNotification();
         Map<String, String> data = remoteMessage.getData();
-        Log.d("FROM", remoteMessage.getFrom());
+        Log.d("HS::","from"+ remoteMessage.getFrom());
         Log.e("HS::", "received message");
         sendNotification(notification, data);
     }
@@ -54,7 +54,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         SharedPreferences sharedPreferences=getSharedPreferences("account",MODE_PRIVATE);
        String user= sharedPreferences.getString("username","");
         PendingIntent pendingIntent;
-        if(user.equals("admin@gmail.com")){
+        if(user.equals("admin@zlater.com")){
             Intent intent = new Intent(this, MainActivity.class);
             intent.putExtras(bundle);
             pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);

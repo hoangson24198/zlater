@@ -4,9 +4,9 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@drawable/icon"
+        android:icon="@drawable/icon_logo_admin_white"
         android:label="@string/app_name"
-        android:roundIcon="@drawable/icon"
+        android:roundIcon="@drawable/icon_logo_admin_white"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name="com.krahs.adminzlater.Activity.PlayVideoActivity"

@@ -27,7 +27,7 @@ import com.krahs.adminzlater.Utils.Constants;
 import com.krahs.adminzlater.Fragments.IngredientFragment;
 import com.krahs.adminzlater.Model.Ingredients;
 import com.krahs.adminzlater.R;
-import com.krahs.adminzlater.Services.AdminPolyfitServices;
+import com.krahs.adminzlater.Services.AdminZlaterServices;
 import com.krahs.adminzlater.Services.RetrofitClient;
 import com.squareup.picasso.Picasso;
 
@@ -40,7 +40,7 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 
 /**
- * Created by Hades on 26,October,2019
+ * Created by Hoang Son on 26,October,2019
  **/
 public class IngredientAdapter extends RecyclerView.Adapter<IngredientAdapter.ViewHolder> {
 
@@ -49,7 +49,7 @@ public class IngredientAdapter extends RecyclerView.Adapter<IngredientAdapter.Vi
     Dialog dialog,dialogEdit,dialogUpdate;
     ImageView imvIngredient;
     IngredientFragment ingredientsFragment;
-    private AdminPolyfitServices adminPolyfitServices;
+    private AdminZlaterServices adminZlaterServices;
     FirebaseStorage storage = FirebaseStorage.getInstance();
     StorageReference storageRef = storage.getReferenceFromUrl(Constants.STORAGE_IMAGE);
     public IngredientAdapter(List<Ingredients> ingredientsList, Context context,IngredientFragment ingredientsFragment) {
@@ -65,7 +65,7 @@ public class IngredientAdapter extends RecyclerView.Adapter<IngredientAdapter.Vi
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
         View itemView = layoutInflater.inflate(R.layout.one_item_ingredients, parent, false);
         Retrofit retrofit = RetrofitClient.getInstance();
-        adminPolyfitServices = retrofit.create(AdminPolyfitServices.class);
+        adminZlaterServices = retrofit.create(AdminZlaterServices.class);
         return new ViewHolder(itemView);
     }
 
@@ -122,7 +122,7 @@ public class IngredientAdapter extends RecyclerView.Adapter<IngredientAdapter.Vi
         cancelDelete.setVisibility(View.GONE);
         dialog.show();
 
-        adminPolyfitServices.deleteIngredient(idIngredients).enqueue(new Callback<Ingredients>() {
+        adminZlaterServices.deleteIngredient(idIngredients).enqueue(new Callback<Ingredients>() {
             @Override
             public void onResponse(Call<Ingredients> call, Response<Ingredients> response) {
                 if (response.isSuccessful()) {
@@ -197,7 +197,7 @@ public class IngredientAdapter extends RecyclerView.Adapter<IngredientAdapter.Vi
     }
 
     private void handleUpdateIngredient(final Ingredients ingredients) {
-        Call<Ingredients> call = adminPolyfitServices.updateIngredients(ingredients.getIdIngredients(), ingredients.getTitle(),ingredients.getImageUrl());
+        Call<Ingredients> call = adminZlaterServices.updateIngredients(ingredients.getIdIngredients(), ingredients.getTitle(),ingredients.getImageUrl());
         call.enqueue(new Callback<Ingredients>() {
             @Override
             public void onResponse(Call<Ingredients> call, Response<Ingredients> response) {

@@ -3,7 +3,7 @@ package com.krahs.adminzlater.Model;
 import com.google.gson.annotations.SerializedName;
 
 /**
- * Created by Hades on 27,October,2019
+ * Created by Hoang Son on 27,October,2019
  **/
 public class Diets {
     @SerializedName("id")

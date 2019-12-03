@@ -17,7 +17,7 @@ import com.krahs.adminzlater.Fragments.IngredientFragment;
 import com.krahs.adminzlater.Fragments.MixFragment;
 import com.krahs.adminzlater.Model.User;
 import com.krahs.adminzlater.R;
-import com.krahs.adminzlater.Services.AdminPolyfitServices;
+import com.krahs.adminzlater.Services.AdminZlaterServices;
 import com.krahs.adminzlater.Services.RetrofitClient;
 
 import java.util.ArrayList;
@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity implements ExerciseFragment.
    ImageView layoutOption;
     List<User> users =new ArrayList<>();
 
-    private AdminPolyfitServices adminPolyfitServices;
+    private AdminZlaterServices adminZlaterServices;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity implements ExerciseFragment.
         Objects.requireNonNull(getSupportActionBar()).hide();
 //        getReminder();
         Retrofit retrofit = RetrofitClient.getInstance();
-        adminPolyfitServices = retrofit.create(AdminPolyfitServices.class);
+        adminZlaterServices = retrofit.create(AdminZlaterServices.class);
         TabLayout tabLayout = findViewById(R.id.tabLayout);
         tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.ic_exercise));
         tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.ic_diet));

@@ -26,7 +26,7 @@ import com.krahs.adminzlater.Utils.Constants;
 import com.krahs.adminzlater.Fragments.QuotesFragment;
 import com.krahs.adminzlater.Model.Quotes;
 import com.krahs.adminzlater.R;
-import com.krahs.adminzlater.Services.AdminPolyfitServices;
+import com.krahs.adminzlater.Services.AdminZlaterServices;
 import com.krahs.adminzlater.Services.RetrofitClient;
 import com.squareup.picasso.Picasso;
 
@@ -40,13 +40,13 @@ import retrofit2.Retrofit;
 
 
 /**
- * Created by Hades on 26,October,2019
+ * Created by Hoang Son on 26,October,2019
  **/
 public class QuotesAdapter extends RecyclerView.Adapter<QuotesAdapter.ViewHolder> {
 
     List<Quotes> listQuotes;
     Context context;
-    private AdminPolyfitServices adminPolyfitServices;
+    private AdminZlaterServices adminZlaterServices;
     FirebaseStorage storage = FirebaseStorage.getInstance();
     StorageReference storageRef = storage.getReferenceFromUrl(Constants.STORAGE_IMAGE);
     QuotesFragment quotesFragment;
@@ -70,7 +70,7 @@ public class QuotesAdapter extends RecyclerView.Adapter<QuotesAdapter.ViewHolder
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
         View view = layoutInflater.inflate(R.layout.one_item_quotes, parent, false);
         Retrofit retrofit = RetrofitClient.getInstance();
-        adminPolyfitServices = retrofit.create(AdminPolyfitServices.class);
+        adminZlaterServices = retrofit.create(AdminZlaterServices.class);
         dialogUpload = new Dialog(context);
         dialogUpload.setContentView(R.layout.dialog_upload);
         return new ViewHolder(view);
@@ -134,7 +134,7 @@ public class QuotesAdapter extends RecyclerView.Adapter<QuotesAdapter.ViewHolder
 
 
     private void handleUpdateQuotes(Quotes quotes) {
-        Call<Quotes> call = adminPolyfitServices.updateQuotes(quotes.getId(), quotes.getTitle(), quotes.getImageUrl());
+        Call<Quotes> call = adminZlaterServices.updateQuotes(quotes.getId(), quotes.getTitle(), quotes.getImageUrl());
         call.enqueue(new Callback<Quotes>() {
             @Override
             public void onResponse(Call<Quotes> call, Response<Quotes> response) {
@@ -202,7 +202,7 @@ public class QuotesAdapter extends RecyclerView.Adapter<QuotesAdapter.ViewHolder
     }
 
     private void handleDeleteQuotes(final int id, final String imageLink) {
-        adminPolyfitServices.deleteQuotes(id).enqueue(new Callback<Quotes>() {
+        adminZlaterServices.deleteQuotes(id).enqueue(new Callback<Quotes>() {
             @Override
             public void onResponse(Call<Quotes> call, Response<Quotes> response) {
                 if (response.isSuccessful()) {

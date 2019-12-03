@@ -12,7 +12,7 @@ import rx.schedulers.Schedulers;
 
 public class RetrofitClient {
 
-    public static AdminPolyfitServices getRetrofit() {
+    public static AdminZlaterServices getRetrofit() {
 
         RxJavaCallAdapterFactory rxAdapter = RxJavaCallAdapterFactory.createWithScheduler(Schedulers.io());
 
@@ -20,12 +20,12 @@ public class RetrofitClient {
                 .baseUrl(Constants.BASE_URL)
                 .addCallAdapterFactory(rxAdapter)
                 .addConverterFactory(GsonConverterFactory.create())
-                .build().create(AdminPolyfitServices.class);
+                .build().create(AdminZlaterServices.class);
 
     }
 
-        public static AdminPolyfitServices getPolyFitService() {
-        return RetrofitClient.getClient(Constants.BASE_URL).create(AdminPolyfitServices.class);
+        public static AdminZlaterServices getZlaterService() {
+        return RetrofitClient.getClient(Constants.BASE_URL).create(AdminZlaterServices.class);
     }
 
 

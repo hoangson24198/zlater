@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName;
 import java.util.Date;
 
 /**
- * Created by Hades on 29,October,2019
+ * Created by Hoang Son on 29,October,2019
  **/
 public class User {
     @SerializedName("id")

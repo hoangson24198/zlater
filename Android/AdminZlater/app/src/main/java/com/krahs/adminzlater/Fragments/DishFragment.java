@@ -25,7 +25,7 @@ import com.google.gson.reflect.TypeToken;
 import com.krahs.adminzlater.Adapter.DishAdapter;
 import com.krahs.adminzlater.Model.Dish;
 import com.krahs.adminzlater.R;
-import com.krahs.adminzlater.Services.AdminPolyfitServices;
+import com.krahs.adminzlater.Services.AdminZlaterServices;
 import com.krahs.adminzlater.Services.RetrofitClient;
 
 import org.json.JSONArray;
@@ -49,7 +49,7 @@ public class DishFragment extends Fragment implements View.OnClickListener {
     CardView btnAddDish;
     Button send;
     ImageView reloadDish;
-    AdminPolyfitServices adminPolyfitServices;
+    AdminZlaterServices adminZlaterServices;
     RecyclerView viewDish;
     DishAdapter dishAdapter;
     Animation animation;
@@ -83,7 +83,7 @@ public class DishFragment extends Fragment implements View.OnClickListener {
         Log.e("HS::","OnCreateView");
         View view = inflater.inflate(R.layout.fragment_dish, container, false);
         Retrofit retrofit = RetrofitClient.getInstance();
-        adminPolyfitServices = retrofit.create(AdminPolyfitServices.class);
+        adminZlaterServices = retrofit.create(AdminZlaterServices.class);
         connectView(view);
         getAllDish();
         return view;
@@ -146,7 +146,7 @@ public class DishFragment extends Fragment implements View.OnClickListener {
         animation = AnimationUtils.loadAnimation(getActivity(),
                 R.anim.rotate);
         reloadDish.startAnimation(animation);
-        adminPolyfitServices.getAllDish().enqueue(new Callback<String>() {
+        adminZlaterServices.getAllDish().enqueue(new Callback<String>() {
             @Override
             public void onResponse(Call<String> call, Response<String> response) {
                 if (response.isSuccessful()) {
@@ -164,7 +164,7 @@ public class DishFragment extends Fragment implements View.OnClickListener {
                     }.getType();
                     List<Dish> listDish = gson.fromJson(jsonOutput, listType);
                     setData(listDish);
-                    Log.e("Phaytv", /*exercisesList.get(0).getId() +*/":: Success ::" + array);
+                    Log.e("HS::", /*exercisesList.get(0).getId() +*/":: Success ::" + array);
                 }
             }
 

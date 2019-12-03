@@ -39,7 +39,7 @@ import com.krahs.adminzlater.Model.Exercise;
 import com.krahs.adminzlater.Model.Quotes;
 import com.krahs.adminzlater.Model.User;
 import com.krahs.adminzlater.R;
-import com.krahs.adminzlater.Services.AdminPolyfitServices;
+import com.krahs.adminzlater.Services.AdminZlaterServices;
 import com.krahs.adminzlater.Services.RetrofitClient;
 
 import org.json.JSONArray;
@@ -57,10 +57,10 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 
 /**
- * Created by Hades on 24,October,2019
+ * Created by Hoang Son on 24,October,2019
  **/
 public class StatisticalFragment extends DialogFragment implements View.OnClickListener {
-    private AdminPolyfitServices adminPolyfitServices;
+    private AdminZlaterServices adminZlaterServices;
     private ImageView imvBackStatistical;
     List<Exercise> exercisesList = new ArrayList<>();
     List<User> lisAllUser = new ArrayList<>();
@@ -92,7 +92,7 @@ public class StatisticalFragment extends DialogFragment implements View.OnClickL
         View view = inflater.inflate(R.layout.fragment_statistical, container, false);
 //        getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         Retrofit retrofit = RetrofitClient.getInstance();
-        adminPolyfitServices = retrofit.create(AdminPolyfitServices.class);
+        adminZlaterServices = retrofit.create(AdminZlaterServices.class);
         getAllExercise();
         getAllDish();
         getAllQuotes();
@@ -199,7 +199,7 @@ public class StatisticalFragment extends DialogFragment implements View.OnClickL
     }
 
     private void getAllExercise() {
-        adminPolyfitServices.getAllExercise().enqueue(new Callback<String>() {
+        adminZlaterServices.getAllExercise().enqueue(new Callback<String>() {
             @Override
             public void onResponse(Call<String> call, Response<String> response) {
                 if (response.isSuccessful()) {
@@ -218,7 +218,7 @@ public class StatisticalFragment extends DialogFragment implements View.OnClickL
                     exerciseAnim.setVisibility(View.GONE);
                     statisticalExercise.setVisibility(View.VISIBLE);
                     exercisesList = gson.fromJson(jsonOutput, listType);
-                    Log.e("Phaytv", /*exercisesList.get(0).getId() +*/":: Success ::" + array);
+                    Log.e("HS::", /*exercisesList.get(0).getId() +*/":: Success ::" + array);
                     statisticalExercise.setText(String.valueOf(exercisesList.size()));
                     setBarChart();
                 }
@@ -232,7 +232,7 @@ public class StatisticalFragment extends DialogFragment implements View.OnClickL
     }
 
     private void getAllDish() {
-        adminPolyfitServices.getAllDish().enqueue(new Callback<String>() {
+        adminZlaterServices.getAllDish().enqueue(new Callback<String>() {
             @Override
             public void onResponse(Call<String> call, Response<String> response) {
                 if (response.isSuccessful()) {
@@ -252,7 +252,7 @@ public class StatisticalFragment extends DialogFragment implements View.OnClickL
                     dishAnim.setVisibility(View.GONE);
                     statisticalDishes.setVisibility(View.VISIBLE);
                     statisticalDishes.setText(String.valueOf(listDish.size()));
-                    Log.e("Phaytv", /*exercisesList.get(0).getId() +*/":: Success ::" + array);
+                    Log.e("HS::", /*exercisesList.get(0).getId() +*/":: Success ::" + array);
                     setBarChart();
                 }
             }
@@ -307,7 +307,7 @@ public class StatisticalFragment extends DialogFragment implements View.OnClickL
     }
 
     public void getAllQuotes() {
-        adminPolyfitServices.getAllQuotes().enqueue(new Callback<String>() {
+        adminZlaterServices.getAllQuotes().enqueue(new Callback<String>() {
             @Override
             public void onResponse(Call<String> call, Response<String> response) {
                 if (response.isSuccessful()) {
@@ -324,7 +324,7 @@ public class StatisticalFragment extends DialogFragment implements View.OnClickL
                     Type listType = new TypeToken<List<Quotes>>() {
                     }.getType();
                     quotesList = gson.fromJson(jsonOutput, listType);
-                    Log.e("Phaytv", /*exercisesList.get(0).getId() +*/":: Success ::" + array);
+                    Log.e("HS::", /*exercisesList.get(0).getId() +*/":: Success ::" + array);
                     setBarChart();
                 }
             }
@@ -337,7 +337,7 @@ public class StatisticalFragment extends DialogFragment implements View.OnClickL
     }
 
     public void getAllUser() {
-        adminPolyfitServices.getAllUsers().enqueue(new Callback<String>() {
+        adminZlaterServices.getAllUsers().enqueue(new Callback<String>() {
             @Override
             public void onResponse(Call<String> call, Response<String> response) {
                 if (response.isSuccessful()) {
@@ -354,7 +354,7 @@ public class StatisticalFragment extends DialogFragment implements View.OnClickL
                     Type listType = new TypeToken<List<User>>() {
                     }.getType();
                     lisAllUser = gson.fromJson(jsonOutput, listType);
-                    Log.e("Phaytv", /*exercisesList.get(0).getId() +*/":: Success ::" + array);
+                    Log.e("HS::", /*exercisesList.get(0).getId() +*/":: Success ::" + array);
                     setData();
                 }
             }
@@ -367,7 +367,7 @@ public class StatisticalFragment extends DialogFragment implements View.OnClickL
     }
 
     public void getAllUserOnline() {
-        adminPolyfitServices.getOnlineUser().enqueue(new Callback<String>() {
+        adminZlaterServices.getOnlineUser().enqueue(new Callback<String>() {
             @Override
             public void onResponse(Call<String> call, Response<String> response) {
                 if (response.isSuccessful()) {
@@ -384,7 +384,7 @@ public class StatisticalFragment extends DialogFragment implements View.OnClickL
                     Type listType = new TypeToken<List<User>>() {
                     }.getType();
                     listOnline = gson.fromJson(jsonOutput, listType);
-                    Log.e("Phaytv", /*exercisesList.get(0).getId() +*/":: Success ::" + array);
+                    Log.e("HS::", /*exercisesList.get(0).getId() +*/":: Success ::" + array);
                     setData();
                 }
             }

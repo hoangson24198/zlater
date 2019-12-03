@@ -6,7 +6,7 @@ import com.google.gson.annotations.SerializedName;
 import java.io.Serializable;
 
 /**
- * Created by Hades on 15,October,2019
+ * Created by Hoang Son on 15,October,2019
  **/
 
 public class Exercise implements Serializable {

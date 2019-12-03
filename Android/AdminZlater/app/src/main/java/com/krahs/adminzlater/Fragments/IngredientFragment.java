@@ -23,7 +23,7 @@ import com.google.gson.reflect.TypeToken;
 import com.krahs.adminzlater.Adapter.IngredientAdapter;
 import com.krahs.adminzlater.Model.Ingredients;
 import com.krahs.adminzlater.R;
-import com.krahs.adminzlater.Services.AdminPolyfitServices;
+import com.krahs.adminzlater.Services.AdminZlaterServices;
 import com.krahs.adminzlater.Services.RetrofitClient;
 
 import org.json.JSONArray;
@@ -49,7 +49,7 @@ public class IngredientFragment extends Fragment implements View.OnClickListener
     private CardView btnCreateIngredient;
     private RecyclerView viewIngredient;
     private Animation animation;
-    private AdminPolyfitServices adminPolyfitServices;
+    private AdminZlaterServices adminZlaterServices;
     private OnFragmentInteractionListener mListener;
     private IngredientAdapter ingredientAdapter;
 
@@ -88,7 +88,7 @@ public class IngredientFragment extends Fragment implements View.OnClickListener
         View view=inflater.inflate(R.layout.fragment_ingredient, container, false);
         connectView(view);
         Retrofit retrofit = RetrofitClient.getInstance();
-        adminPolyfitServices = retrofit.create(AdminPolyfitServices.class);
+        adminZlaterServices = retrofit.create(AdminZlaterServices.class);
         handleGetAllIngredient();
         return view;
     }
@@ -141,7 +141,7 @@ public class IngredientFragment extends Fragment implements View.OnClickListener
         animation = AnimationUtils.loadAnimation(getActivity(),
                 R.anim.rotate);
         reloadIngredient.startAnimation(animation);
-        adminPolyfitServices.getAllIngredient().enqueue(new Callback<String>() {
+        adminZlaterServices.getAllIngredient().enqueue(new Callback<String>() {
             @Override
             public void onResponse(Call<String> call, Response<String> response) {
                 if (response.isSuccessful()) {
@@ -159,7 +159,7 @@ public class IngredientFragment extends Fragment implements View.OnClickListener
                     }.getType();
                     List<Ingredients> ingredientsList = gson.fromJson(jsonOutput, listType);
                     setData(ingredientsList);
-                    Log.e("Phaytv", /*exercisesList.get(0).getId() +*/":: List ingredient ::" + array);
+                    Log.e("HS::", /*exercisesList.get(0).getId() +*/":: List ingredient ::" + array);
 
                 }
             }

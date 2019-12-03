@@ -39,7 +39,7 @@ import com.krahs.adminzlater.BroadcastReceiver.ServiceReloadExercise;
 import com.krahs.adminzlater.Utils.Constants;
 import com.krahs.adminzlater.Model.Exercise;
 import com.krahs.adminzlater.R;
-import com.krahs.adminzlater.Services.AdminPolyfitServices;
+import com.krahs.adminzlater.Services.AdminZlaterServices;
 import com.krahs.adminzlater.Services.RetrofitClient;
 import com.soundcloud.android.crop.Crop;
 
@@ -58,7 +58,7 @@ import rx.subscriptions.CompositeSubscription;
 import static android.app.Activity.RESULT_OK;
 
 /**
- * Created by Hades on 18,October,2019
+ * Created by Hoang Son on 18,October,2019
  **/
 public class ViewExerciseFragment extends DialogFragment implements View.OnClickListener {
     ImageView imvExercise, imvBack, imvEdit, imvDelete;
@@ -71,7 +71,7 @@ public class ViewExerciseFragment extends DialogFragment implements View.OnClick
     FirebaseStorage storage = FirebaseStorage.getInstance();
     StorageReference storageRef = storage.getReferenceFromUrl(Constants.STORAGE_IMAGE);
     Dialog progressDialog;
-    AdminPolyfitServices adminPolyfitServices;
+    AdminZlaterServices adminZlaterServices;
     CardView cancelDelete, acceptDelete;
     GifImageView processDelete;
     private Dialog dialog;
@@ -101,7 +101,7 @@ public class ViewExerciseFragment extends DialogFragment implements View.OnClick
         connectView(view);
         disableFocus();
         Retrofit retrofit = RetrofitClient.getInstance();
-        adminPolyfitServices = retrofit.create(AdminPolyfitServices.class);
+        adminZlaterServices = retrofit.create(AdminZlaterServices.class);
         setData();
         return view;
     }
@@ -274,7 +274,7 @@ public class ViewExerciseFragment extends DialogFragment implements View.OnClick
     }
 
     private void handleDeleteExercise(final int id, final Dialog dialog, final String imageLink) {
-        adminPolyfitServices.deleteExercise(id).enqueue(new Callback<Exercise>() {
+        adminZlaterServices.deleteExercise(id).enqueue(new Callback<Exercise>() {
             @Override
             public void onResponse(Call<Exercise> call, Response<Exercise> response) {
                 if (response.isSuccessful()) {
@@ -308,7 +308,7 @@ public class ViewExerciseFragment extends DialogFragment implements View.OnClick
     }
 
     private void handleUpdateExercise(Exercise exercise) {
-        Call<Exercise> call = adminPolyfitServices.updateExercise(exercise.getId(), exercise.getTitle(), exercise.getIntroduction(), exercise.getContent(), exercise.getTips(), exercise.getSets(), exercise.getReps(), exercise.getRest(), exercise.getImage_url(), exercise.getVideo_url(), exercise.getId_level());
+        Call<Exercise> call = adminZlaterServices.updateExercise(exercise.getId(), exercise.getTitle(), exercise.getIntroduction(), exercise.getContent(), exercise.getTips(), exercise.getSets(), exercise.getReps(), exercise.getRest(), exercise.getImage_url(), exercise.getVideo_url(), exercise.getId_level());
         call.enqueue(new Callback<Exercise>() {
             @Override
             public void onResponse(Call<Exercise> call, Response<Exercise> response) {

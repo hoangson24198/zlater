@@ -43,7 +43,7 @@ import com.krahs.adminzlater.Model.Ingredients;
 import com.krahs.adminzlater.Model.Meals;
 import com.krahs.adminzlater.Model.User;
 import com.krahs.adminzlater.R;
-import com.krahs.adminzlater.Services.AdminPolyfitServices;
+import com.krahs.adminzlater.Services.AdminZlaterServices;
 import com.krahs.adminzlater.Services.RetrofitClient;
 import com.soundcloud.android.crop.Crop;
 
@@ -78,18 +78,18 @@ import rx.subscriptions.CompositeSubscription;
 import static android.app.Activity.RESULT_OK;
 
 /**
- * Created by Hades on 17,October,2019
+ * Created by Hoang Son on 17,October,2019
  **/
 public class AddDishFragment extends DialogFragment implements View.OnClickListener {
 
     private ImageView imvAddDish, imvBackAddDish;
     private EditText edtTitleDish, edtProteinDish, edtFatDish, edtCarbDish, edtCaloriesDish, desDish;
-    private CardView btnSaveDish;
+    private Button btnSaveDish;
     Dialog progressDialog;
     FirebaseStorage storage = FirebaseStorage.getInstance();
     StorageReference storageRef = storage.getReferenceFromUrl(Constants.STORAGE_IMAGE);
     String imageLink;
-    AdminPolyfitServices adminPolyfitServices;
+    AdminZlaterServices adminZlaterServices;
     private CompositeSubscription mSubscriptions = new CompositeSubscription();
     List<Meals> listMeals;
     List<Ingredients> ingredientsList;
@@ -117,7 +117,7 @@ public class AddDishFragment extends DialogFragment implements View.OnClickListe
         View view = inflater.inflate(R.layout.fragment_add_dish, container, false);
         connectView(view);
         Retrofit retrofit = RetrofitClient.getInstance();
-        adminPolyfitServices = retrofit.create(AdminPolyfitServices.class);
+        adminZlaterServices = retrofit.create(AdminZlaterServices.class);
         handleGetAllMeals();
         showToken();
         getAllUser();
@@ -143,8 +143,6 @@ public class AddDishFragment extends DialogFragment implements View.OnClickListe
         btnSaveDish.setOnClickListener(this);
         spinnerMeals = view.findViewById(R.id.spnMeals);
         spnIngredient = view.findViewById(R.id.spnIngredient);
-        send = view.findViewById(R.id.send);
-        send.setOnClickListener(this);
     }
 
 
@@ -276,7 +274,7 @@ public class AddDishFragment extends DialogFragment implements View.OnClickListe
             progressDialog.dismiss();
         } else {
 
-            mSubscriptions.add(adminPolyfitServices.addDish(title, imageLink, protein, fat, carb, calories, idMeals, des, listIdIngredient)
+            mSubscriptions.add(adminZlaterServices.addDish(title, imageLink, protein, fat, carb, calories, idMeals, des, listIdIngredient)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe(new Action1<String>() {
@@ -302,7 +300,7 @@ public class AddDishFragment extends DialogFragment implements View.OnClickListe
     }
 
     private List<Meals> handleGetAllMeals() {
-        adminPolyfitServices.getAllMeals().enqueue(new Callback<String>() {
+        adminZlaterServices.getAllMeals().enqueue(new Callback<String>() {
             @Override
             public void onResponse(Call<String> call, Response<String> response) {
                 if (response.isSuccessful()) {
@@ -339,7 +337,7 @@ public class AddDishFragment extends DialogFragment implements View.OnClickListe
     }
 
     public void handleGetAllIngredient() {
-        adminPolyfitServices.getAllIngredient().enqueue(new Callback<String>() {
+        adminZlaterServices.getAllIngredient().enqueue(new Callback<String>() {
             @Override
             public void onResponse(Call<String> call, Response<String> response) {
                 if (response.isSuccessful()) {
@@ -357,7 +355,7 @@ public class AddDishFragment extends DialogFragment implements View.OnClickListe
                     }.getType();
                     ingredientsList = gson.fromJson(jsonOutput, listType);
                     setDataIngredientSpinner(ingredientsList);
-                    Log.e("Phaytv", /*exercisesList.get(0).getId() +*/":: List ingredient ::" + array);
+                    Log.e("HS::", /*exercisesList.get(0).getId() +*/":: List ingredient ::" + array);
 
                 }
             }
@@ -396,7 +394,7 @@ public class AddDishFragment extends DialogFragment implements View.OnClickListe
         JSONObject jNotification = new JSONObject();
         JSONObject jData = new JSONObject();
         try {
-            jNotification.put("title", "PolyFit");
+            jNotification.put("title", "Zlater");
             jNotification.put("body", "New dishes for you");
             jNotification.put("sound", "default");
             jNotification.put("badge", "1");
@@ -440,7 +438,7 @@ public class AddDishFragment extends DialogFragment implements View.OnClickListe
     }
 
     private void getAllUser() {
-        adminPolyfitServices.getAllUsers().enqueue(new Callback<String>() {
+        adminZlaterServices.getAllUsers().enqueue(new Callback<String>() {
             @Override
             public void onResponse(Call<String> call, Response<String> response) {
                 if (response.isSuccessful()) {
@@ -460,7 +458,7 @@ public class AddDishFragment extends DialogFragment implements View.OnClickListe
                     for (int i = 0; i < userList.size(); i++) {
                         listToken.add(userList.get(i).getToken());
                     }
-                    Log.e("Phaytv", /*exercisesList.get(0).getId() +*/":: Success ::" + array);
+                    Log.e("HS::", /*exercisesList.get(0).getId() +*/":: Success ::" + array);
                 }
             }
 

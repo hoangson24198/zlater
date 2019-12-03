@@ -30,7 +30,7 @@ import com.krahs.adminzlater.Utils.Constants;
 import com.krahs.adminzlater.Interface.ReloadDataExercise;
 import com.krahs.adminzlater.Model.Exercise;
 import com.krahs.adminzlater.R;
-import com.krahs.adminzlater.Services.AdminPolyfitServices;
+import com.krahs.adminzlater.Services.AdminZlaterServices;
 import com.krahs.adminzlater.Services.RetrofitClient;
 
 import org.json.JSONArray;
@@ -55,7 +55,7 @@ public class ExerciseFragment extends Fragment implements View.OnClickListener, 
     List<Exercise> exerciseList;
     ExerciseAdapter exerciseAdapter;
     ShimmerRecyclerView viewExercise;
-    AdminPolyfitServices adminPolyfitServices;
+    AdminZlaterServices adminZlaterServices;
     NavigationView navigationView;
     Animation animation;
     ImageView layoutOption, icColapse,reloadExercise;
@@ -87,7 +87,7 @@ public class ExerciseFragment extends Fragment implements View.OnClickListener, 
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_exercise, container, false);
         Retrofit retrofit = RetrofitClient.getInstance();
-        adminPolyfitServices = retrofit.create(AdminPolyfitServices.class);
+        adminZlaterServices = retrofit.create(AdminZlaterServices.class);
         connectView(view);
         connectViewNav();
         getAllExercise();
@@ -240,11 +240,12 @@ public class ExerciseFragment extends Fragment implements View.OnClickListener, 
         animation = AnimationUtils.loadAnimation(getActivity(),
                 R.anim.rotate);
         reloadExercise.startAnimation(animation);
-        adminPolyfitServices.getAllExercise().enqueue(new Callback<String>() {
+        adminZlaterServices.getAllExercise().enqueue(new Callback<String>() {
             @Override
             public void onResponse(Call<String> call, Response<String> response) {
                 if (response.isSuccessful()) {
-                    Log.e("HS::", response.body());
+                    assert response.body() != null;
+                    Log.e("HS:: All ex", response.body());
                     JSONArray array = null;
                     try {
                         JSONObject obj = new JSONObject(response.body());
@@ -258,7 +259,7 @@ public class ExerciseFragment extends Fragment implements View.OnClickListener, 
                     }.getType();
                     List<Exercise> exercisesList = gson.fromJson(jsonOutput, listType);
                     setData(exercisesList);
-                    Log.e("Phaytv", /*exercisesList.get(0).getId() +*/":: Success ::" + array);
+                    Log.e("HS::", /*exercisesList.get(0).getId() +*/":: Success ::" + array);
 
                 }
             }

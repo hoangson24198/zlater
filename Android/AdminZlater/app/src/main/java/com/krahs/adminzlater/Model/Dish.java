@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName;
 import java.io.Serializable;
 
 /**
- * Created by Hades on 21,October,2019
+ * Created by Hoang Son on 21,October,2019
  **/
 public class Dish implements Serializable {
     @SerializedName("id")

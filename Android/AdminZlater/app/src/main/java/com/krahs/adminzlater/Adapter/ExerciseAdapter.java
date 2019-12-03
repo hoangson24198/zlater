@@ -23,7 +23,7 @@ import com.krahs.adminzlater.Fragments.ViewExerciseFragment;
 import com.krahs.adminzlater.Model.Bodyparts;
 import com.krahs.adminzlater.Model.Exercise;
 import com.krahs.adminzlater.R;
-import com.krahs.adminzlater.Services.AdminPolyfitServices;
+import com.krahs.adminzlater.Services.AdminZlaterServices;
 import com.krahs.adminzlater.Services.RetrofitClient;
 
 import org.json.JSONArray;
@@ -41,13 +41,13 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 
 /**
- * Created by Hades on 15,October,2019
+ * Created by Hoang Son on 15,October,2019
  **/
 public class ExerciseAdapter extends RecyclerView.Adapter<ExerciseAdapter.ViewHolder> {
 
     List<Exercise> listExercise;
     Context context;
-    AdminPolyfitServices adminPolyfitServices;
+    AdminZlaterServices adminZlaterServices;
     String bodyPartTitle;
     List<Bodyparts> bodypartsList = new ArrayList<>();
 
@@ -63,7 +63,7 @@ public class ExerciseAdapter extends RecyclerView.Adapter<ExerciseAdapter.ViewHo
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
         View itemView = layoutInflater.inflate(R.layout.one_item_exercise, parent, false);
         Retrofit retrofit = RetrofitClient.getInstance();
-        adminPolyfitServices = retrofit.create(AdminPolyfitServices.class);
+        adminZlaterServices = retrofit.create(AdminZlaterServices.class);
         return new ViewHolder(itemView);
     }
 
@@ -139,7 +139,7 @@ public class ExerciseAdapter extends RecyclerView.Adapter<ExerciseAdapter.ViewHo
     }
 
     private void getAllDetailExercise(Integer id, final ViewHolder viewHolder) {
-        adminPolyfitServices.getAllDetailExercise(id).enqueue(new Callback<String>() {
+        adminZlaterServices.getAllDetailExercise(id).enqueue(new Callback<String>() {
             @Override
             public void onResponse(Call<String> call, Response<String> response) {
 
@@ -162,7 +162,7 @@ public class ExerciseAdapter extends RecyclerView.Adapter<ExerciseAdapter.ViewHo
                     if(!bodypartsList.isEmpty()){
                        bodyPartTitle= bodypartsList.get(0).getTitle();
                     }
-                    Log.e("Phaytv", /*exercisesList.get(0).getId() +*/":: ListBodyParts ::" + array);
+                    Log.e("HS::", /*exercisesList.get(0).getId() +*/":: ListBodyParts ::" + array);
                     System.out.println("Print object :::"+bodypartsList);
                 }
 

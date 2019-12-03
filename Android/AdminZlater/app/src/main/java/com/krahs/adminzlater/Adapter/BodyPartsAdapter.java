@@ -27,7 +27,7 @@ import com.krahs.adminzlater.Utils.Constants;
 import com.krahs.adminzlater.Fragments.MixFragment;
 import com.krahs.adminzlater.Model.Bodyparts;
 import com.krahs.adminzlater.R;
-import com.krahs.adminzlater.Services.AdminPolyfitServices;
+import com.krahs.adminzlater.Services.AdminZlaterServices;
 import com.krahs.adminzlater.Services.RetrofitClient;
 import com.squareup.picasso.Picasso;
 
@@ -40,7 +40,7 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 
 /**
- * Created by Hades on 27,October,2019
+ * Created by Hoang Son on 27,October,2019
  **/
 public class BodyPartsAdapter extends RecyclerView.Adapter<BodyPartsAdapter.ViewHolder> {
 
@@ -49,7 +49,7 @@ public class BodyPartsAdapter extends RecyclerView.Adapter<BodyPartsAdapter.View
     Dialog dialog,dialogEdit,dialogUpdate;
     ImageView imvAddBodyParts;
     MixFragment mixFragment;
-    private AdminPolyfitServices adminPolyfitServices;
+    private AdminZlaterServices adminZlaterServices;
     FirebaseStorage storage = FirebaseStorage.getInstance();
     StorageReference storageRef = storage.getReferenceFromUrl(Constants.STORAGE_IMAGE);
     public BodyPartsAdapter(List<Bodyparts> bodypartsList, Context context,MixFragment mixFragment) {
@@ -65,7 +65,7 @@ public class BodyPartsAdapter extends RecyclerView.Adapter<BodyPartsAdapter.View
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
         View itemView = layoutInflater.inflate(R.layout.one_item_bodyparts, parent, false);
         Retrofit retrofit = RetrofitClient.getInstance();
-        adminPolyfitServices = retrofit.create(AdminPolyfitServices.class);
+        adminZlaterServices = retrofit.create(AdminZlaterServices.class);
         return new ViewHolder(itemView);
     }
 
@@ -121,7 +121,7 @@ public class BodyPartsAdapter extends RecyclerView.Adapter<BodyPartsAdapter.View
         cancelDelete.setVisibility(View.GONE);
         dialog.show();
 
-        adminPolyfitServices.deleteBodyParts(idBodyPart).enqueue(new Callback<Bodyparts>() {
+        adminZlaterServices.deleteBodyParts(idBodyPart).enqueue(new Callback<Bodyparts>() {
             @Override
             public void onResponse(Call<Bodyparts> call, Response<Bodyparts> response) {
                 if (response.isSuccessful()) {
@@ -192,7 +192,7 @@ public class BodyPartsAdapter extends RecyclerView.Adapter<BodyPartsAdapter.View
     }
 
     private void handleUpdateBodyParts(Bodyparts bodyparts) {
-        Call<Bodyparts> call = adminPolyfitServices.updateBodyParts(bodyparts.getIdBodyPart(), bodyparts.getTitle(),bodyparts.getImageUrl());
+        Call<Bodyparts> call = adminZlaterServices.updateBodyParts(bodyparts.getIdBodyPart(), bodyparts.getTitle(),bodyparts.getImageUrl());
         call.enqueue(new Callback<Bodyparts>() {
             @Override
             public void onResponse(Call<Bodyparts> call, Response<Bodyparts> response) {

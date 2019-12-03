@@ -8,10 +8,10 @@
     tools:context=".Activity.SplashScreenActivity">
 
     <ImageView
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:scaleType="center"
-        android:src="@drawable/splash_screen"></ImageView>
+        android:src="@drawable/bg_splash"></ImageView>
 
     <LinearLayout
         android:visibility="gone"
@@ -32,7 +32,7 @@
                 android:textColor="@color/white"
                 android:textSize="25sp"
                 android:textAlignment="center"
-                android:text="Please authenticate by fingerprint or retype the password"
+                android:text="@string/finger_authen"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
         </LinearLayout>
@@ -44,7 +44,7 @@
 
             <EditText
                 android:paddingLeft="20sp"
-                android:hint="Username"
+                android:hint="@string/username"
                 android:textSize="20sp"
                 android:id="@+id/edtUsername"
                 android:layout_width="match_parent"
@@ -53,7 +53,7 @@
 
             <EditText
                 android:paddingLeft="20sp"
-                android:hint="Password"
+                android:hint="@string/password"
                 android:inputType="textPassword"
                 android:textSize="20sp"
                 android:id="@+id/edtPassword"
@@ -107,11 +107,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <TextView
-                android:fontFamily="@font/magneto"
+                android:fontFamily="@font/anton"
                 android:textAlignment="center"
                 android:textColor="@color/white"
                 android:textSize="30sp"
-                android:text="PolyFit"
+                android:text="@string/zlater"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
         </LinearLayout>
@@ -119,11 +119,11 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
             <TextView
-                android:fontFamily="@font/magneto"
+                android:fontFamily="@font/anton"
                 android:textColor="@color/white"
                 android:textAlignment="center"
                 android:textSize="40sp"
-                android:text="Management"
+                android:text="@string/management"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
         </LinearLayout>

@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Hades on 25,October,2019
+ * Created by Hoang Son on 25,October,2019
  **/
 public class SpinnerBodyPartsAdapter extends BaseAdapter {
     private List<Bodyparts> bodypartsList;

@@ -23,7 +23,7 @@ import java.util.List;
 import pl.droidsonroids.gif.GifImageView;
 
 /**
- * Created by Hades on 21,October,2019
+ * Created by Hoang Son on 21,October,2019
  **/
 public class DishAdapter extends RecyclerView.Adapter<DishAdapter.ViewHolder> {
 

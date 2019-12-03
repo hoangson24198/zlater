@@ -1,7 +1,7 @@
 package com.krahs.adminzlater.Model;
 
 /**
- * Created by Hades on 18,October,2019
+ * Created by Hoang Son on 18,October,2019
  **/
 public class Level {
     private int id;

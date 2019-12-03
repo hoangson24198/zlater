@@ -44,7 +44,7 @@ import com.krahs.adminzlater.Model.Bodyparts;
 import com.krahs.adminzlater.Model.Level;
 import com.krahs.adminzlater.Model.User;
 import com.krahs.adminzlater.R;
-import com.krahs.adminzlater.Services.AdminPolyfitServices;
+import com.krahs.adminzlater.Services.AdminZlaterServices;
 import com.krahs.adminzlater.Services.RetrofitClient;
 import com.soundcloud.android.crop.Crop;
 
@@ -78,13 +78,13 @@ import rx.subscriptions.CompositeSubscription;
 import static android.app.Activity.RESULT_OK;
 
 public class AddExercisesFragment extends DialogFragment implements View.OnClickListener {
-    ImageView imvBack, imv_imageExercise;
-    CardView btnSaveNewExercise;
-    EditText edt_titleExercise, edt_introductionExercise, edt_contentExercise, edt_tipsExercise, edt_setsExercise, edt_repsExercise, edt_restExercise, edt_urlVideoExercise;
-    FirebaseStorage storage = FirebaseStorage.getInstance();
-    StorageReference storageRef = storage.getReferenceFromUrl(Constants.STORAGE_IMAGE);
-    String imgExercis = "";
-    AdminPolyfitServices adminPolyfitServices;
+    private ImageView imvBack, imv_imageExercise;
+    private Button btnSaveNewExercise;
+    private EditText edt_titleExercise, edt_introductionExercise, edt_contentExercise, edt_tipsExercise, edt_setsExercise, edt_repsExercise, edt_restExercise, edt_urlVideoExercise;
+    private FirebaseStorage storage = FirebaseStorage.getInstance();
+    private StorageReference storageRef = storage.getReferenceFromUrl(Constants.STORAGE_IMAGE);
+    private String imgExercis = "";
+    AdminZlaterServices adminZlaterServices;
     private CompositeSubscription mSubscriptions = new CompositeSubscription();
     private AppCompatSpinner spinnerLevel/*, spinnerBodyParts*/;
     private AppCompatSpinner spinnerBodyParts;
@@ -115,7 +115,7 @@ public class AddExercisesFragment extends DialogFragment implements View.OnClick
         Objects.requireNonNull(getActivity()).getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
         View view = inflater.inflate(R.layout.fragment_add_exercises_fragment, container, false);
         Retrofit retrofit = RetrofitClient.getInstance();
-        adminPolyfitServices = retrofit.create(AdminPolyfitServices.class);
+        adminZlaterServices = retrofit.create(AdminZlaterServices.class);
         connectView(view);
         progressDialog = new Dialog(getActivity());
         progressDialog.setContentView(R.layout.dialog_upload);
@@ -288,7 +288,7 @@ public class AddExercisesFragment extends DialogFragment implements View.OnClick
             progressDialog.dismiss();
         } else {
             Log.e("phaytv", idBodyParts + "");
-            mSubscriptions.add(adminPolyfitServices.addExercise(title, introduction, content, tips, sets, reps, rest, videoUrl, imgExercis, idLevel, idList)
+            mSubscriptions.add(adminZlaterServices.addExercise(title, introduction, content, tips, sets, reps, rest, videoUrl, imgExercis, idLevel, idList)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe(new Action1<String>() {
@@ -319,7 +319,7 @@ public class AddExercisesFragment extends DialogFragment implements View.OnClick
 
     //Handle getAllLevel
     private void getAllLevel() {
-        adminPolyfitServices.getAllLevel().enqueue(new Callback<String>() {
+        adminZlaterServices.getAllLevel().enqueue(new Callback<String>() {
             @Override
             public void onResponse(Call<String> call, Response<String> response) {
                 if (response.isSuccessful()) {
@@ -337,7 +337,7 @@ public class AddExercisesFragment extends DialogFragment implements View.OnClick
                     }.getType();
                     listLevel = gson.fromJson(jsonOutput, listType);
                     setDataLevelSpinner(listLevel);
-                    Log.e("Phaytv", /*exercisesList.get(0).getId() +*/":: Success ::" + array);
+                    Log.e("HS::", /*exercisesList.get(0).getId() +*/":: Success ::" + array);
                 }
             }
 
@@ -349,7 +349,7 @@ public class AddExercisesFragment extends DialogFragment implements View.OnClick
     }
 
     private void getAllBodyParts() {
-        adminPolyfitServices.getAllBodyParts().enqueue(new Callback<String>() {
+        adminZlaterServices.getAllBodyParts().enqueue(new Callback<String>() {
             @Override
             public void onResponse(Call<String> call, Response<String> response) {
                 if (response.isSuccessful()) {
@@ -367,7 +367,7 @@ public class AddExercisesFragment extends DialogFragment implements View.OnClick
                     }.getType();
                     bodypartsList = gson.fromJson(jsonOutput, listType);
                     setDataBodyPartsSpinner(bodypartsList);
-                    Log.e("Phaytv", /*exercisesList.get(0).getId() +*/":: Success ::" + array);
+                    Log.e("HS::", /*exercisesList.get(0).getId() +*/":: Success ::" + array);
                 }
             }
 
@@ -397,7 +397,7 @@ public class AddExercisesFragment extends DialogFragment implements View.OnClick
     }
 
     private void getAllUser() {
-        adminPolyfitServices.getAllUsers().enqueue(new Callback<String>() {
+        adminZlaterServices.getAllUsers().enqueue(new Callback<String>() {
             @Override
             public void onResponse(Call<String> call, Response<String> response) {
                 if (response.isSuccessful()) {
@@ -417,7 +417,7 @@ public class AddExercisesFragment extends DialogFragment implements View.OnClick
                     for (int i = 0; i < userList.size(); i++) {
                         listToken.add(userList.get(i).getToken());
                     }
-                    Log.e("Phaytv", /*exercisesList.get(0).getId() +*/":: Success ::" + array);
+                    Log.e("HS::", /*exercisesList.get(0).getId() +*/":: Success ::" + array);
                 }
             }
 
@@ -441,7 +441,7 @@ public class AddExercisesFragment extends DialogFragment implements View.OnClick
         JSONObject jNotification = new JSONObject();
         JSONObject jData = new JSONObject();
         try {
-            jNotification.put("title", "PolyFit");
+            jNotification.put("title", "Zlater");
             jNotification.put("body", "New exercise for you");
             jNotification.put("sound", "default");
             jNotification.put("badge", "1");

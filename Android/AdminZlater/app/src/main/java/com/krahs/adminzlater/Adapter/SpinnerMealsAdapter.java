@@ -14,7 +14,7 @@ import com.krahs.adminzlater.R;
 import java.util.List;
 
 /**
- * Created by Hades on 23,October,2019
+ * Created by Hoang Son on 23,October,2019
  **/
 public class SpinnerMealsAdapter extends BaseAdapter {
     private List<Meals> listMeals;

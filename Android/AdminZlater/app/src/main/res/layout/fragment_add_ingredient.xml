@@ -1,144 +1,124 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black"
-    android:orientation="vertical">
+    tools:context=".Fragments.AddExercisesFragment">
 
-    <LinearLayout
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp">
+        android:layout_height="80dp"
+        android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
+        android:elevation="5dp">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+        <ImageButton
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:id="@+id/imvBackIngredient"
+            android:src="@drawable/ic_back"
+            android:background="@color/demo_light_transparent"
+            tools:ignore="VectorDrawableCompat"/>
+    </androidx.appcompat.widget.Toolbar>
 
-            <ImageView
-                android:id="@+id/imvBackIngredient"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_gravity="center"
-                android:src="@drawable/ic_back" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginLeft="15dp"
-                android:gravity="center"
-                android:text="Add Ingredient"
-                android:textColor="@color/white"
-                android:textSize="25sp" />
-        </LinearLayout>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="50dp"
-        android:orientation="vertical">
-
-        <ImageView
-            android:id="@+id/imvAddIngredient"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:layout_gravity="center"
-            android:src="@drawable/null_image" />
-        <EditText
-            android:id="@+id/edtTitleIngredient"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:hint="Title"
-            android:textColor="@color/white" />
-
-        <LinearLayout
-            android:visibility="gone"
-            android:layout_marginTop="5dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="5"
-            android:orientation="horizontal">
-
-            <LinearLayout
-                android:layout_marginRight="5dp"
-                android:layout_weight="3"
-                android:layout_width="0dp"
-                android:orientation="horizontal"
-                android:layout_height="wrap_content">
-                <ImageView
-                    android:layout_gravity="center"
-                    android:src="@drawable/price"
-                    android:layout_width="36dp"
-                    android:layout_height="36dp"/>
-                <EditText
-                    android:layout_marginLeft="5dp"
-                    android:layout_gravity="center"
-                    android:id="@+id/edtPriceIngredient"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:hint="Price"
-                    android:inputType="numberDecimal"
-                    android:textColor="@color/white" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_marginLeft="5dp"
-                android:layout_weight="2"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content">
-                <ImageView
-                    android:layout_gravity="center"
-                    android:src="@drawable/scales"
-                    android:layout_width="36dp"
-                    android:layout_height="36dp"/>
-                <EditText
-                    android:layout_gravity="center"
-                    android:id="@+id/edtUnitIngredient"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_weight="1"
-                    android:hint="Unit"
-                    android:textColor="@color/white" />
-            </LinearLayout>
-        </LinearLayout>
-    </LinearLayout>
-
-
-    <RelativeLayout
+    <TextView
+        android:id="@+id/tvSignUp"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:elevation="10dp"
+        android:transitionName="tvLogin"
+        android:text="Add Ingredient"
+        android:textColor="@color/white"
+        android:textSize="28sp"
+        android:textStyle="bold" />
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="vertical"
+        android:scrollbarStyle="insideInset"
+        android:layout_below="@id/toolbar"
+        android:layout_margin="20dp">
         <RelativeLayout
+            android:id="@+id/rlayout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true">
+            android:layout_height="wrap_content">
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/btnAddIngredient"
+                android:id="@+id/cv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="50dp"
-                android:layout_marginBottom="10dp"
-                app:cardBackgroundColor="@color/white"
-                app:cardCornerRadius="15dp">
+                app:cardCornerRadius="10dp"
+                app:cardElevation="4dp"
+                >
 
-                <TextView
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
-                    android:text="Save"
-                    android:textAlignment="center"
-                    android:textColor="@color/black"
-                    android:textSize="25sp" />
+                    android:orientation="vertical"
+                    android:paddingBottom="50dp"
+                    android:background="@color/black">
+
+                    <RelativeLayout
+                        android:gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:padding="10dp">
+
+                        <ImageView
+                            android:id="@+id/imvAddIngredient"
+                            android:layout_width="200dp"
+                            android:layout_height="200dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/null_image"/>
+
+                    </RelativeLayout>
+                    <com.github.florent37.materialtextfield.MaterialTextField
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:mtf_cardCollapsedHeight="1dp"
+                        app:mtf_labelColor="@color/white"
+                        android:padding="5dp">
+
+                        <EditText
+                            android:id="@+id/edtTitleIngredient"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Title"
+                            android:textColor="@color/black"/>
+
+                    </com.github.florent37.materialtextfield.MaterialTextField>
+
+                </LinearLayout>
+
             </androidx.cardview.widget.CardView>
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/cv"
+                android:layout_alignLeft="@+id/cv"
+                android:layout_alignRight="@+id/cv"
+                android:layout_marginLeft="35dp"
+                android:layout_marginTop="-30dp"
+                android:layout_marginRight="35dp"
+                android:elevation="10dp">
+
+                <Button
+                    android:id="@+id/btnAddIngredient"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:text="Save"
+                    android:textAllCaps="false"
+                    android:textColor="@color/black" />
+            </RelativeLayout>
+
         </RelativeLayout>
-    </RelativeLayout>
+    </ScrollView>
 
-
-</LinearLayout>
+</RelativeLayout>

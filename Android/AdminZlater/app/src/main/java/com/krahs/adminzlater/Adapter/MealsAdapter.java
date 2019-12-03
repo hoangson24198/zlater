@@ -27,7 +27,7 @@ import com.krahs.adminzlater.Utils.Constants;
 import com.krahs.adminzlater.Fragments.MixFragment;
 import com.krahs.adminzlater.Model.Meals;
 import com.krahs.adminzlater.R;
-import com.krahs.adminzlater.Services.AdminPolyfitServices;
+import com.krahs.adminzlater.Services.AdminZlaterServices;
 import com.krahs.adminzlater.Services.RetrofitClient;
 import com.squareup.picasso.Picasso;
 
@@ -41,13 +41,13 @@ import retrofit2.Retrofit;
 import rx.exceptions.OnErrorThrowable;
 
 /**
- * Created by Hades on 27,October,2019
+ * Created by Hoang Son on 27,October,2019
  **/
 public class MealsAdapter extends RecyclerView.Adapter<MealsAdapter.ViewHolder> {
 
     List<Meals> mealsList;
     Context context;
-    private AdminPolyfitServices adminPolyfitServices;
+    private AdminZlaterServices adminZlaterServices;
     FirebaseStorage storage = FirebaseStorage.getInstance();
     MixFragment mixFragment;
     Dialog dialog, dialogEdit, dialogUpdate;
@@ -67,7 +67,7 @@ public class MealsAdapter extends RecyclerView.Adapter<MealsAdapter.ViewHolder> 
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
         View itemView = layoutInflater.inflate(R.layout.one_item_meals, parent, false);
         Retrofit retrofit = RetrofitClient.getInstance();
-        adminPolyfitServices = retrofit.create(AdminPolyfitServices.class);
+        adminZlaterServices = retrofit.create(AdminZlaterServices.class);
         return new ViewHolder(itemView);
     }
 
@@ -132,7 +132,7 @@ public class MealsAdapter extends RecyclerView.Adapter<MealsAdapter.ViewHolder> 
         processDelete.setVisibility(View.VISIBLE);
         cancelDelete.setVisibility(View.GONE);
         dialog.show();
-        adminPolyfitServices.deleteMeals(id).enqueue(new Callback<Meals>() {
+        adminZlaterServices.deleteMeals(id).enqueue(new Callback<Meals>() {
             @Override
             public void onResponse(Call<Meals> call, Response<Meals> response) {
                 if (response.isSuccessful()) {
@@ -202,7 +202,7 @@ public class MealsAdapter extends RecyclerView.Adapter<MealsAdapter.ViewHolder> 
     }
 
     private void handleUpdateBodyParts(Meals meals) {
-        Call<Meals> call = adminPolyfitServices.updateMeals(meals.getId(), meals.getTitle(), meals.getImageUrl());
+        Call<Meals> call = adminZlaterServices.updateMeals(meals.getId(), meals.getTitle(), meals.getImageUrl());
         call.enqueue(new Callback<Meals>() {
             @Override
             public void onResponse(Call<Meals> call, Response<Meals> response) {

@@ -7,7 +7,7 @@ import android.content.Intent;
 import com.krahs.adminzlater.Interface.ReloadDataExercise;
 
 /**
- * Created by Hades on 26,October,2019
+ * Created by Hoang Son on 26,October,2019
  **/
 public class ServiceReloadExercise extends BroadcastReceiver {
 

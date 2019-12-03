@@ -11,7 +11,7 @@ import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Target;
 
 /**
- * Created by Hades on 16,October,2019
+ * Created by Hoang Son on 16,October,2019
  **/
 public class CustomLayout extends LinearLayout implements Target {
 
