@@ -13,6 +13,7 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.example.zlater.R;
+import com.example.zlater.Utils.CheckInternetConnection;
 
 public class StepOneSignUpActivity extends AppCompatActivity implements View.OnClickListener {
     ImageView ic_closeSignUpStepOne;
@@ -27,6 +28,7 @@ public class StepOneSignUpActivity extends AppCompatActivity implements View.OnC
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
         getSupportActionBar().hide();
         setContentView(R.layout.activity_step_one_sign_up);
+        new CheckInternetConnection(this).checkConnection();
         connectView();
     }
 
@@ -63,5 +65,9 @@ public class StepOneSignUpActivity extends AppCompatActivity implements View.OnC
         }
     }
 
-
+    @Override
+    protected void onResume() {
+        super.onResume();
+        new CheckInternetConnection(this).checkConnection();
+    }
 }

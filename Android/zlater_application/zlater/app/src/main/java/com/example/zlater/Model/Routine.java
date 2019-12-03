@@ -9,9 +9,9 @@ import androidx.room.PrimaryKey;
 import com.google.gson.annotations.SerializedName;
 
 /**
- * Created by Hades on 30,October,2019
+ * Created by Hoang Son on 30,October,2019
  **/
-@Entity(tableName = "polyfit_routine")
+@Entity(tableName = "zlater_routines")
 public class Routine {
     @ColumnInfo(name = "step_count")
     @SerializedName("step_count")
@@ -32,7 +32,7 @@ public class Routine {
     private String caloriesConsumed;
     @ColumnInfo(name = "id_user")
     @SerializedName("id_user")
-    private int polyfitUserId;
+    private int zlaterUserId;
     @ColumnInfo(name = "create_date")
     @SerializedName("create_date")
     private String create_date;
@@ -43,23 +43,23 @@ public class Routine {
 
 
     @Ignore
-    public Routine(int stepCount, String timePractice, String caloriesConsumed, int polyfitUserId) {
+    public Routine(int stepCount, String timePractice, String caloriesConsumed, int zlaterUserId) {
         this.stepCount = stepCount;
         this.timePractice = timePractice;
         this.caloriesConsumed = caloriesConsumed;
-        this.polyfitUserId = polyfitUserId;
+        this.zlaterUserId = zlaterUserId;
     }
 
 
 
     @Ignore
-    public Routine(int stepCount, String createdAt, String updatedAt, String timePractice, String caloriesConsumed, int polyfitUserId) {
+    public Routine(int stepCount, String createdAt, String updatedAt, String timePractice, String caloriesConsumed, int zlaterUserId) {
         this.stepCount = stepCount;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
         this.timePractice = timePractice;
         this.caloriesConsumed = caloriesConsumed;
-        this.polyfitUserId = polyfitUserId;
+        this.zlaterUserId = zlaterUserId;
     }
 
     public int getStepCount() {
@@ -102,12 +102,12 @@ public class Routine {
         this.caloriesConsumed = caloriesConsumed;
     }
 
-    public int getPolyfitUserId() {
-        return polyfitUserId;
+    public int getZlaterUserId() {
+        return zlaterUserId;
     }
 
-    public void setPolyfitUserId(int polyfitUserId) {
-        this.polyfitUserId = polyfitUserId;
+    public void setZlaterUserId(int zlaterUserId) {
+        this.zlaterUserId = zlaterUserId;
     }
 
     public String getCreate_date() {

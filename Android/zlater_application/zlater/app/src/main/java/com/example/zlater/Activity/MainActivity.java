@@ -3,6 +3,7 @@ package com.example.zlater.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Resources;
 import android.net.ConnectivityManager;
 import android.net.Uri;
 import android.os.Bundle;
@@ -28,6 +29,7 @@ import com.example.zlater.Service.local.ZlaterDatabase;
 import com.example.zlater.Service.local.StepCountServices;
 import com.example.zlater.Service.remote.RetrofitClient;
 import com.example.zlater.Service.remote.RoutineAPI;
+import com.example.zlater.Utils.CheckInternetConnection;
 import com.example.zlater.Utils.Constants;
 
 import java.util.ArrayList;
@@ -53,7 +55,6 @@ public class MainActivity extends AppCompatActivity implements HomeFragment.OnFr
         setContentView(R.layout.activity_main2);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
         Objects.requireNonNull(getSupportActionBar()).hide();
-//        getReminder();
         Retrofit retrofit = RetrofitClient.getInstance();
         routineAPI = retrofit.create(RoutineAPI.class);
         runServices();
@@ -64,12 +65,8 @@ public class MainActivity extends AppCompatActivity implements HomeFragment.OnFr
         final PagerAdapter adapter = new PagerAdapter(getSupportFragmentManager(), 4);
         viewPager.setAdapter(adapter);
         tabBar.setViewPager(viewPager);
-        if(isNetworkConnected()){
-            Log.e("HS:::","Connected to internet!!!!");
-            getAndSaveRoutine();
-        }else {
-            Toast.makeText(this, "Please check your connection!!!", Toast.LENGTH_SHORT).show();
-        }
+        new CheckInternetConnection(this).checkConnection();
+        getAndSaveRoutine();
     }
 
     @Override
@@ -82,7 +79,7 @@ public class MainActivity extends AppCompatActivity implements HomeFragment.OnFr
         models.add(
                 new NavigationTabBar.Model.Builder(
                         getResources().getDrawable(R.drawable.house),
-                        getResources().getColor(R.color.noon)
+                        getResources().getColor(R.color.coral)
                 ).title("Trang chủ")
                         .badgeTitle("NTB")
                         .build()
@@ -90,7 +87,7 @@ public class MainActivity extends AppCompatActivity implements HomeFragment.OnFr
         models.add(
                 new NavigationTabBar.Model.Builder(
                         getResources().getDrawable(R.drawable.diet),
-                        getResources().getColor(R.color.morning)
+                        getResources().getColor(R.color.coral)
                 ).title("Món ăn")
                         .badgeTitle("with")
                         .build()
@@ -98,7 +95,7 @@ public class MainActivity extends AppCompatActivity implements HomeFragment.OnFr
         models.add(
                 new NavigationTabBar.Model.Builder(
                         getResources().getDrawable(R.drawable.gym),
-                        getResources().getColor(R.color.noon)
+                        getResources().getColor(R.color.coral)
                 ).title("Bài tập")
                         .badgeTitle("state")
                         .build()
@@ -106,7 +103,7 @@ public class MainActivity extends AppCompatActivity implements HomeFragment.OnFr
         models.add(
                 new NavigationTabBar.Model.Builder(
                         getResources().getDrawable(R.drawable.skills),
-                        getResources().getColor(R.color.morning)
+                        getResources().getColor(R.color.coral)
                 ).title("Thông tin")
                         .badgeTitle("icon")
                         .build()
@@ -125,6 +122,7 @@ public class MainActivity extends AppCompatActivity implements HomeFragment.OnFr
         routines = ZlaterDatabase.getInstance(getApplicationContext()).routineDAO().getRoutine();
         if (!routines.isEmpty()) {
             postRoutine(routines);
+            Log.d("HS:::", "saved routing list: ");
         }
         if(routines.isEmpty()){
            Log.e("HS:::","List empty!!!");
@@ -134,35 +132,35 @@ public class MainActivity extends AppCompatActivity implements HomeFragment.OnFr
     private void postRoutine(List<Routine> routineList) {
         SharedPreferences sharedPreferences = getSharedPreferences(Constants.LOGIN, MODE_PRIVATE);
         for (int i = 0; i < routineList.size(); i++) {
-            Log.e("getRoutine", routineList.get(i).getStepCount() + "");
+            Log.e("HS:::", routineList.get(i).getStepCount() + "get routing");
             RoutineRequest routine = new RoutineRequest(routineList.get(i).getStepCount(), routineList.get(i).getCreatedAt(),routineList.get(i).getTimePractice(), (routineList.get(i).getStepCount() * 4) + "", sharedPreferences.getInt("id", 0));
+
             Call<RoutineResponse> callRoutine = routineAPI.createRoutine(routine);
             callRoutine.enqueue(new Callback<RoutineResponse>() {
                 @Override
                 public void onResponse(Call<RoutineResponse> call, Response<RoutineResponse> response) {
                     if (response.isSuccessful()) {
-                        Log.e("routine", "save success");
+                        Log.e("HS::", "save routing success");
                         ZlaterDatabase.getInstance(MainActivity.this).routineDAO().deleteAll();
                     }
                     if (!response.isSuccessful()) {
-                        Log.e("routine", response.code() + " : " + response.body());
+                        Log.e("HS::", response.code() + " : " + response.body()+"post routing failed");
                     }
 
                 }
 
                 @Override
                 public void onFailure(Call<RoutineResponse> call, Throwable t) {
-                    Log.e("routine", "save failed" + "\n" + call.request() + " :: " + call.toString());
+                    Log.e("HS:::", "save routing failed" + "\n" + call.request() + " :: " + call.toString());
                 }
             });
         }
 
     }
 
-    private boolean isNetworkConnected() {
-        ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-        return cm.getActiveNetworkInfo() != null && cm.getActiveNetworkInfo().isConnected();
+    @Override
+    protected void onResume() {
+        super.onResume();
+        new CheckInternetConnection(this).checkConnection();
     }
-
-
 }

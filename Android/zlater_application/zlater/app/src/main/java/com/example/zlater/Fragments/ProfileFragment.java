@@ -15,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.widget.AppCompatEditText;
@@ -37,11 +38,15 @@ import com.example.zlater.Service.remote.ZlaterService;
 import com.example.zlater.Service.remote.RetrofitClient;
 import com.example.zlater.Service.remote.RoutineAPI;
 import com.example.zlater.Utils.Constants;
+import com.kaopiz.kprogresshud.KProgressHUD;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Objects;
 import java.util.Set;
 
 import lecho.lib.hellocharts.model.Axis;
@@ -55,13 +60,16 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 
+import static android.content.Context.MODE_PRIVATE;
+
 public class ProfileFragment extends Fragment implements View.OnClickListener {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
     private LineChartView history_chart;
     public final static String[] hours = new String[]{"6", "12", "18", "24"};
-    ProgressDialog progressDialog;
+    KProgressHUD progressDialog;
     private ZlaterService zlaterService;
+    private TextView curr_bmi;
     private String mParam1;
     private String mParam2;
     SharedPreferences sharedPreferences;
@@ -103,7 +111,9 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
         routineAPI=retrofit.create(RoutineAPI.class);
         connectView(view);
         sharedPreferences = getActivity().getSharedPreferences(Constants.LOGIN, Context.MODE_PRIVATE);
-        getAllHistory(sharedPreferences.getInt("id",0));
+        int userId = sharedPreferences.getInt("id", 0);
+        getAllRouting(userId);
+        setUpCurrBmi(userId);
         return view;
     }
 
@@ -138,17 +148,49 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
                 logoutUser(sharedPreferences.getInt("id", 0));
                 break;
             case R.id.btnUpdateBMI:
-                if (btnUpdateBMI.getText().toString().equals("Tôi muốn cập nhật BMI")) {
-                    btnUpdateBMI.setText("Cập nhật ngay");
+                if (btnUpdateBMI.getText().toString().equals(getText(R.string.need_update_bmi).toString())) {
+                    btnUpdateBMI.setText(R.string.update_bmi);
                     enableFocus();
-                } else {
+                } else if (btnUpdateBMI.getText().toString().equals(getText(R.string.update_bmi).toString())){
                     addHistory();
                 }
                 break;
         }
     }
 
+    private void setUpCurrBmi(int id) {
+        Call<UserResponse> userResponseCall = zlaterService.getCurrentUser(id);
+        userResponseCall.enqueue(new Callback<UserResponse>() {
+            @Override
+            public void onResponse(Call<UserResponse> call, Response<UserResponse> response) {
+                if (response.isSuccessful()) {
+                    UserResponse userResponse = response.body();
+                    if (userResponse.getStatus() == 0) {
+                        User user = userResponse.getObject();
+                        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+
+                        try {
+                            curr_bmi.setText(String.valueOf(user.getBmi()));
+                        } catch (Exception e) {
+                            Log.e("err:", e + "");
+                        }
+                    }
+                } else {
+                    Toast.makeText(getContext(), "Có lỗi xảy ra. Vui lòng đăng nhập lại", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(getContext(), LoginActivity.class));
+                }
+
+            }
+
+            @Override
+            public void onFailure(Call<UserResponse> call, Throwable t) {
+
+            }
+        });
+    }
+
     private void addHistory() {
+        showProgressDialog();
         SharedPreferences sharedPreferences = getActivity().getSharedPreferences(Constants.LOGIN, Context.MODE_PRIVATE);
         if (TextUtils.isEmpty(edtWeight.getText().toString())) {
             Toast.makeText(getContext(), "Vui lòng nhập cân nặng", Toast.LENGTH_SHORT).show();
@@ -163,7 +205,7 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
                 public void onResponse(Call<HistoryResponse> call, Response<HistoryResponse> response) {
                     HistoryResponse historyResponse = response.body();
                     if (historyResponse.getStatus() == 0) {
-                        Log.e("HS:::", "success");
+                        Log.d("HS::", "Add history success");
                         updateUser(sharedPreferences.getInt("id", 0));
 
                     }
@@ -189,10 +231,16 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
         edtHeight = view.findViewById(R.id.edtHeight);
         edtWeight = view.findViewById(R.id.edtWeight);
         viewHistory=view.findViewById(R.id.viewHistory);
+        curr_bmi = view.findViewById(R.id.curr_bmi);
         disableFocus();
         btnUpdateBMI = view.findViewById(R.id.btnUpdateBMI);
         btnUpdateBMI.setOnClickListener(this);
         setUserInf();
+        setupChart();
+        icSetting.setOnClickListener(this);
+    }
+
+    private void setupChart(){
         List<AxisValue> axisValues = new ArrayList<AxisValue>();
         List<StepCount> listStep = new ArrayList<>();
         listStep = ZlaterDatabase.getInstance(getActivity()).stepDAO().getStepCount();
@@ -204,19 +252,18 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
         listStep.add(stepCount);
         Collections.reverse(listStep);
         if(listStep.isEmpty()){
-            Log.e("listStep","Empty");
+            Log.e("HS::","List step Empty");
         }
         for (int i = 0; i < listStep.size(); ++i) {
 //            axisValues.add(new AxisValue(i).setLabel(hours[i]));
             axisValues.add(new AxisValue(i).setLabel(listStep.get(i).getHour() + ""));
             values.add(new PointValue(i, listStep.get(i).getStep() * 4));
-            Log.e("listStep", listStep.get(i).getStep() + " : " + listStep.get(i).getHour());
+            Log.e("HS::", "list step"+listStep.get(i).getStep() + " : " + listStep.get(i).getHour());
 
         }
 
-
         //In most cased you can call data model methods in builder-pattern-like manner.
-        Line line = new Line(values).setColor(Color.parseColor("#be7575")).setCubic(true);
+        Line line = new Line(values).setColor(Color.parseColor("#1eadf0")).setCubic(true);
 
         line.setHasPoints(true);
 
@@ -232,8 +279,6 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
         data.setAxisXBottom(new Axis(axisValues).setHasLines(true));
         data.setAxisYLeft(axisY);
         history_chart.setLineChartData(data);
-
-        icSetting.setOnClickListener(this);
     }
 
     //User logout
@@ -265,11 +310,13 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
     }
 
     private void showProgressDialog() {
-        progressDialog = new ProgressDialog(getActivity());
-        progressDialog.setCancelable(false);
-        progressDialog.setMessage("Processing...");
-        progressDialog.setIndeterminate(false);
-        progressDialog.show();
+        progressDialog = KProgressHUD.create(Objects.requireNonNull(getContext()))
+        .setStyle(KProgressHUD.Style.SPIN_INDETERMINATE)
+                .setLabel(getText(R.string.please_wait).toString())
+                .setCancellable(false)
+                .setAnimationSpeed(2)
+                .setDimAmount(0.5f)
+                .show();
     }
 
     private void enableFocus() {
@@ -311,12 +358,14 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
                 Log.e("HS:::", response.body() + " :: " + response.code() + "::" + userResponse.getMessage());
 
                 if (userResponse.getStatus() == 0) {
-                    Log.e("HS:::", "Create success");
+                    Log.e("HS:::", "Update success");
                     updateSharePref(Float.valueOf(edtHeight.getText().toString()), Float.valueOf(edtWeight.getText().toString()));
-                    btnUpdateBMI.setText("Tôi muốn cập nhật BMI");
+                    btnUpdateBMI.setText(R.string.need_update_bmi);
+                    setUpCurrBmi(user_id);
+                    progressDialog.dismiss();
                     disableFocus();
                 } else {
-                    Log.e("HS:::", "Create failed");
+                    Log.e("HS:::", "Update failed");
                 }
             }
 
@@ -328,7 +377,7 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
             }
         });
     }
-    private void getAllHistory(Integer id) {
+    private void getAllRouting(Integer id) {
 
         Call<RoutineResponse> getRoutine = routineAPI.getRoutinesByUserId(id);
         getRoutine.enqueue(new Callback<RoutineResponse>() {

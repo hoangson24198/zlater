@@ -29,6 +29,7 @@ import com.example.zlater.R;
 import com.example.zlater.Service.remote.BodypartsAPI;
 import com.example.zlater.Service.remote.ExerciseAPI;
 import com.example.zlater.Service.remote.RetrofitClient;
+import com.example.zlater.Utils.CheckInternetConnection;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer;
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener;
@@ -87,6 +88,7 @@ public class ExerciseDetailsActivity extends AppCompatActivity implements ItemCl
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
         Objects.requireNonNull(getSupportActionBar()).hide();
         initView();
+        new CheckInternetConnection(this).checkConnection();
         Retrofit retrofit = RetrofitClient.getInstance();
         exerciseAPI = retrofit.create(ExerciseAPI.class);
         bodypartsAPI = retrofit.create(BodypartsAPI.class);

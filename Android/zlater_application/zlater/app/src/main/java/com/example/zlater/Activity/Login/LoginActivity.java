@@ -4,7 +4,9 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.Editable;
 import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -21,9 +23,13 @@ import com.example.zlater.Model.User;
 import com.example.zlater.R;
 import com.example.zlater.Service.remote.ZlaterService;
 import com.example.zlater.Service.remote.RetrofitClient;
+import com.example.zlater.Utils.CheckInternetConnection;
 import com.example.zlater.Utils.Constants;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.iid.FirebaseInstanceId;
+import com.kaopiz.kprogresshud.KProgressHUD;
+
+import java.util.Objects;
 
 import io.reactivex.disposables.CompositeDisposable;
 import retrofit2.Call;
@@ -40,7 +46,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private TextView tvSignUp;
     private Button btn_Login;
     private ZlaterService zlaterService;
-    private ProgressDialog progressDialog;
+    private KProgressHUD progressDialog;
+    private String check;
 
     private void connectView() {
         edt_username = findViewById(R.id.edt_username);
@@ -49,7 +56,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         tvSignUp = findViewById(R.id.tvSignUp);
         btn_Login.setOnClickListener(this);
         tvSignUp.setOnClickListener(this);
-        progressDialog = new ProgressDialog(this);
     }
 
     @Override
@@ -61,6 +67,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         connectView();
         Retrofit retrofit = RetrofitClient.getInstance();
         zlaterService = retrofit.create(ZlaterService.class);
+        new CheckInternetConnection(this).checkConnection();
     }
 
     @Override
@@ -77,7 +84,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
 
     private void loginUser(String userName, String password) {
-        if(edt_username.getText().toString().equals("admin@polyfit.com")){
+        if(edt_username.getText().toString().equals("admin@zlater.com")){
             Toast.makeText(this, "Admin can't login in this app", Toast.LENGTH_SHORT).show();
         }else {
             showProgressDialog();
@@ -131,9 +138,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             case R.id.btn_Login:
                 String userName = edt_username.getText().toString();
                 String password = edt_password.getText().toString();
-                if (TextUtils.isEmpty(userName) || TextUtils.isEmpty(password)) {
-                    Snackbar.make(view, "Tài khoản và mật khẩu không được rỗng", Snackbar.LENGTH_SHORT).show();
-                } else {
+                if (validateUsername(userName) || validatePassword(password)||TextUtils.isEmpty(userName)||TextUtils.isEmpty(password)) {
                     loginUser(userName, password);
                 }
                 break;
@@ -144,14 +149,92 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     }
 
     private void showProgressDialog() {
-        progressDialog.setCancelable(false);
-        progressDialog.setMessage("Processing...");
-        progressDialog.setIndeterminate(false);
-        progressDialog.show();
+        progressDialog = KProgressHUD.create(this)
+                .setStyle(KProgressHUD.Style.SPIN_INDETERMINATE)
+                .setLabel(getText(R.string.please_wait).toString())
+                .setCancellable(false)
+                .setAnimationSpeed(2)
+                .setDimAmount(0.5f)
+                .show();
     }
 
     private void dismissProgressDialog() {
         progressDialog.dismiss();
     }
+
+    private boolean validatePassword(String pass) {
+
+
+        if (pass.length() < 4 || pass.length() > 20) {
+            edt_password.setError("Password Must consist of 4 to 20 characters");
+            return false;
+        }
+        return true;
+    }
+
+    private boolean validateUsername(String email) {
+
+        if (email.length() < 4 || email.length() > 30) {
+            edt_username.setError("Email Must consist of 4 to 30 characters");
+            return false;
+        } else if (!email.matches("^[A-za-z0-9.@]+")) {
+            edt_username.setError("Only . and @ characters allowed");
+            return false;
+        } else if (!email.contains("@") || !email.contains(".")) {
+            edt_username.setError("Email must contain @ and .");
+            return false;
+        }
+        return true;
+    }
+
+    TextWatcher usernameWatcher = new TextWatcher() {
+        @Override
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            //none
+        }
+
+        @Override
+        public void onTextChanged(CharSequence s, int start, int before, int count) {
+            //none
+        }
+
+        @Override
+        public void afterTextChanged(Editable s) {
+
+            check = s.toString();
+
+            if (check.length() < 4 || check.length() > 40) {
+                edt_username.setError("Email Must consist of 4 to 20 characters");
+            } else if (!check.matches("^[A-za-z0-9.@]+")) {
+                edt_username.setError("Only . and @ characters allowed");
+            } else if (!check.contains("@") || !check.contains(".")) {
+                edt_username.setError("Enter Valid Email");
+            }
+
+        }
+
+    };
+
+    TextWatcher passWatcher = new TextWatcher() {
+        @Override
+        public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+        }
+
+        @Override
+        public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+        }
+
+        @Override
+        public void afterTextChanged(Editable editable) {
+            check = editable.toString();
+            if (check.length() < 4 || check.length() > 20) {
+                edt_password.setError("Password Must consist of 4 to 20 characters");
+            } else if (!check.matches("^[A-za-z0-9@]+")) {
+                edt_password.setError("Only @ special character allowed");
+            }
+        }
+    };
 
 }

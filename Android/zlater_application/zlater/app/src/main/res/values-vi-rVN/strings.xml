@@ -64,4 +64,10 @@
     <string name="update_bmi">Cập nhật BMI</string>
     <string name="your_height">Chiều cao (cm)</string>
     <string name="your_weight">Cân nặng (kg)</string>
+    <string name="reminder">Nhắc nhở</string>
+    <string name="need_update_bmi">Tôi muốn cập nhật BMI</string>
+    <string name="apply">Áp dụng</string>
+    <string name="please_wait">Xin vui lòng chờ</string>
+    <string name="noconnection">Vui lòng kết nối với mạng wifi hoặc bật Dữ liệu di động</string>
+    <string name="can_conn_server">Không thể kết nối đến server</string>
 </resources>

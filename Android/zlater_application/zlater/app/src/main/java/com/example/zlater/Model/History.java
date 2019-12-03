@@ -1,7 +1,7 @@
 package com.example.zlater.Model;
 
 /**
- * Created by Hades on 03,November,2019
+ * Created by Hoang Son on 03,November,2019
  **/
 public class History {
     private int id;

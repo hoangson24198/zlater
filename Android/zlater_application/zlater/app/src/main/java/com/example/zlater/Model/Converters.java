@@ -5,7 +5,7 @@ import androidx.room.TypeConverter;
 import java.util.Date;
 
 /**
- * Created by Hades on 08,November,2019
+ * Created by Hoang Son on 08,November,2019
  **/
 public class Converters {
     @TypeConverter

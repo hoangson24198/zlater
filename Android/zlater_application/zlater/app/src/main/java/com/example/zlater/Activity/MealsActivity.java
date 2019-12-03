@@ -17,6 +17,7 @@ import com.example.zlater.Fragments.Meals.MorningFragment;
 import com.example.zlater.Fragments.Meals.NightFragment;
 import com.example.zlater.Fragments.Meals.NoonFragment;
 import com.example.zlater.R;
+import com.example.zlater.Utils.CheckInternetConnection;
 
 import java.util.ArrayList;
 import java.util.Objects;
@@ -41,6 +42,7 @@ public class MealsActivity extends AppCompatActivity {
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
         Objects.requireNonNull(getSupportActionBar()).hide();
         initView();
+        new CheckInternetConnection(this).checkConnection();
         addModelTab();
 
         Intent i = getIntent();
@@ -65,7 +67,7 @@ public class MealsActivity extends AppCompatActivity {
                 new NavigationTabBar.Model.Builder(
                         getResources().getDrawable(R.drawable.tab_morning),
                         getResources().getColor(R.color.morning)
-                ).title("Sáng")
+                ).title(getText(R.string.morning).toString())
                         .badgeTitle("NTB")
                         .build()
         );
@@ -73,7 +75,7 @@ public class MealsActivity extends AppCompatActivity {
                 new NavigationTabBar.Model.Builder(
                         getResources().getDrawable(R.drawable.tab_noon),
                         getResources().getColor(R.color.noon)
-                ).title("Trưa")
+                ).title(getText(R.string.afternoon).toString())
                         .badgeTitle("with")
                         .build()
         );
@@ -81,7 +83,7 @@ public class MealsActivity extends AppCompatActivity {
                 new NavigationTabBar.Model.Builder(
                         getResources().getDrawable(R.drawable.tab_night),
                         getResources().getColor(R.color.night)
-                ).title("Tối")
+                ).title(getText(R.string.night).toString())
                         .badgeTitle("state")
                         .build()
         );

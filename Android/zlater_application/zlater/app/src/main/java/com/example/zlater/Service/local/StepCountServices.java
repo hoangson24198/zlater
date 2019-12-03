@@ -156,7 +156,7 @@ public class StepCountServices extends Service implements SensorEventListener {
     }
     private void disableVibrate(){
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            NotificationChannel notificationChannel = new NotificationChannel(ForegroundServices.CHANNEL_ID,"PolyFit", NotificationManager.IMPORTANCE_HIGH);
+            NotificationChannel notificationChannel = new NotificationChannel(ForegroundServices.CHANNEL_ID,"Zlater", NotificationManager.IMPORTANCE_HIGH);
             //Disabling vibration!
             notificationChannel.enableVibration(false);
             notificationManager.createNotificationChannel(notificationChannel);

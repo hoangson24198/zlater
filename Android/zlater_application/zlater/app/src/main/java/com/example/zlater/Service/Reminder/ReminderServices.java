@@ -4,6 +4,9 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.media.MediaPlayer;
+import android.util.Log;
+
+import com.example.zlater.R;
 
 public class ReminderServices extends BroadcastReceiver {
     MediaPlayer mediaPlayer;
@@ -17,6 +20,7 @@ public class ReminderServices extends BroadcastReceiver {
             intentToScreenReminder.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             context.startActivity(intentToScreenReminder);
             Intent intent1 = new Intent("registerReminder");
+            Log.d("HS:::", "reminder: on ");
             context.sendBroadcast(intent1);
         }
 

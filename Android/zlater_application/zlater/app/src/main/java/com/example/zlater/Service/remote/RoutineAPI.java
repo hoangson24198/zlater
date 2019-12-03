@@ -10,7 +10,7 @@ import retrofit2.http.POST;
 import retrofit2.http.Path;
 
 /**
- * Created by Hades on 02,November,2019
+ * Created by Hoang Son on 02,November,2019
  **/
 public interface RoutineAPI {
     @GET("routine/getRoutinesByUserId/{id}")

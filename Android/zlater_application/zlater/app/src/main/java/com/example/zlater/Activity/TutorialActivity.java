@@ -16,6 +16,7 @@ import android.widget.Button;
 import com.example.zlater.Fragments.TutorialCardFragment;
 import com.example.zlater.Model.Tutorial;
 import com.example.zlater.R;
+import com.example.zlater.Utils.CheckInternetConnection;
 
 import java.util.ArrayList;
 import java.util.Objects;
@@ -38,6 +39,7 @@ public class TutorialActivity extends AppCompatActivity implements View.OnClickL
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
         Objects.requireNonNull(getSupportActionBar()).hide();
         initView();
+        new CheckInternetConnection(this).checkConnection();
         sampleTutorials = new ArrayList<>();
         sampleTutorials.add(new Tutorial("Chế độ ăn phù hợp", "Lên danh sách các bữa ăn cùng chế độ dinh dưỡng phù hợp"));
         sampleTutorials.add(new Tutorial("Tạo thông báo", "Người dùng tự lên kế hoạch cho các bài tập cùng bữa ăn"));

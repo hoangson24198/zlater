@@ -14,13 +14,13 @@ import java.util.List;
 public interface ReminderDAO  {
     @Insert
      void insert(Reminder... reminder);
-    @Query("SELECT * FROM polyfit_reminder")
+    @Query("SELECT * FROM zlater_reminder")
     List<Reminder> getReminder();
     @Update
     void update(Reminder ... reminders);
     @Delete
     void delete(Reminder reminders);
-    @Query("UPDATE polyfit_reminder SET turnOn=:turnOn WHERE id = :id")
+    @Query("UPDATE zlater_reminder SET turnOn=:turnOn WHERE id = :id")
     void switchState(int turnOn, int id);
 
 }

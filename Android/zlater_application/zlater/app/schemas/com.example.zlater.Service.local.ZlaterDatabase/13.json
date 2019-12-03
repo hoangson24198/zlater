@@ -2,10 +2,10 @@
   "formatVersion": 1,
   "database": {
     "version": 13,
-    "identityHash": "961b3b6a915d650a30f2e7390e25524e",
+    "identityHash": "df9f410195a441349818f3426b958c59",
     "entities": [
       {
-        "tableName": "polyfit_users",
+        "tableName": "zlater_users",
         "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `username` TEXT, `password` TEXT, `display_name` TEXT, `weight` REAL, `height` REAL, `bmi` REAL, `created_at` TEXT, `gender` INTEGER NOT NULL, `is_verified` INTEGER, `phone_number` TEXT, `firebase_token` TEXT, `isOnline` INTEGER NOT NULL, `avatar` TEXT)",
         "fields": [
           {
@@ -103,7 +103,7 @@
         "foreignKeys": []
       },
       {
-        "tableName": "polyfit_reminder",
+        "tableName": "zlater_reminder",
         "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `hour` INTEGER NOT NULL, `minute` INTEGER NOT NULL, `monday` INTEGER NOT NULL, `tuesday` INTEGER NOT NULL, `wednesday` INTEGER NOT NULL, `thursday` INTEGER NOT NULL, `friday` INTEGER NOT NULL, `saturday` INTEGER NOT NULL, `sunday` INTEGER NOT NULL, `turnOn` INTEGER NOT NULL, `note` TEXT)",
         "fields": [
           {
@@ -189,7 +189,7 @@
         "foreignKeys": []
       },
       {
-        "tableName": "polyfit_step_count",
+        "tableName": "zlater_step_count",
         "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`hour` INTEGER NOT NULL, `step` INTEGER NOT NULL, PRIMARY KEY(`hour`))",
         "fields": [
           {
@@ -215,7 +215,7 @@
         "foreignKeys": []
       },
       {
-        "tableName": "polyfit_routine",
+        "tableName": "zlater_routines",
         "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`step_count` INTEGER NOT NULL, `createdAt` TEXT NOT NULL, `updatedAt` TEXT, `time_practice` TEXT, `calories_consumed` TEXT, `id_user` INTEGER NOT NULL, `create_date` TEXT, PRIMARY KEY(`createdAt`))",
         "fields": [
           {
@@ -249,7 +249,7 @@
             "notNull": false
           },
           {
-            "fieldPath": "polyfitUserId",
+            "fieldPath": "zlaterUserId",
             "columnName": "id_user",
             "affinity": "INTEGER",
             "notNull": true
@@ -273,7 +273,7 @@
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"961b3b6a915d650a30f2e7390e25524e\")"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"df9f410195a441349818f3426b958c59\")"
     ]
   }
 }

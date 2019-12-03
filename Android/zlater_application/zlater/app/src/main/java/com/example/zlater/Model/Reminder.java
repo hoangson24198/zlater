@@ -5,7 +5,7 @@ import androidx.room.Entity;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
-@Entity(tableName = "polyfit_reminder")
+@Entity(tableName = "zlater_reminder")
 public class Reminder {
     @PrimaryKey(autoGenerate = true)
     private int id;

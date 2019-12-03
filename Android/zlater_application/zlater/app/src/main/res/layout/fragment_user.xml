@@ -99,11 +99,12 @@
                         android:layout_weight="0.7">
 
                         <TextView
+                            android:id="@+id/curr_bmi"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="24.5"
                             android:textColor="@color/white"
-                            android:textSize="40sp"></TextView>
+                            android:textSize="40sp"/>
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
@@ -253,7 +254,7 @@
                 android:layout_marginBottom="20dp"
                 android:background="@drawable/background_gradient"
                 android:padding="20sp"
-                android:text="@string/update_bmi"
+                android:text="@string/need_update_bmi"
                 android:textColor="@color/white">
 
             </Button>
@@ -271,7 +272,7 @@
             android:textColor="@color/white"
             android:textSize="@dimen/text_lg"
             android:textStyle="bold"
-            tools:ignore="RtlCompat"></TextView>
+            tools:ignore="RtlCompat"/>
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/viewHistory"
             android:layout_marginHorizontal="10dp"

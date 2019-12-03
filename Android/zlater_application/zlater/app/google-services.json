@@ -1,42 +1,79 @@
 {
   "project_info": {
-    "project_number": "871603019719",
-    "firebase_url": "https://polyfitapp.firebaseio.com",
-    "project_id": "polyfitapp",
-    "storage_bucket": "polyfitapp.appspot.com"
+    "project_number": "645584767447",
+    "firebase_url": "https://zlater103.firebaseio.com",
+    "project_id": "zlater103",
+    "storage_bucket": "zlater103.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:871603019719:android:3fb3fb2a7a3eacfdc503e2",
+        "mobilesdk_app_id": "1:645584767447:android:b6fdeb644e4a6cf60ae392",
         "android_client_info": {
           "package_name": "com.example.zlater"
         }
       },
       "oauth_client": [
         {
-          "client_id": "871603019719-ccv0cotrtub06rudaajekg84f41l3d78.apps.googleusercontent.com",
+          "client_id": "645584767447-kvfblgslle4q6t4chuqeum5e84ojjrq3.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.example.zlater",
-            "certificate_hash": "2eb0a6c5995ba4312c42251d1e18c4b0218516f3"
+            "certificate_hash": "c40579e01cb85494040603dbb88f33efbd596e65"
           }
         },
         {
-          "client_id": "871603019719-3vas5cll265vkra62i34j9h224j8r2fe.apps.googleusercontent.com",
+          "client_id": "645584767447-a73ag1oiihmc18cigufv6qsuuh44sht3.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyA2ByZIn95pJOsAb37lhegU8ZGkp5Fal1s"
+          "current_key": "AIzaSyDJ_4KUS5Y_wyCnuyWEfzP6SnzaOtBJCt8"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "871603019719-3vas5cll265vkra62i34j9h224j8r2fe.apps.googleusercontent.com",
+              "client_id": "645584767447-a73ag1oiihmc18cigufv6qsuuh44sht3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:645584767447:android:639df6726d75126e0ae392",
+        "android_client_info": {
+          "package_name": "com.krahs.adminzlater"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "645584767447-nsm1omo9tie7uc60arh09h40ittd3p0j.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.krahs.adminzlater",
+            "certificate_hash": "c40579e01cb85494040603dbb88f33efbd596e65"
+          }
+        },
+        {
+          "client_id": "645584767447-a73ag1oiihmc18cigufv6qsuuh44sht3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDJ_4KUS5Y_wyCnuyWEfzP6SnzaOtBJCt8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "645584767447-a73ag1oiihmc18cigufv6qsuuh44sht3.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

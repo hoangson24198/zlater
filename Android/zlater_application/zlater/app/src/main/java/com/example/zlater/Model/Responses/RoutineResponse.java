@@ -5,7 +5,7 @@ import com.example.zlater.Model.Routine;
 import java.util.ArrayList;
 
 /**
- * Created by Hades on 03,November,2019
+ * Created by Hoang Son on 03,November,2019
  **/
 public class RoutineResponse extends BaseResponse {
     private ArrayList<Routine> Response;

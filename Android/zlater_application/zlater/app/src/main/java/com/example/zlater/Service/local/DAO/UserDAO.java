@@ -10,7 +10,7 @@ import java.util.List;
 
 @Dao
 public interface UserDAO {
-    @Query("SELECT * FROM  polyfit_users")
+    @Query("SELECT * FROM  zlater_users")
     List<User> getAllUsers();
 
     @Insert

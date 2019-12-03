@@ -31,6 +31,7 @@ import com.example.zlater.R;
 
 import com.example.zlater.Service.Reminder.ReminderServices;
 import com.example.zlater.Service.local.ZlaterDatabase;
+import com.example.zlater.Utils.CheckInternetConnection;
 import com.google.android.material.card.MaterialCardView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -63,6 +64,7 @@ public class ReminderActivity extends AppCompatActivity implements View.OnClickL
         Objects.requireNonNull(getSupportActionBar()).hide();
         setContentView(R.layout.activity_reminder);
         connectView();
+        new CheckInternetConnection(this).checkConnection();
         getListReminder();
         setupReminder();
         registerReceiver(mMessageReceiver, new IntentFilter("registerReminder"));
@@ -72,7 +74,7 @@ public class ReminderActivity extends AppCompatActivity implements View.OnClickL
         fab = findViewById(R.id.fab);
         fab.setOnClickListener(this);
         toolbar = findViewById(R.id.toolbar);
-        toolbar.setTitle("Nhắc nhở");
+        toolbar.setTitle(R.string.reminder);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -401,7 +403,7 @@ public class ReminderActivity extends AppCompatActivity implements View.OnClickL
                     calendar.set(Calendar.SECOND, 0);
                     calendar.set(Calendar.DAY_OF_WEEK, list.get(z));
                     Log.e("HS:::",list.get(z).toString());
-                    Log.e("Alarm", hours + ":" + minutes + " : Day = "+list.get(z));
+                    Log.e("HS:::", hours + ":" + minutes + " : Day = "+list.get(z));
                     AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
                     Intent intent = new Intent(ReminderActivity.this, ReminderServices.class);
                     PendingIntent pendingIntent = PendingIntent.getBroadcast(ReminderActivity.this, 1, intent, 0);
@@ -411,6 +413,7 @@ public class ReminderActivity extends AppCompatActivity implements View.OnClickL
 //                        AlarmManager alarmManager1 = (AlarmManager) getApplicationContext().getSystemService(Context.ALARM_SERVICE);
 //                        assert alarmManager1 != null;
 //                        alarmManager1.cancel(pIntent);
+                        Log.d("HS:::", "setupReminder: before time");
                         calendar.add(Calendar.DATE, 7);
                     }
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {

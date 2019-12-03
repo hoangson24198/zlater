@@ -7,10 +7,10 @@ import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 /**
- * Created by Hades on 31,October,2019
+ * Created by Hoang Son on 31,October,2019
  **/
 
-@Entity(tableName = "polyfit_step_count")
+@Entity(tableName = "zlater_step_count")
 public class StepCount {
     @NonNull
     @PrimaryKey(autoGenerate = false)

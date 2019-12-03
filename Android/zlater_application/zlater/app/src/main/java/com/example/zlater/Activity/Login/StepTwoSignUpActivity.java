@@ -22,6 +22,8 @@ import com.example.zlater.Model.User;
 import com.example.zlater.R;
 import com.example.zlater.Service.remote.ZlaterService;
 import com.example.zlater.Service.remote.RetrofitClient;
+import com.example.zlater.Utils.CheckInternetConnection;
+import com.kaopiz.kprogresshud.KProgressHUD;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -39,7 +41,7 @@ public class StepTwoSignUpActivity extends AppCompatActivity implements View.OnC
     private RadioButton rb_Male, rb_Female;
     private CheckBox cb_Accept;
     private ZlaterService zlaterService;
-    ProgressDialog progressDialog;
+    KProgressHUD progressDialog;
     private CompositeSubscription mSubscriptions = new CompositeSubscription();
 
     @Override
@@ -50,6 +52,7 @@ public class StepTwoSignUpActivity extends AppCompatActivity implements View.OnC
         setContentView(R.layout.activity_step_two_sign_up);
         Retrofit retrofit = RetrofitClient.getInstance();
         zlaterService = retrofit.create(ZlaterService.class);
+        new CheckInternetConnection(this).checkConnection();
         connectView();
     }
 
@@ -107,10 +110,7 @@ public class StepTwoSignUpActivity extends AppCompatActivity implements View.OnC
     }
 
     private void registerUser(User user) {
-        progressDialog=new ProgressDialog(StepTwoSignUpActivity.this);
-        progressDialog.setCancelable(false);
-        progressDialog.setTitle("Processing");
-        progressDialog.show();
+       showProgressDialog();
         Call<UserResponse> calledRegister = zlaterService.registerUser(user);
         calledRegister.enqueue(new Callback<UserResponse>() {
             @Override
@@ -203,5 +203,19 @@ public class StepTwoSignUpActivity extends AppCompatActivity implements View.OnC
         });
         }
 
+    private void showProgressDialog() {
+        progressDialog = KProgressHUD.create(this)
+                .setStyle(KProgressHUD.Style.SPIN_INDETERMINATE)
+                .setLabel(getText(R.string.please_wait).toString())
+                .setCancellable(false)
+                .setAnimationSpeed(2)
+                .setDimAmount(0.5f)
+                .show();
+    }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        new CheckInternetConnection(this).checkConnection();
+    }
 }

@@ -18,6 +18,7 @@ import com.example.zlater.Model.Responses.DishesResponse;
 import com.example.zlater.R;
 import com.example.zlater.Service.remote.DishesAPI;
 import com.example.zlater.Service.remote.RetrofitClient;
+import com.example.zlater.Utils.CheckInternetConnection;
 import com.flipboard.bottomsheet.BottomSheetLayout;
 
 import java.util.ArrayList;
@@ -44,6 +45,7 @@ public class DishesTodayActivity extends AppCompatActivity implements ItemClickL
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dishes_today);
         initView();
+        new CheckInternetConnection(this).checkConnection();
 
         Retrofit retrofit = RetrofitClient.getInstance();
         dishesAPI = retrofit.create(DishesAPI.class);

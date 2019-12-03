@@ -218,5 +218,7 @@
     <orderEntry type="library" name="Gradle: com.yarolegovich:discrete-scrollview:1.4.9@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.romandanylyk:pageindicatorview:1.0.3@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.github.bhargavms:DotLoader:1.1.1@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.kaopiz:kprogresshud:1.1.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.geniusforapp.fancydialog:FancyDialog:0.1.4@aar" level="project" />
   </component>
 </module>

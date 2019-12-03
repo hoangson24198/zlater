@@ -18,6 +18,7 @@ import com.example.zlater.Model.Responses.BodypartResponse;
 import com.example.zlater.R;
 import com.example.zlater.Service.remote.BodypartsAPI;
 import com.example.zlater.Service.remote.RetrofitClient;
+import com.example.zlater.Utils.CheckInternetConnection;
 
 import java.util.ArrayList;
 
@@ -45,6 +46,7 @@ public class ExercisesActivity extends AppCompatActivity implements ItemClickLis
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         initView();
+        new CheckInternetConnection(this).checkConnection();
         Retrofit retrofit = RetrofitClient.getInstance();
         bodypartsAPI = retrofit.create(BodypartsAPI.class);
 
@@ -120,5 +122,11 @@ public class ExercisesActivity extends AppCompatActivity implements ItemClickLis
     @Override
     public void onClick(View view, int posittion) {
 
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        new CheckInternetConnection(this).checkConnection();
     }
 }

@@ -66,6 +66,7 @@
     <string name="current_specifications">Current specifications</string>
     <string name="chart">Chart</string>
     <string name="update_bmi">Update BMI</string>
+    <string name="need_update_bmi">I want to update BMI</string>
     <string name="history">History</string>
     <string name="abs">Abs</string>
     <string name="abs_des">Six packs is comming</string>
@@ -80,5 +81,9 @@
     <string name="cancel">Cancel</string>
     <string name="date">Date</string>
     <string name="des">This is description</string>
-
+    <string name="reminder">Reminder</string>
+    <string name="apply">Apply</string>
+    <string name="please_wait">Please wait</string>
+    <string name="noconnection">Please connect the Wifi network or turn on Mobile Data</string>
+    <string name="can_conn_server">Can\'t connect to server</string>
 </resources>

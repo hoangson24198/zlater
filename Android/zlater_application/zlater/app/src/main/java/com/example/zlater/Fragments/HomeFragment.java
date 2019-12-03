@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -52,6 +53,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+import com.kaopiz.kprogresshud.KProgressHUD;
 import com.skyfishjy.library.RippleBackground;
 import com.soundcloud.android.crop.Crop;
 
@@ -82,7 +84,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     private ImageView iv_avatar, ic_reminder, iv_bg_morning, iv_bg_noon, iv_bg_night;
     private PhotoView viewAvatar;
     private LinearLayout changeAvatar;
-    private TextView tv_ChangeAvatar;
+    private TextView btn_ChangeAvatar;
     private AlertDialog mDialog;
     private View mView;
     private AlertDialog.Builder mBuilder;
@@ -90,7 +92,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     private DietsAPI dietsAPI;
     private RecyclerView rv_bodyparts;
     private RippleBackground ripple_reminder;
-    ProgressDialog processDialog;
+    KProgressHUD progressDialog;
     private FirebaseStorage storage = FirebaseStorage.getInstance();
     private StorageReference storageRef = storage.getReferenceFromUrl(Constants.STORAGE_IMAGE);
     private RelativeLayout layout_reminder, layout_morning, layout_noon, layout_night;
@@ -218,17 +220,18 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                 viewAvatar = mView.findViewById(R.id.avatarView);
                 setAvatarToPhotoView(viewAvatar);
                 changeAvatar = mView.findViewById(R.id.changeAvatar);
-                tv_ChangeAvatar = mView.findViewById(R.id.tv_ChangeAvatar);
+                btn_ChangeAvatar = mView.findViewById(R.id.tv_ChangeAvatar);
                 mBuilder.setView(mView);
                 mDialog = mBuilder.create();
                 mDialog.show();
                 changeAvatar.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        if (tv_ChangeAvatar.getText().toString().equals("Change Avatar")) {
+                        Log.d("HS::", "onClick: "+getText(R.string.change_avt).toString());
+                        if (btn_ChangeAvatar.getText().toString().equals(getText(R.string.change_avt).toString())) {
                             Crop.pickImage(getActivity(), HomeFragment.this);
                         }
-                        if (tv_ChangeAvatar.getText().toString().equals("Apply")) {
+                        if (btn_ChangeAvatar.getText().toString().equals(getText(R.string.apply).toString())) {
                             updateAvatar();
                         }
                     }
@@ -262,10 +265,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     }
 
     private void updateAvatar() {
-        processDialog = new ProgressDialog(getActivity());
-        processDialog.setCancelable(false);
-        processDialog.setMessage("Processing...");
-        processDialog.show();
+        showProgressDialog();
         final StorageReference mountainsRef = storageRef.child(new Date() + ".png");
         viewAvatar.setDrawingCacheEnabled(true);
         viewAvatar.buildDrawingCache();
@@ -278,7 +278,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
             @Override
             public void onFailure(@NonNull Exception exception) {
                 Toast.makeText(getActivity(), "ERROR", Toast.LENGTH_SHORT).show();
-                processDialog.dismiss();
+                progressDialog.dismiss();
             }
         }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
             @Override
@@ -298,12 +298,11 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                             Uri downloadUri = task.getResult();
                             assert downloadUri != null;
                             linkAvatar = downloadUri.toString();
-
-//                            viewAvatar.setImageResource(R.drawable.ic_launcher_foreground);
-                            Log.d("Link", linkAvatar);
+                            Log.d("HS:: Link", linkAvatar);
+                            Glide.with(getContext()).load(linkAvatar).into(iv_avatar);
                             handleUpdateUser();
                         } else {
-                            processDialog.dismiss();
+                            progressDialog.dismiss();
                         }
                     }
                 });
@@ -315,16 +314,18 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         SharedPreferences sharedPreferences = getActivity().getSharedPreferences(Constants.LOGIN, MODE_PRIVATE);
 
         User user = new User(sharedPreferences.getInt("id", 0), linkAvatar);
+        Log.d("HS::", "handleUpdateUser: "+user.getBmi());
         Call<UserResponse> callUpdate = zlaterService.updateUser(user);
         callUpdate.enqueue(new Callback<UserResponse>() {
             @Override
             public void onResponse(Call<UserResponse> call, Response<UserResponse> response) {
                 UserResponse userResponse = response.body();
-                Log.e("HS:::", response.body() + " :: " + response.code() + "::" + userResponse.getMessage());
+                Log.e("HS::", response.body() + " :: " + response.code() + "::" + userResponse.getMessage());
 
                 if (userResponse.getStatus() == 0) {
                     Toast.makeText(getActivity(), "Updated", Toast.LENGTH_SHORT).show();
-                    processDialog.dismiss();
+                    mDialog.cancel();
+                    progressDialog.dismiss();
                 } else {
                     Log.e("HS:::", "Create failed");
                 }
@@ -332,7 +333,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
             @Override
             public void onFailure(Call<UserResponse> call, Throwable t) {
-                processDialog.dismiss();
+                progressDialog.dismiss();
 
                 Log.e("HS:::", "failed" + call.request() + ":::" + t.getMessage());
             }
@@ -438,7 +439,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                 Crop.of(source_uri, destination_uri).asSquare().start(getActivity(), HomeFragment.this);
                 viewAvatar.setImageURI(Crop.getOutput(data));
                 Log.e("aaa", "abc");
-                tv_ChangeAvatar.setText("Apply");
+                btn_ChangeAvatar.setText(R.string.apply);
                 changeAvatar.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -476,4 +477,23 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                 .into(avatarToPhotoView);
     }
 
+    private void showProgressDialog() {
+        progressDialog = KProgressHUD.create(Objects.requireNonNull(getContext()))
+                .setStyle(KProgressHUD.Style.SPIN_INDETERMINATE)
+                .setLabel(getText(R.string.please_wait).toString())
+                .setCancellable(false)
+                .setAnimationSpeed(2)
+                .setDimAmount(0.5f)
+                .show();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        SharedPreferences sharedPreferences = Objects.requireNonNull(getActivity()).getSharedPreferences(Constants.LOGIN, MODE_PRIVATE);
+        int userId = sharedPreferences.getInt("id", 0);
+        this.getDietData();
+        this.getUserById(userId);
+        this.getAllBodyParts();
+    }
 }
