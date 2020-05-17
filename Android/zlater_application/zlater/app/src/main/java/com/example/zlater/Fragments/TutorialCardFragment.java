@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.zlater.R;
 
 /**
@@ -19,16 +20,17 @@ import com.example.zlater.R;
 public class TutorialCardFragment extends Fragment {
     private TextView tv_title, tv_description;
     private ImageView iv_image;
-    private String title, description, imageUrl;
+    private String title, description;
+    private Integer imageId;
 
     public TutorialCardFragment() {
         // Required empty public constructor
     }
 
-    public TutorialCardFragment(String title, String description) {
+    public TutorialCardFragment(String title, String description,Integer imageId) {
         this.title = title;
         this.description = description;
-//        this.imageUrl = imageUrl; //Todo: Loading image later
+        this.imageId = imageId;
     }
 
     private void initView(View view) {
@@ -44,6 +46,7 @@ public class TutorialCardFragment extends Fragment {
         initView(view);
         tv_title.setText(this.title);
         tv_description.setText(this.description);
+        Glide.with(this).load(imageId).into(iv_image);
         return view;
     }
 

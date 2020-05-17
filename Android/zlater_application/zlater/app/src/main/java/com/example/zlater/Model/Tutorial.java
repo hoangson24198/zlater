@@ -3,9 +3,9 @@ package com.example.zlater.Model;
 public class Tutorial {
     private String title;
     private String description;
-    private String image;
+    private Integer image;
 
-    public Tutorial(String title, String description, String image) {
+    public Tutorial(String title, String description, Integer image) {
         this.title = title;
         this.description = description;
         this.image = image;
@@ -32,11 +32,11 @@ public class Tutorial {
         this.description = description;
     }
 
-    public String getImage() {
+    public Integer getImage() {
         return image;
     }
 
-    public void setImage(String image) {
+    public void setImage(Integer image) {
         this.image = image;
     }
 }

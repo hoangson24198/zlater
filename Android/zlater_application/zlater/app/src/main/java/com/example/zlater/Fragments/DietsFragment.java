@@ -5,11 +5,16 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.example.zlater.Adapter.DietFragmentPagerAdapter;
 import com.example.zlater.Interface.ItemClickListener;
@@ -17,15 +22,20 @@ import com.example.zlater.Model.Responses.DietsResponse;
 import com.example.zlater.R;
 import com.example.zlater.Service.remote.DietsAPI;
 import com.example.zlater.Service.remote.RetrofitClient;
+import com.example.zlater.Utils.Constants;
 import com.flipboard.bottomsheet.BottomSheetLayout;
 import com.rd.PageIndicatorView;
 import com.yarolegovich.discretescrollview.DiscreteScrollView;
 import com.yarolegovich.discretescrollview.transform.ScaleTransformer;
 
+import java.util.Objects;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
+
+import static android.content.Context.MODE_PRIVATE;
 
 public class DietsFragment extends Fragment implements ItemClickListener {
     private static final String ARG_PARAM1 = "param1";
@@ -37,7 +47,7 @@ public class DietsFragment extends Fragment implements ItemClickListener {
     private BottomSheetLayout sheet_dish;
     private DietsAPI dietsAPI;
     private DiscreteScrollView rv_diets;
-    private PageIndicatorView pageIndicatorView;
+    private TextView username;
 
     private OnFragmentInteractionListener mListener;
 
@@ -45,7 +55,7 @@ public class DietsFragment extends Fragment implements ItemClickListener {
         sheet_dish = view.findViewById(R.id.bottom_sheet_dish_details);
         bottomSheetIngredientView = LayoutInflater.from(getContext()).inflate(R.layout.bottom_sheet_dish_details, sheet_dish, false);
         rv_diets = view.findViewById(R.id.rv_diets_fragment);
-        pageIndicatorView = view.findViewById(R.id.pageIndicatorView);
+        username = view.findViewById(R.id.diet_username);
         // specify total count of indicators
     }
 
@@ -82,9 +92,11 @@ public class DietsFragment extends Fragment implements ItemClickListener {
         rv_diets.addScrollListener(new DiscreteScrollView.ScrollListener<RecyclerView.ViewHolder>() {
             @Override
             public void onScroll(float v, int i, int i1, @Nullable RecyclerView.ViewHolder viewHolder, @Nullable RecyclerView.ViewHolder t1) {
-                pageIndicatorView.setSelection(i1);
+
             }
         });
+        SharedPreferences sharedPreferences = Objects.requireNonNull(getActivity()).getSharedPreferences(Constants.USER_INF, MODE_PRIVATE);
+        username.setText(sharedPreferences.getString("username",""));
         return view;
     }
 
@@ -96,7 +108,7 @@ public class DietsFragment extends Fragment implements ItemClickListener {
                 if (response.isSuccessful()) {
                     DietsResponse dietsResponse = response.body();
                     if (dietsResponse.getStatus() == 0) {
-                        pageIndicatorView.setCount(dietsResponse.getResponse().size());
+
                         DietFragmentPagerAdapter dietFragmentPagerAdapter = new DietFragmentPagerAdapter(dietsResponse.getResponse(), getContext());
                         rv_diets.setOffscreenItems(20);
                         rv_diets.setSlideOnFlingThreshold(1000);
@@ -153,5 +165,11 @@ public class DietsFragment extends Fragment implements ItemClickListener {
 
     public interface OnFragmentInteractionListener {
         void onFragmentInteraction(Uri uri);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        getDietData();
     }
 }

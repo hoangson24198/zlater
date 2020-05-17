@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="facebook_app_id" translatable="false">1074474022923849</string>
+    <string name="facebook_login_protocol_scheme" translatable="false">fb1074474022923849</string>
     <string name="app_name">Zlater</string>
     <string name="title_activity_exercises" translatable="false">ExercisesActivity</string>
     <string name="action_settings" translatable="false">Settings</string>
     <string name="notification_channel_id" translatable="false">DefaultChanel</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
-    <string name="rule">
-        1. The product is designed and developed based on the needs of the user.\n2. All data of our application is collected from many reputable sources.\n3. Users must make sure to follow our instructions for the best results
-    </string>
+    <string name="rule">"1. The product is designed and developed based on the needs of the user.\n2. All data of our application is collected from many reputable sources.\n3. Users must make sure to follow our instructions for the best results.     "</string>
     <string name="email" translatable="false">Email</string>
     <string name="password">Password</string>
     <string name="display_name">Your Name</string>
@@ -85,5 +85,36 @@
     <string name="apply">Apply</string>
     <string name="please_wait">Please wait</string>
     <string name="noconnection">Please connect the Wifi network or turn on Mobile Data</string>
+
     <string name="can_conn_server">Can\'t connect to server</string>
+    <string name="it_morphin_time">It\'s morphin\'s time</string>
+    <string name="exercise_des_tut">To your personalize Profile</string>
+    <string name="tracking_on_health">Keep eye on Health Tracking</string>
+    <string name="tracking_des">Log &amp; reminder your activities </string>
+    <string name="check_your_project">Check your project</string>
+    <string name="check_des">Make a list of meals with the right nutrition</string>
+    <string name="get_started">Get started</string>
+
+    <string name="title_activity_setting">SettingActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="title_activity_settings">Settings</string>
+
+    <!-- Preference Titles -->
+    <string name="messages_header">Messages</string>
+    <string name="sync_header">Sync</string>
+
+    <!-- Messages Preferences -->
+    <string name="signature_title">Your signature</string>
+    <string name="reply_title">Default reply action</string>
+
+    <!-- Sync Preferences -->
+    <string name="sync_title">Sync email periodically</string>
+    <string name="attachment_title">Download incoming attachments</string>
+    <string name="attachment_summary_on">Automatically download attachments for incoming emails
+    </string>
+    <string name="attachment_summary_off">Only download attachments when manually requested</string>
+
+    <string name="submit">Submit</string>
+    <string name="congratulation" translatable="false">We congratulate you for accomplishing today\'s goal</string>
 </resources>

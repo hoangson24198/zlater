@@ -9,7 +9,7 @@
     <color name="gray">#30000000</color>
     <color name="blue">#1890ff</color>
     <color name="textClock">#0016e6</color>
-<!--    Change color here-->
+    <!--    Change color here-->
     <color name="primary">#39375b</color>
     <color name="secondary">#4F515B</color>
     <color name="dark_blue">#4F515B</color>
@@ -21,16 +21,16 @@
     <color name="negative">#C10015</color>
     <color name="social">#3b5998</color>
     <color name="ghost">#f8f8ff</color>
-<!--    Meal's color-->
+    <!--    Meal's color-->
     <color name="morning">#DBB3B3</color>
     <color name="noon">#ddb6c6</color>
     <color name="night">#946D97</color>
-<!--    Level-->
+    <!--    Level-->
     <color name="gain">#f6ad7b</color>
     <color name="balance">#c2e8ce</color>
     <color name="burn">#be7575</color>
 
-<!--    histories-->
+    <!--    histories-->
     <color name="textColor">#39375C</color>
 
     <!--Gradient main color-->
@@ -42,4 +42,6 @@
         <item>#E65100</item>
         <item>#FFBB00</item>
     </array>
+
+    <color name="black_overlay">#66000000</color>
 </resources>

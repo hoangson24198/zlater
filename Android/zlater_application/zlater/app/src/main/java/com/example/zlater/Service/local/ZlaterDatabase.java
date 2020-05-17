@@ -20,7 +20,7 @@ import com.example.zlater.Service.local.DAO.UserDAO;
 @Database(entities = {User.class, Reminder.class, StepCount.class, Routine.class}, version = 13)
 @TypeConverters({Converters.class})
 public abstract class ZlaterDatabase extends RoomDatabase {
-    private static final String DB_NAME = "polyfit_db";
+    private static final String DB_NAME = "zlater_db";
     private static ZlaterDatabase instance;
 
     public static synchronized ZlaterDatabase getInstance(Context context) {

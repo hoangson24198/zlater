@@ -41,9 +41,9 @@ public class TutorialActivity extends AppCompatActivity implements View.OnClickL
         initView();
         new CheckInternetConnection(this).checkConnection();
         sampleTutorials = new ArrayList<>();
-        sampleTutorials.add(new Tutorial("Chế độ ăn phù hợp", "Lên danh sách các bữa ăn cùng chế độ dinh dưỡng phù hợp"));
-        sampleTutorials.add(new Tutorial("Tạo thông báo", "Người dùng tự lên kế hoạch cho các bài tập cùng bữa ăn"));
-        sampleTutorials.add(new Tutorial("Bài tập theo bộ phận cơ thể", "Gợi ý các bài tập theo bộ phận cơ thể, với đầy đủ các bài chuyên nghiệp giúp bạn thay đổi vóc dáng nhanh chóng"));
+        sampleTutorials.add(new Tutorial(getText(R.string.exercies).toString(), getText(R.string.exercise_des_tut).toString(),R.drawable.undraw_healthy_habit_bh5w));
+        sampleTutorials.add(new Tutorial(getText(R.string.tracking_on_health).toString(), getText(R.string.tracking_des).toString(),R.drawable.undraw_fitness_tracker_3033));
+        sampleTutorials.add(new Tutorial(getText(R.string.check_your_project).toString(), getText(R.string.check_des).toString(),R.drawable.undraw_calendar_dutt));
         TutorialPagerAdapter tutorialPagerAdapter = new TutorialPagerAdapter(getSupportFragmentManager(), sampleTutorials, this);
         vpager_tutorial.setAdapter(tutorialPagerAdapter);
 
@@ -101,7 +101,7 @@ public class TutorialActivity extends AppCompatActivity implements View.OnClickL
         }
 
         if(currentIndex == sampleTutorials.size() - 1) {
-            nextTutorial.setText("Tôi đã hiểu");
+            nextTutorial.setText(R.string.get_started);
         } else {
             nextTutorial.setVisibility(View.VISIBLE);
         }
@@ -128,13 +128,13 @@ class TutorialPagerAdapter extends FragmentStatePagerAdapter {
         Tutorial tutorial = tutorials.get(position);
         switch (position) {
             case 0:
-                fragment = new TutorialCardFragment(tutorial.getTitle(), tutorial.getDescription());
+                fragment = new TutorialCardFragment(tutorial.getTitle(), tutorial.getDescription(),tutorial.getImage());
                 break;
             case 1:
-                fragment = new TutorialCardFragment(tutorial.getTitle(), tutorial.getDescription());
+                fragment = new TutorialCardFragment(tutorial.getTitle(), tutorial.getDescription(),tutorial.getImage());
                 break;
             case 2:
-                fragment = new TutorialCardFragment(tutorial.getTitle(), tutorial.getDescription());
+                fragment = new TutorialCardFragment(tutorial.getTitle(), tutorial.getDescription(),tutorial.getImage());
                 break;
         }
         return fragment;

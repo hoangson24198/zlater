@@ -17,14 +17,8 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:scaleType="centerCrop"
-            android:src="@drawable/bg_dishes" />
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:alpha="0.9"
-            android:src="@drawable/gradient_cover" />
+            android:scaleType="fitXY"
+            android:src="@drawable/dietbg" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -32,43 +26,63 @@
             android:orientation="vertical">
 
             <TextView
-                android:layout_width="200dp"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:layout_marginVertical="30dp"
+               android:layout_marginTop="30dp"
                 android:layout_marginRight="20dp"
-                android:background="@drawable/frame_lable_2"
                 android:fontFamily="@font/roboto"
                 android:gravity="left"
                 android:paddingVertical="10dp"
-                android:paddingHorizontal="20dp"
+                android:paddingHorizontal="30dp"
                 android:text="@string/diet"
-                android:textColor="@color/white"
+                android:textColor="@color/positive"
                 android:textSize="@dimen/text_xl" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto"
+                    android:gravity="left"
+                    android:paddingVertical="10dp"
+                    android:paddingStart="30dp"
+                    android:text="Hello,"
+                    android:textColor="@color/black"
+                    android:textSize="24sp" />
+                <TextView
+                    android:id="@+id/diet_username"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto"
+                    android:gravity="left"
+                    android:paddingVertical="10dp"
+                    android:text="Name"
+                    android:textColor="@color/black"
+                    android:textSize="24sp" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="20dp"
+                android:fontFamily="@font/roboto"
+                android:gravity="left"
+                android:paddingVertical="10dp"
+                android:paddingHorizontal="30dp"
+                android:text="What do you want the meal to have?"
+                android:textColor="@color/black_overlay"
+                android:textStyle="bold"
+                android:textSize="18sp" />
 
             <com.yarolegovich.discretescrollview.DiscreteScrollView
                 android:id="@+id/rv_diets_fragment"
-                android:layout_weight="1"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-
-            <com.rd.PageIndicatorView
-                android:id="@+id/pageIndicatorView"
-                attrs:piv_padding="12dp"
-                attrs:piv_radius="8dp"
-                android:layout_weight="0"
-                android:layout_marginBottom="20dp"
-                android:layout_gravity="center"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                app:piv_animationType="scale"
-                app:piv_dynamicCount="true"
-                app:piv_interactiveAnimation="true"
-                app:piv_selectedColor="#F3F3F3"
-                app:piv_unselectedColor="#919191"
-                app:piv_viewPager="@id/rv_diets_fragment" />
-
-
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                />
         </LinearLayout>
 
 

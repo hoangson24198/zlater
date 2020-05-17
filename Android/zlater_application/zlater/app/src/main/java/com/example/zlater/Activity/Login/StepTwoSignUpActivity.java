@@ -2,7 +2,6 @@ package com.example.zlater.Activity.Login;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -218,4 +217,6 @@ public class StepTwoSignUpActivity extends AppCompatActivity implements View.OnC
         super.onResume();
         new CheckInternetConnection(this).checkConnection();
     }
+
+
 }

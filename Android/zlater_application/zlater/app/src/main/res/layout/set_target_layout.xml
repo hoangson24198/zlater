@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="300dp"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/white"
+    android:id="@+id/target_layout"
+    app:layout_constraintCircleRadius="5dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Set your target today!"
+        android:textSize="22sp"
+        android:textColor="@color/black_overlay"
+        android:textStyle="bold"
+        android:layout_margin="10dp"
+        android:layout_gravity="center"
+        />
+    <EditText
+        android:id="@+id/edt_target"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp"
+        android:hint="Ex: 6000"
+        android:inputType="number"
+        android:textSize="16sp"
+        />
+    <customfonts.Button_Poppins_Regular
+        android:id="@+id/btn_submit"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text="@string/submit"
+        android:layout_gravity="center"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:textCursorDrawable="@drawable/sky_blue_cursor_color"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        android:background="@drawable/background_gradient"/>
+
+</LinearLayout>

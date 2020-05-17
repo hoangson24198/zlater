@@ -15,9 +15,8 @@
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
-
     <application
-        android:name="com.example.zlater.Service.ForegroundServices"
+        android:name=".Service.ForegroundServices"
         android:allowBackup="true"
         android:icon="@drawable/icon_logo_dark"
         android:label="@string/app_name"
@@ -26,43 +25,59 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:replace="android:icon">
+
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
+
         <activity
-            android:name="com.example.zlater.Activity.DishesTodayActivity"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity android:name="com.example.zlater.Activity.MealsActivity" />
-        <activity android:name="com.example.zlater.Activity.SplashScreen">
+            android:name=".Activity.DishesTodayActivity"
+            />
+        <activity android:name=".Activity.MealsActivity" />
+        <activity android:name=".Activity.SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.example.zlater.Activity.ReminderActivity" />
-        <activity android:name="com.example.zlater.Activity.MainActivity" />
-        <activity android:name="com.example.zlater.Activity.TutorialActivity" />
-        <activity android:name="com.example.zlater.Activity.ExerciseDetailsActivity" />
+        <activity android:name=".Activity.ReminderActivity" />
+        <activity android:name=".Activity.MainActivity" />
+        <activity android:name=".Activity.TutorialActivity" />
+        <activity android:name=".Activity.ExerciseDetailsActivity" />
         <activity
-            android:name="com.example.zlater.Activity.ExercisesActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name="com.example.zlater.Activity.Login.StepTwoSignUpActivity" />
-        <activity android:name="com.example.zlater.Activity.Login.StepOneSignUpActivity" />
-        <activity android:name="com.example.zlater.Activity.Login.LoginActivity" />
+            android:name=".Activity.ExercisesActivity"
+            android:theme="@style/AppTheme.LightNoActionBar"
+            />
+        <activity android:name=".Activity.Login.StepTwoSignUpActivity" />
+        <activity android:name=".Activity.Login.StepOneSignUpActivity" />
+        <activity android:name=".Activity.Login.LoginActivity" />
         <activity android:name="com.soundcloud.android.crop.CropImageActivity" />
-        <activity android:name="com.example.zlater.Activity.ReminderScreenActivity" />
+        <activity android:name=".Activity.ReminderScreenActivity">
+            <intent-filter>
+                <action android:name="reminderScreen" />
+            </intent-filter>
+        </activity>
 
-        <receiver android:name="com.example.zlater.Service.Reminder.ReminderServices">
+        <receiver android:name=".Service.Broadcast.BootBroadcastReceiver">
             <intent-filter>
                 <action android:name="reminderServices" />
             </intent-filter>
         </receiver>
+
         <service
-            android:name="com.example.zlater.Service.remote.MyFirebaseMessagingService"
+            android:name=".Service.remote.MyFirebaseMessagingService"
             android:exported="false">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
-        <service android:name="com.example.zlater.Service.local.StepCountServices" />
+        <service android:name=".Service.local.step.StepService" />
+
+        <provider
+            android:name="com.facebook.FacebookContentProvider"
+            android:authorities="com.facebook.app.FacebookContentProvider1074474022923849"
+            android:exported="true" />
     </application>
 
 </manifest>

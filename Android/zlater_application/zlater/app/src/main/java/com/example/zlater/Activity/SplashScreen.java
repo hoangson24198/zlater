@@ -13,7 +13,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.zlater.Activity.Login.LoginActivity;
 import com.example.zlater.R;
-import com.example.zlater.Utils.CheckInternetConnection;
 import com.example.zlater.Utils.Constants;
 
 import java.util.Objects;

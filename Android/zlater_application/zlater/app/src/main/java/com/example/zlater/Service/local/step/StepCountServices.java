@@ -1,10 +1,11 @@
-package com.example.zlater.Service.local;
+package com.example.zlater.Service.local.step;
 
 
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.Service;
+import android.app.TaskStackBuilder;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -26,11 +27,13 @@ import com.example.zlater.Activity.MainActivity;
 import com.example.zlater.Model.Routine;
 import com.example.zlater.Model.StepCount;
 import com.example.zlater.R;
+import com.example.zlater.Service.local.ZlaterDatabase;
 import com.example.zlater.Utils.Constants;
 import com.example.zlater.Service.ForegroundServices;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Objects;
 
 public class StepCountServices extends Service implements SensorEventListener {
     boolean isRunning = false;
@@ -52,7 +55,7 @@ public class StepCountServices extends Service implements SensorEventListener {
     public int onStartCommand(Intent intent, int flags, int startId) {
         Intent notificationIntent = new Intent(this, MainActivity.class);
         pendingIntent = PendingIntent.getActivity(this,
-                0, notificationIntent, 0);
+                0, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
         vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
         notification = new NotificationCompat.Builder(this, ForegroundServices.CHANNEL_ID)
                 .setContentTitle("Step count service ")
@@ -65,7 +68,7 @@ public class StepCountServices extends Service implements SensorEventListener {
         notificationManager.notify(id,notification.build());
         isRunning = true;
         sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
-        Sensor countSensor = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+        Sensor countSensor = Objects.requireNonNull(sensorManager).getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
         if (countSensor != null) {
             sensorManager.registerListener(this, countSensor, SensorManager.SENSOR_DELAY_NORMAL);
         } else {
@@ -94,6 +97,7 @@ public class StepCountServices extends Service implements SensorEventListener {
             if (MagnitudeDenta > 20) {
                 step++;
             }
+            Log.e("HS", "onSensorChanged:" + step);
             Date date = new Date();
             SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
             SimpleDateFormat dateFormatSave = new SimpleDateFormat("yyyy-MM-dd");
@@ -106,6 +110,7 @@ public class StepCountServices extends Service implements SensorEventListener {
                 Routine routine=new Routine(step,dateFormatSave.format(date)+" 00:00:00",null,"2","5",sharedPreferences.getInt("id",0));
                 ZlaterDatabase.getInstance(getApplicationContext()).routineDAO().insert(routine);
             }
+
 
             if(timeForUploadData.equals("05:00:00")){
                 updateStepCount(5,step);
@@ -143,9 +148,9 @@ public class StepCountServices extends Service implements SensorEventListener {
                 updateStepCount(21,step);
                 Log.e("currentTime","It time");
             }
-                notification.setContentText("Your step today " + step);
-                notification.setSmallIcon(R.drawable.logo);
-                notificationManager.notify(id,notification.build());
+//                notification.setContentText("Your step today " + step);
+//                notification.setSmallIcon(R.drawable.logo);
+//                notificationManager.notify(id,notification.build());
 
         }
     }

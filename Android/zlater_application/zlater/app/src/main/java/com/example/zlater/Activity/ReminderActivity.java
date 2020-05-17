@@ -10,7 +10,6 @@ import android.app.AlarmManager;
 import android.app.Dialog;
 import android.app.PendingIntent;
 import android.app.TimePickerDialog;
-import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
@@ -29,7 +28,7 @@ import com.example.zlater.Adapter.ReminderAdapter;
 import com.example.zlater.Model.Reminder;
 import com.example.zlater.R;
 
-import com.example.zlater.Service.Reminder.ReminderServices;
+import com.example.zlater.Service.Broadcast.BootBroadcastReceiver;
 import com.example.zlater.Service.local.ZlaterDatabase;
 import com.example.zlater.Utils.CheckInternetConnection;
 import com.google.android.material.card.MaterialCardView;
@@ -341,7 +340,7 @@ public class ReminderActivity extends AppCompatActivity implements View.OnClickL
         viewReminder.setAdapter(reminderAdapter);
     }
 
-    private BroadcastReceiver mMessageReceiver = new BroadcastReceiver() {
+    private android.content.BroadcastReceiver mMessageReceiver = new android.content.BroadcastReceiver() {
 
         @Override
         public void onReceive(Context context, Intent intent) {
@@ -405,7 +404,7 @@ public class ReminderActivity extends AppCompatActivity implements View.OnClickL
                     Log.e("HS:::",list.get(z).toString());
                     Log.e("HS:::", hours + ":" + minutes + " : Day = "+list.get(z));
                     AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
-                    Intent intent = new Intent(ReminderActivity.this, ReminderServices.class);
+                    Intent intent = new Intent(ReminderActivity.this, BootBroadcastReceiver.class);
                     PendingIntent pendingIntent = PendingIntent.getBroadcast(ReminderActivity.this, 1, intent, 0);
                     if (calendar.before(Calendar.getInstance())) {
 //                        Toast.makeText(this, "Next day", Toast.LENGTH_SHORT).show();

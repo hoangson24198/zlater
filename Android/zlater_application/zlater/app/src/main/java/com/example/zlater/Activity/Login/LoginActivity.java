@@ -1,6 +1,5 @@
 package com.example.zlater.Activity.Login;
 
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -25,11 +24,8 @@ import com.example.zlater.Service.remote.ZlaterService;
 import com.example.zlater.Service.remote.RetrofitClient;
 import com.example.zlater.Utils.CheckInternetConnection;
 import com.example.zlater.Utils.Constants;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.kaopiz.kprogresshud.KProgressHUD;
-
-import java.util.Objects;
 
 import io.reactivex.disposables.CompositeDisposable;
 import retrofit2.Call;

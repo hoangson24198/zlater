@@ -8,7 +8,6 @@
     <string name="male">Nam</string>
     <string name="or">hoặc</string>
     <string name="password">Mật khẩu</string>
-    <string name="rule">1. Sản phẩm được thiết kế và phát triển dựa trên nhu cầu đối với vóc dáng của người dùng \\n2. Mọi dữ liệu của ứng dụng chúng tôi được sưu tầm từ nhiều nguồn uy tín.\\n3. Người dùng phải đảm bảo tập luyện theo đúng hướng dẫn của chúng tôi để có kết quả tốt nhất</string>
     <string name="sign_up_now">Đăng kí ngay</string>
     <string name="accept_rule">Tôi đồng ý với chính sách &amp; điều khoản</string>
     <string name="creat_reminder">Tạo nhắc nhở</string>
@@ -70,4 +69,13 @@
     <string name="please_wait">Xin vui lòng chờ</string>
     <string name="noconnection">Vui lòng kết nối với mạng wifi hoặc bật Dữ liệu di động</string>
     <string name="can_conn_server">Không thể kết nối đến server</string>
+    <string name="it_morphin_time">Đã đến khoảnh khắc của bạn!</string>
+    <string name="check_des">Lên danh sách các bữa ăn cùng chế độ dinh dưỡng phù hợp</string>
+    <string name="check_your_project">Kiểm tra kế hoạch của bạn</string>
+    <string name="exercide_des">Gợi ý các bài tập theo cá nhân</string>
+    <string name="tracking_des">Ghi lại và nhắc nhở hoạt động của bạn</string>
+    <string name="tracking_on_health">Theo dõi sức khỏe</string>
+    <string name="exercise_des_tut">Gợi ý các bài tập theo cá nhân</string>
+    <string name="get_started">Bắt đầu</string>
+    <string name="rule">1. Sản phẩm được thiết kế và phát triển dựa trên nhu cầu đối với vóc dáng của người dung.\n2. Mọi dữ liệu của ứng dụng chúng tôi được sưu tầm từ nhiều nguồn uy tín.\n3. Người dùng phải đảm bảo tập luyện theo đúng hướng dẫn của chúng tôi để có kết quả tốt nhất. \n</string>
 </resources>

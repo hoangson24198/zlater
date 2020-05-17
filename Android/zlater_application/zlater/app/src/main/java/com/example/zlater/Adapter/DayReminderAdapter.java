@@ -1,4 +1,4 @@
-//package com.example.polyfit_app.Adapter;
+//package com.hcmunre.polyfit_app.Adapter;
 //
 //import android.content.Context;
 //import android.view.LayoutInflater;
@@ -11,7 +11,7 @@
 //import androidx.recyclerview.widget.RecyclerView;
 //
 //import Reminder;
-//import com.example.polyfit_app.R;
+//import com.hcmunre.polyfit_app.R;
 //
 //import java.util.List;
 //

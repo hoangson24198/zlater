@@ -1,6 +1,5 @@
 package com.example.zlater.Fragments;
 
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -12,7 +11,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -44,6 +42,10 @@ import com.example.zlater.Service.remote.DietsAPI;
 import com.example.zlater.Service.remote.ZlaterService;
 import com.example.zlater.Service.remote.RetrofitClient;
 import com.example.zlater.Utils.Constants;
+import com.facebook.CallbackManager;
+import com.facebook.FacebookSdk;
+import com.facebook.share.model.ShareLinkContent;
+import com.facebook.share.widget.ShareDialog;
 import com.github.chrisbanes.photoview.PhotoView;
 import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -92,14 +94,15 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     private DietsAPI dietsAPI;
     private RecyclerView rv_bodyparts;
     private RippleBackground ripple_reminder;
-    KProgressHUD progressDialog;
+    private KProgressHUD progressDialog;
     private FirebaseStorage storage = FirebaseStorage.getInstance();
     private StorageReference storageRef = storage.getReferenceFromUrl(Constants.STORAGE_IMAGE);
-    private RelativeLayout layout_reminder, layout_morning, layout_noon, layout_night;
+    private RelativeLayout layout_reminder, layout_morning, layout_noon, layout_night, layout_social;
     private String linkAvatar;
 
     public HomeFragment() {
     }
+
 
     private void connectView(View view) {
         tv_UserName = view.findViewById(R.id.tv_UserName);
@@ -119,10 +122,12 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         iv_bg_night = view.findViewById(R.id.image_bg_night);
         ripple_reminder = view.findViewById(R.id.ripple_reminder);
         layout_reminder = view.findViewById(R.id.layout_reminder);
+        layout_social = view.findViewById(R.id.layout_social);
         layout_morning = view.findViewById(R.id.layout_morning);
         layout_noon = view.findViewById(R.id.layout_noon);
         layout_night = view.findViewById(R.id.layout_night);
         layout_reminder.setOnClickListener(this);
+        layout_social.setOnClickListener(this);
         layout_morning.setOnClickListener(this);
         layout_noon.setOnClickListener(this);
         layout_night.setOnClickListener(this);
@@ -158,6 +163,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         dietsAPI = retrofit.create(DietsAPI.class);
         SharedPreferences sharedPreferences = getActivity().getSharedPreferences(Constants.LOGIN, MODE_PRIVATE);
         int userId = sharedPreferences.getInt("id", 0);
+        showProgressDialog();
         this.getDietData();
         this.getUserById(userId);
         this.getAllBodyParts();
@@ -178,10 +184,9 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                     }
                 }
             }
-
             @Override
             public void onFailure(Call<DietsResponse> call, Throwable t) {
-
+                dismissProgressDialog();
             }
         });
     }
@@ -242,6 +247,9 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                 break;
             case R.id.layout_reminder:
                 startActivity(new Intent(getActivity(), ReminderActivity.class));
+                break;
+            case R.id.layout_social:
+
                 break;
             case R.id.layout_morning:
                 i = new Intent(getContext(), DishesTodayActivity.class);
@@ -311,6 +319,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     }
 
     private void handleUpdateUser() {
+
         SharedPreferences sharedPreferences = getActivity().getSharedPreferences(Constants.LOGIN, MODE_PRIVATE);
 
         User user = new User(sharedPreferences.getInt("id", 0), linkAvatar);
@@ -361,6 +370,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     }
 
     private void getAllBodyParts() {
+
         Call<BodypartResponse> calledGetAll = bodypartsAPI.getAllBodyParts();
         calledGetAll.enqueue(new Callback<BodypartResponse>() {
             @Override
@@ -372,17 +382,19 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                     rv_bodyparts.setHasFixedSize(true);
                     rv_bodyparts.setLayoutManager(new GridLayoutManager(getActivity(), 2, RecyclerView.VERTICAL, false));
                     rv_bodyparts.setAdapter(homeBodypartsAdapter);
+                    dismissProgressDialog();
                 }
             }
 
             @Override
             public void onFailure(Call<BodypartResponse> call, Throwable t) {
-
+                dismissProgressDialog();
             }
         });
     }
 
     private void getUserById(int id) {
+
         Call<UserResponse> userResponseCall = zlaterService.getCurrentUser(id);
         userResponseCall.enqueue(new Callback<UserResponse>() {
             @Override
@@ -401,12 +413,15 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                             editor.putString("height", String.valueOf(user.getHeight()));
                             editor.putString("weight", String.valueOf(user.getWeight()));
                             editor.putString("imageLink", user.getAvatar());
+                            editor.putString("username", user.getDisplay_name());
                             editor.apply();
                         } catch (Exception e) {
                             Log.e("err:", e + "");
                         }
                     }
+                    dismissProgressDialog();
                 } else {
+                    dismissProgressDialog();
                     Toast.makeText(getContext(), "Có lỗi xảy ra. Vui lòng đăng nhập lại", Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(getContext(), LoginActivity.class));
                 }
@@ -415,7 +430,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
             @Override
             public void onFailure(Call<UserResponse> call, Throwable t) {
-
+                dismissProgressDialog();
             }
         });
     }
@@ -478,13 +493,17 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     }
 
     private void showProgressDialog() {
-        progressDialog = KProgressHUD.create(Objects.requireNonNull(getContext()))
+        progressDialog = KProgressHUD.create(Objects.requireNonNull(this.getContext()))
                 .setStyle(KProgressHUD.Style.SPIN_INDETERMINATE)
                 .setLabel(getText(R.string.please_wait).toString())
                 .setCancellable(false)
                 .setAnimationSpeed(2)
                 .setDimAmount(0.5f)
                 .show();
+    }
+
+    private void dismissProgressDialog() {
+        progressDialog.dismiss();
     }
 
     @Override
