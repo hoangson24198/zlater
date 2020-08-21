@@ -9,12 +9,15 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.Color;
+import android.graphics.SurfaceTexture;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Surface;
+import android.view.TextureView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -28,6 +31,7 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.AppCompatEditText;
+import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -35,6 +39,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.zlater.Activity.Login.LoginActivity;
 import com.example.zlater.Adapter.RoutineAdapter;
 import com.example.zlater.Helper.DateTimeHelper;
+import com.example.zlater.Helper.OutputAnalyzer;
 import com.example.zlater.Model.History;
 import com.example.zlater.Model.Responses.HistoryResponse;
 import com.example.zlater.Model.Responses.RoutineResponse;
@@ -45,6 +50,7 @@ import com.example.zlater.Model.step.StepModel;
 import com.example.zlater.Model.step.StepTransaction;
 import com.example.zlater.Model.step.SuccessTransaction;
 import com.example.zlater.R;
+import com.example.zlater.Service.CameraService;
 import com.example.zlater.Service.ForegroundServices;
 import com.example.zlater.Service.local.ZlaterDatabase;
 import com.example.zlater.Service.local.step.StepService;
@@ -106,7 +112,6 @@ public class ProfileFragment extends Fragment implements View.OnClickListener, C
     private List<PointValue> mPointValues = new ArrayList<>();
     private List<AxisValue> mAxisXValues = new ArrayList<>();
     private CircleProgressView stepCount, calories, kilometer;
-    public final static String[] hours = new String[]{"6", "12", "18", "24"};
     private KProgressHUD progressDialog;
     private ZlaterService zlaterService;
     private TextView curr_bmi;
@@ -118,8 +123,6 @@ public class ProfileFragment extends Fragment implements View.OnClickListener, C
     Button btnUpdateBMI, btnSetTarger;
     RecyclerView viewHistory;
     RoutineAPI routineAPI;
-    List<Routine> routineList;
-    List<RoutineResponse> routineResponses=new ArrayList<>();
     Switch on_off, foreground_model;
     EventBus bus;
     long numSteps;
@@ -132,6 +135,17 @@ public class ProfileFragment extends Fragment implements View.OnClickListener, C
     private StepThread thread;
     private CallbackManager callbackManager;
     private ShareDialog shareDialog;
+
+    private Button startMeasureHeartBeat;
+
+    private final CameraService cameraService = new CameraService(this);
+
+    private OutputAnalyzer analyzer;
+
+    private SurfaceTexture previewSurfaceTexture;
+    private  TextureView cameraTextureView;
+
+    private Boolean state = true;
 
     public ProfileFragment() {
     }
@@ -183,6 +197,7 @@ public class ProfileFragment extends Fragment implements View.OnClickListener, C
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
@@ -344,7 +359,39 @@ public class ProfileFragment extends Fragment implements View.OnClickListener, C
             case R.id.stepCount:
                 showPopupMaxValue(view);
                 break;
+
+            case R.id.startMeasureHeartBeat:
+                if (state){
+                    setStartMeasureHeartBeat();
+                }else {
+                    cameraService.stop();
+                    if (analyzer != null ) analyzer.stop();
+                    analyzer  = new OutputAnalyzer(this, getView().findViewById(R.id.graphTextureView));
+                }
+                break;
         }
+    }
+
+    private void setAnalyzer(){
+        previewSurfaceTexture = null;
+        previewSurfaceTexture = cameraTextureView.getSurfaceTexture();
+
+        if (previewSurfaceTexture != null) {
+            // this first appears when we close the application and switch back - TextureView isn't quite ready at the first onResume.
+            Surface previewSurface = new Surface(previewSurfaceTexture);
+
+            cameraService.start(previewSurface);
+            analyzer.measurePulse(cameraTextureView, cameraService);
+        }
+    }
+
+    private void setStartMeasureHeartBeat(){
+        int MY_PERMISSIONS_REQUEST_READ_CONTACTS = 1;
+        ActivityCompat.requestPermissions(this.getActivity(),
+                new String[]{Manifest.permission.CAMERA},
+                MY_PERMISSIONS_REQUEST_READ_CONTACTS);
+        setAnalyzer();
+
     }
 
     private void setUpCurrBmi(int id) {
@@ -476,18 +523,22 @@ public class ProfileFragment extends Fragment implements View.OnClickListener, C
         mLayout = view.findViewById(R.id.user_layout);
         lineChart = view.findViewById(R.id.line_chart);
         stepCount = view.findViewById(R.id.stepCount);
+        startMeasureHeartBeat = view.findViewById(R.id.startMeasureHeartBeat);
         calories = view.findViewById(R.id.calories);
         kilometer = view.findViewById(R.id.kilometer);
         edtHeight = view.findViewById(R.id.edtHeight);
         edtWeight = view.findViewById(R.id.edtWeight);
         viewHistory=view.findViewById(R.id.viewHistory);
         curr_bmi = view.findViewById(R.id.curr_bmi);
+        analyzer  = new OutputAnalyzer(this, view.findViewById(R.id.graphTextureView));
+        cameraTextureView = view.findViewById(R.id.texttureCamera);
         disableFocus();
         btnUpdateBMI = view.findViewById(R.id.btnUpdateBMI);
         btnUpdateBMI.setOnClickListener(this);
         /*setUserInf();*/
         icSetting.setOnClickListener(this);
         stepCount.setOnClickListener(this);
+        startMeasureHeartBeat.setOnClickListener(this);
     }
 
     private void showProgressDialog() {

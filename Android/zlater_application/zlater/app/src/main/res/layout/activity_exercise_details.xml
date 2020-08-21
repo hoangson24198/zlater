@@ -238,6 +238,7 @@
         android:layout_margin="20dp"
         android:pointerIcon="alias"
         android:src="@drawable/ic_lightbulb_outline_white_24dp"
+        android:backgroundTint="@color/blue"
         app:fabCustomSize="55dp" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

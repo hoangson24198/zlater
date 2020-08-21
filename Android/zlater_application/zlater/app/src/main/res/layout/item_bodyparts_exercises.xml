@@ -16,7 +16,7 @@
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
             android:textSize="@dimen/text_lg"
-            android:textColor="@color/black_overlay"
+            android:textColor="@color/blue"
             android:paddingTop="50dp"
             android:layout_marginLeft="-70dp"
             android:rotation="-90"

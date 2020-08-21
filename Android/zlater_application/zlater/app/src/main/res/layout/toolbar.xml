@@ -9,8 +9,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:minHeight="?attr/actionBarSize"
-        app:titleTextColor="@color/white"
-        app:navigationIcon="@drawable/ic_keyboard_arrow_left_white_36dp"
-        android:background="@drawable/gradient_cover"
+        app:titleTextColor="@color/black_overlay"
+        app:navigationIcon="@drawable/ic_back"
+        android:background="@color/white"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
 </LinearLayout>

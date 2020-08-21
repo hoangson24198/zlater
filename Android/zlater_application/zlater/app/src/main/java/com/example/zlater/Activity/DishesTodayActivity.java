@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 
 import com.example.zlater.Activity.Login.DishesDetails;
 import com.example.zlater.Adapter.DishesTodayAdapter;
@@ -22,6 +23,7 @@ import com.example.zlater.Utils.CheckInternetConnection;
 import com.flipboard.bottomsheet.BottomSheetLayout;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -44,6 +46,8 @@ public class DishesTodayActivity extends AppCompatActivity implements ItemClickL
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dishes_today);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        Objects.requireNonNull(getSupportActionBar()).hide();
         initView();
         new CheckInternetConnection(this).checkConnection();
 

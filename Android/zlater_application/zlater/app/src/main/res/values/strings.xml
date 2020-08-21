@@ -117,4 +117,14 @@
 
     <string name="submit">Submit</string>
     <string name="congratulation" translatable="false">We congratulate you for accomplishing today\'s goal</string>
+
+    <string name="output_hint">Please place your finger on the device\'s camera, covering the flash as well.</string>
+    <string name="separator">,</string>
+    <string name="row_separator">\n</string>
+    <string name="raw_values">Measurements (Timestamp, Value)</string>
+    <plurals name="measurement_output_template">
+        <item quantity="zero">Your Heartbeat: %2.1f</item>
+        <item quantity="one">Your Heartbeat: %2.1f</item>
+        <item quantity="other">Your Heartbeat: %2.1f</item>
+    </plurals>
 </resources>

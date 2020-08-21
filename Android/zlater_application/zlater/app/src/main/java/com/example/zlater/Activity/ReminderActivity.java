@@ -2,6 +2,7 @@ package com.example.zlater.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.cardview.widget.CardView;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -192,7 +193,7 @@ public class ReminderActivity extends AppCompatActivity implements View.OnClickL
     private void showDialog() {
         dialog = new Dialog(ReminderActivity.this);
         dialog.setContentView(R.layout.dialog_set_reminder);
-        MaterialCardView cardSetTime = dialog.findViewById(R.id.cardSetTime);
+        CardView cardSetTime = dialog.findViewById(R.id.cardSetTime);
         textTime = dialog.findViewById(R.id.tv_setTime);
         monday = dialog.findViewById(R.id.monday);
         tuesday = dialog.findViewById(R.id.tuesday);

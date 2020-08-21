@@ -360,7 +360,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                 .centerCrop()
                 .into(iv_bg_morning);
         Glide.with(getActivity())
-                .load("https://cheddars.com/wp-content/uploads/images/menu-item-images/menu-599-potato-soup-house-salad.jpg")
+                .load("https://chamchut.com/wp-content/uploads/2018/04/kinh-nghiem-mang-com-trua-khi-di-lam.jpg")
                 .centerCrop()
                 .into(iv_bg_noon);
         Glide.with(getActivity())

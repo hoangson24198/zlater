@@ -10,14 +10,14 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/gradient_cover"
+        android:background="@color/white"
         android:orientation="vertical"
         tools:context="com.example.zlater.Fragments.ProfileFragment">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/gradient_cover"
+            android:background="@color/white"
             android:orientation="vertical">
 
             <ImageView
@@ -26,7 +26,7 @@
                 android:layout_height="30dp"
                 android:layout_margin="15dp"
                 android:layout_gravity="right"
-                android:src="@drawable/ic_logout" />
+                android:src="@drawable/icon_more" />
 
             <LinearLayout
                 android:orientation="vertical"
@@ -49,8 +49,8 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="20dp"
                             android:text="@string/advice"
-                            android:textColor="@color/white"
-                            android:textSize="15sp"
+                            android:textColor="@color/black"
+                            android:textSize="16sp"
                             android:textStyle="bold" />
                     </LinearLayout>
 
@@ -63,7 +63,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/curr_bmi"
-                            android:textColor="@color/white"
+                            android:textColor="@color/black"
                             android:textSize="@dimen/text_md"
                             android:textStyle="bold" />
                     </LinearLayout>
@@ -89,7 +89,7 @@
                             android:layout_marginRight="30dp"
                             android:fontFamily="@font/montserrat_light"
                             android:text="@string/advice_content"
-                            android:textColor="@color/white"
+                            android:textColor="@color/black"
                             android:textSize="@dimen/text_sm"
                             android:textStyle="bold">
 
@@ -106,7 +106,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="24.5"
-                            android:textColor="@color/white"
+                            android:textColor="@color/black"
                             android:textSize="40sp"/>
                     </LinearLayout>
                 </LinearLayout>
@@ -118,6 +118,8 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
                 android:layout_marginBottom="5dp"
+                android:outlineAmbientShadowColor="@color/blue"
+                android:outlineSpotShadowColor="@color/blue"
                 app:cardCornerRadius="5dp">
 
                 <LinearLayout
@@ -241,12 +243,80 @@
             </androidx.cardview.widget.CardView>
 
 </LinearLayout>
-
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             app:cardCornerRadius="5dp"
+            android:outlineSpotShadowColor="@color/blue"
+            android:outlineAmbientShadowColor="@color/blue"
+            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"
+                        android:layout_marginVertical="10dp"
+                        android:layout_marginLeft="15dp"
+                        android:text="Heart Beat"
+                        android:textAlignment="center"
+                        android:textColor="@color/primary"
+                        android:textSize="13sp"
+                        android:textStyle="bold"/>
+                </LinearLayout>
+
+                <TextureView
+                    android:id="@+id/texttureCamera"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="10dp"
+                    />
+
+                <TextureView
+                    android:id="@+id/graphTextureView"
+                    android:layout_width="match_parent"
+                    android:layout_margin="10dp"
+                    android:layout_height="60dp" />
+
+                <TextView
+                    android:id="@+id/tv_Result"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:layout_margin="10dp"
+                    android:hint="@string/output_hint"
+                    android:importantForAutofill="no"
+                    android:inputType="none" />
+
+                <Button
+                    android:id="@+id/startMeasureHeartBeat"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="20dp"
+                    android:background="@drawable/background_gradient"
+                    android:padding="5dp"
+                    android:text="Start"
+                    android:textSize="12sp"
+                    android:textColor="@color/white">
+                </Button>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            app:cardCornerRadius="5dp"
+            android:outlineSpotShadowColor="@color/blue"
+            android:outlineAmbientShadowColor="@color/blue"
             >
             <LinearLayout
                 android:layout_width="match_parent"
@@ -290,7 +360,7 @@
                                 android:layout_width="15dp"
                                 android:layout_height="15dp"
                                 android:layout_marginHorizontal="10dp"
-                                android:src="@drawable/height_logo"></ImageView>
+                                android:src="@drawable/height_logo"/>
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -298,7 +368,8 @@
                                 android:text="@string/your_height"
                                 android:textAlignment="center"
                                 android:textColor="@color/primary"
-                                android:textSize="12sp"></TextView>
+                                android:textSize="12sp"/>
+
                         </LinearLayout>
 
                         <androidx.appcompat.widget.AppCompatEditText
@@ -365,7 +436,6 @@
                     android:text="@string/need_update_bmi"
                     android:textSize="12sp"
                     android:textColor="@color/white">
-
                 </Button>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
@@ -376,6 +446,8 @@
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
             android:layout_marginBottom="5dp"
+            android:outlineAmbientShadowColor="@color/blue"
+            android:outlineSpotShadowColor="@color/blue"
             app:cardCornerRadius="5dp">
 
             <TextView
@@ -395,7 +467,7 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/viewHistory"
                 android:layout_marginHorizontal="10dp"
-                android:layout_marginVertical="30dp"
+                android:layout_marginVertical="80dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
         </androidx.cardview.widget.CardView>
