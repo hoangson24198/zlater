@@ -34,6 +34,8 @@ public class User {
     private Date updatedAt;
     @SerializedName("firebase_token")
     private String token;
+    @SerializedName("avatar")
+    private String avt;
 /*    @SerializedName("isOnline")
     private int isOnline;*/
 
@@ -45,11 +47,18 @@ public class User {
         this.token = token;
     }
 
-    public User(int id, String phoneNumber, String userName, int isVerified, String password, float weight, float height, float bmi, int gender, String displayName, Date createdAt, Date updatedAt, boolean isOnline) {
+    public String getAvt() {
+        return avt;
+    }
+
+    public void setAvt(String avt) {
+        this.avt = avt;
+    }
+
+    public User(int id, String phoneNumber, String userName, String password, float weight, float height, float bmi, int gender, String displayName, Date createdAt, Date updatedAt, String avt) {
         this.id = id;
         this.phoneNumber = phoneNumber;
         this.userName = userName;
-        /*this.isVerified = isVerified;*/
         this.password = password;
         this.weight = weight;
         this.height = height;
@@ -58,7 +67,7 @@ public class User {
         this.displayName = displayName;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
-
+        this.avt = avt;
     }
 
     public int getId() {

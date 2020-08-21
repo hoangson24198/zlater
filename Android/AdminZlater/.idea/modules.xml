@@ -3,8 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/AdminPolyFit.iml" filepath="$PROJECT_DIR$/AdminPolyFit.iml" />
-      <module fileurl="file://$PROJECT_DIR$/AdminZlater.iml" filepath="$PROJECT_DIR$/AdminZlater.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/AdminZlater.iml" filepath="$PROJECT_DIR$/AdminZlater.iml" group="AdminZlater" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="AdminZlater/app" />
     </modules>
   </component>
 </project>

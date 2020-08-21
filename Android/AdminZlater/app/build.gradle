@@ -70,5 +70,6 @@ dependencies {
     annotationProcessor 'com.github.bumptech.glide:compiler:4.10.0'
 
     implementation 'com.github.florent37:materialtextfield:1.0.7'
+    implementation 'com.geniusforapp.fancydialog:FancyDialog:0.1.4'
 }
 apply plugin: 'com.google.gms.google-services'

@@ -27,6 +27,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.krahs.adminzlater.Utils.CheckInternetConnection;
 import com.krahs.adminzlater.Utils.Constants;
 import com.krahs.adminzlater.R;
 import com.krahs.adminzlater.Services.AdminZlaterServices;
@@ -79,6 +80,7 @@ public class SplashScreenActivity extends AppCompatActivity implements View.OnCl
         Objects.requireNonNull(getSupportActionBar()).hide();
         setContentView(R.layout.activity_splash_screen);
         connectView();
+        new CheckInternetConnection(this).checkConnection();
         Retrofit retrofit = RetrofitClient.getInstance();
         adminZlaterServices = retrofit.create(AdminZlaterServices.class);
         OnStartApplication();

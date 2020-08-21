@@ -10,4 +10,6 @@
     <string name="finger_authen">Please authenticate by fingerprint or retype the password</string>
     <string name="username">Username</string>
     <string name="password">Password</string>
+    <string name="noconnection">Please connect the Wifi network or turn on Mobile Data</string>
+    <string name="can_conn_server">Can\'t connect to server</string>
 </resources>

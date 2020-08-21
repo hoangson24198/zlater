@@ -7,7 +7,7 @@ public class Constants {
     public static String USERNAME="USERNAME";
     public static String STORAGE_IMAGE="gs://zlater103.appspot.com";
     public static final String BASE_URL = "https://zlater.herokuapp.com/";
-//public static final String BASE_URL = "http://192.168.1.60:3030/";
+//public static final String BASE_URL = "http://192.168.1.174:3030/";
     public static final String YOUTUBE_KEY="AIzaSyC8oieXLrN399oX6vd1TTqcAiYkE3JjnwU";
     public static final String AUTH_KEY="key=AAAAlk_Zydc:APA91bE-9wgEkUGnxoiVWIXJJ0iONgqPfnQwqBwAolX4AByyUrg1DvbcqMz-yVWvXLYy6PdUxyqEc0Yol7VkL0Raux_g85Oh9vANgSjVqgkZG7P5AhRvez99IoIt_55bBcTpvLjTwm1n";
 }

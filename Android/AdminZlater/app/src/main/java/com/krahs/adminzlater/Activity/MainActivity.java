@@ -15,10 +15,12 @@ import com.krahs.adminzlater.Fragments.DishFragment;
 import com.krahs.adminzlater.Fragments.ExerciseFragment;
 import com.krahs.adminzlater.Fragments.IngredientFragment;
 import com.krahs.adminzlater.Fragments.MixFragment;
+import com.krahs.adminzlater.Fragments.UsersFragment;
 import com.krahs.adminzlater.Model.User;
 import com.krahs.adminzlater.R;
 import com.krahs.adminzlater.Services.AdminZlaterServices;
 import com.krahs.adminzlater.Services.RetrofitClient;
+import com.krahs.adminzlater.Utils.CheckInternetConnection;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,7 +29,7 @@ import java.util.Objects;
 import retrofit2.Retrofit;
 
 public class MainActivity extends AppCompatActivity implements ExerciseFragment.OnFragmentInteractionListener, DishFragment.OnFragmentInteractionListener,
-        IngredientFragment.OnFragmentInteractionListener, MixFragment.OnFragmentInteractionListener {
+        IngredientFragment.OnFragmentInteractionListener, MixFragment.OnFragmentInteractionListener, UsersFragment.OnFragmentInteractionListener {
    NavigationView navigationView;
    ImageView layoutOption;
     List<User> users =new ArrayList<>();
@@ -40,13 +42,16 @@ public class MainActivity extends AppCompatActivity implements ExerciseFragment.
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
         Objects.requireNonNull(getSupportActionBar()).hide();
 //        getReminder();
+        new CheckInternetConnection(this).checkConnection();
         Retrofit retrofit = RetrofitClient.getInstance();
         adminZlaterServices = retrofit.create(AdminZlaterServices.class);
         TabLayout tabLayout = findViewById(R.id.tabLayout);
         tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.ic_exercise));
         tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.ic_diet));
         tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.ingredient));
+        tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.ic_user));
         tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.mix));
+
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
         final ViewPager viewPager = findViewById(R.id.pager);
         final com.krahs.adminzlater.Adapter.PagerAdapter adapter = new PagerAdapter(getSupportFragmentManager(), tabLayout.getTabCount());

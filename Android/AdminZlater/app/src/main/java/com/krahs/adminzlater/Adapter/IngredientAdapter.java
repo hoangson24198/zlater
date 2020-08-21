@@ -55,7 +55,7 @@ public class IngredientAdapter extends RecyclerView.Adapter<IngredientAdapter.Vi
     public IngredientAdapter(List<Ingredients> ingredientsList, Context context,IngredientFragment ingredientsFragment) {
         this.ingredientsList = ingredientsList;
         this.context = context;
-        this.ingredientsFragment=ingredientsFragment;
+        this.ingredientsFragment = ingredientsFragment;
 
     }
 
@@ -129,6 +129,7 @@ public class IngredientAdapter extends RecyclerView.Adapter<IngredientAdapter.Vi
                     Log.e("HS::", String.valueOf(response.body()));
                     try {
                         handleDeleteImage(imageUrl);
+                        ((IngredientFragment) ingredientsFragment).handleGetAllIngredient();
                     } catch (Exception e) {
                         e.printStackTrace();
                         ((IngredientFragment) ingredientsFragment).handleGetAllIngredient();
@@ -138,12 +139,11 @@ public class IngredientAdapter extends RecyclerView.Adapter<IngredientAdapter.Vi
 
                 }
                 if (!response.isSuccessful()) {
-                    Log.e("phayTranERROR", "delete error");
+                    Log.e("HS::", "delete error");
                     Log.e("HS::", response.code() + "");
                     Toast.makeText(context, "Delete failed!!!", Toast.LENGTH_SHORT).show();
                     dialog.dismiss();
                 }
-
             }
 
             @Override

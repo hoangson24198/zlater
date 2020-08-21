@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="Gradle: com.github.florent37:materialtextfield:1.0.7@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/74a1fd97f774f5263355ea48d7681809/jetified-materialtextfield-1.0.7/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/74a1fd97f774f5263355ea48d7681809/jetified-materialtextfield-1.0.7/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/1174abec34e8a85ad4eab0aee2d3b47a/jetified-materialtextfield-1.0.7/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/1174abec34e8a85ad4eab0aee2d3b47a/jetified-materialtextfield-1.0.7/res" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.florent37/materialtextfield/1.0.7/2d625ae2d84820b023b8409ef34b0047f89584f3/materialtextfield-1.0.7-javadoc.jar!/" />

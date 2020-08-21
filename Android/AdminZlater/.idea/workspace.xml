@@ -5,12 +5,15 @@
       <config />
     </shared>
   </component>
+  <component name="AndroidLogFilters">
+    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="HSUser" />
+    <option name="TOOL_WINDOW_LOG_LEVEL" value="error" />
+    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="91c72d06-23cf-4822-bd0d-277be6c5d6ed" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_github_florent37_materialtextfield_1_0_7_aar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../zlater_application/zlater/.idea/libraries/Gradle__com_geniusforapp_fancydialog_FancyDialog_0_1_4_aar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../zlater_application/zlater/.idea/libraries/Gradle__com_kaopiz_kprogresshud_1_1_0_aar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../zlater_application/zlater/app/src/main/res/drawable/bg_dialog.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/menu/user_option_menu.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../API/zlater-api/.idea/.gitignore" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../API/zlater-api/.idea/misc.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../API/zlater-api/.idea/modules.xml" beforeDir="false" />
@@ -22666,136 +22669,51 @@
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle____local_aars___D__Zlater_zlater_Android_AdminZlater_app_libs_YouTubeAndroidPlayerApi_jar_unspecified_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle____app_libs_YouTubeAndroidPlayerApi_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_geniusforapp_fancydialog_FancyDialog_0_1_4_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_geniusforapp_fancydialog_FancyDialog_0_1_4_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_github_florent37_materialtextfield_1_0_7_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_github_florent37_materialtextfield_1_0_7_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_github_sharish_ShimmerRecyclerView_v1_3_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_github_sharish_ShimmerRecyclerView_v1_3_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_android_gms_play_services_ads_identifier_16_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_android_gms_play_services_ads_identifier_16_0_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_android_gms_play_services_basement_17_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_android_gms_play_services_basement_17_0_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_android_gms_play_services_measurement_api_16_0_2_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_android_gms_play_services_measurement_api_16_0_2_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_firebase_firebase_analytics_16_0_4_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_firebase_firebase_analytics_16_0_4_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_firebase_firebase_analytics_impl_16_2_2_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_firebase_firebase_analytics_impl_16_2_2_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_firebase_firebase_auth_interop_17_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_firebase_firebase_auth_interop_17_0_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_firebase_firebase_measurement_connector_impl_17_0_2_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_firebase_firebase_measurement_connector_impl_17_0_2_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_firebase_firebase_messaging_20_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_firebase_firebase_messaging_20_0_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_firebase_firebase_storage_17_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_firebase_firebase_storage_17_0_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_ornach_nobobutton_nobobutton_1_6_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_ornach_nobobutton_nobobutton_1_6_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_soundcloud_android_android_crop_1_0_1_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_soundcloud_android_android_crop_1_0_1_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_squareup_picasso_picasso_2_71828_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_squareup_picasso_picasso_2_71828_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__pl_droidsonroids_gif_android_gif_drawable_1_2_18_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__pl_droidsonroids_gif_android_gif_drawable_1_2_18_aar.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdminZlater-AdminPolyFit.iml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/AdminZlater.iml" beforeDir="false" afterPath="$PROJECT_DIR$/AdminZlater.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/app/app.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/google-services.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/google-services.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/krahs/adminzlater/Activity/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/krahs/adminzlater/Activity/MainActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/krahs/adminzlater/Activity/SplashScreenActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/krahs/adminzlater/Activity/SplashScreenActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/krahs/adminzlater/Adapter/BodyPartsAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/krahs/adminzlater/Adapter/BodyPartsAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/krahs/adminzlater/Adapter/CustomLayout.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/krahs/adminzlater/Adapter/CustomLayout.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/krahs/adminzlater/Adapter/DishAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/krahs/adminzlater/Adapter/DishAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/krahs/adminzlater/Adapter/ExerciseAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/krahs/adminzlater/Adapter/ExerciseAdapter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/krahs/adminzlater/Adapter/IngredientAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/krahs/adminzlater/Adapter/IngredientAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/krahs/adminzlater/Adapter/LevelAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/krahs/adminzlater/Adapter/LevelAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/krahs/adminzlater/Adapter/MealsAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/krahs/adminzlater/Adapter/MealsAdapter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/krahs/adminzlater/Adapter/PagerAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/krahs/adminzlater/Adapter/PagerAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/krahs/adminzlater/Adapter/QuotesAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/krahs/adminzlater/Adapter/QuotesAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/krahs/adminzlater/Adapter/SpinnerBodyPartsAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/krahs/adminzlater/Adapter/SpinnerBodyPartsAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/krahs/adminzlater/Adapter/SpinnerIngredientApdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/krahs/adminzlater/Adapter/SpinnerIngredientApdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/krahs/adminzlater/Adapter/SpinnerLevelAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/krahs/adminzlater/Adapter/SpinnerLevelAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/krahs/adminzlater/Adapter/SpinnerMealsAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/krahs/adminzlater/Adapter/SpinnerMealsAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/krahs/adminzlater/BroadcastReceiver/ServiceReloadExercise.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/krahs/adminzlater/BroadcastReceiver/ServiceReloadExercise.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/krahs/adminzlater/Fragments/AddDishFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/krahs/adminzlater/Fragments/AddDishFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/krahs/adminzlater/Fragments/AddExercisesFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/krahs/adminzlater/Fragments/AddExercisesFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/krahs/adminzlater/Fragments/AddIngredientFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/krahs/adminzlater/Fragments/AddIngredientFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/krahs/adminzlater/Fragments/DishFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/krahs/adminzlater/Fragments/DishFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/krahs/adminzlater/Fragments/ExerciseFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/krahs/adminzlater/Fragments/ExerciseFragment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/krahs/adminzlater/Fragments/IngredientFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/krahs/adminzlater/Fragments/IngredientFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/krahs/adminzlater/Fragments/MixFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/krahs/adminzlater/Fragments/MixFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/krahs/adminzlater/Fragments/QuotesFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/krahs/adminzlater/Fragments/QuotesFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/krahs/adminzlater/Fragments/StatisticalFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/krahs/adminzlater/Fragments/StatisticalFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/krahs/adminzlater/Fragments/ViewDishFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/krahs/adminzlater/Fragments/ViewDishFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/krahs/adminzlater/Fragments/ViewExerciseFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/krahs/adminzlater/Fragments/ViewExerciseFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/krahs/adminzlater/Interface/ReloadDataExercise.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/krahs/adminzlater/Interface/ReloadDataExercise.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/krahs/adminzlater/Model/Bodyparts.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/krahs/adminzlater/Model/Bodyparts.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/krahs/adminzlater/Model/Diets.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/krahs/adminzlater/Model/Diets.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/krahs/adminzlater/Model/Dish.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/krahs/adminzlater/Model/Dish.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/krahs/adminzlater/Model/Exercise.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/krahs/adminzlater/Model/Exercise.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/krahs/adminzlater/Model/Ingredients.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/krahs/adminzlater/Model/Ingredients.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/krahs/adminzlater/Model/Level.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/krahs/adminzlater/Model/Level.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/krahs/adminzlater/Model/Meals.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/krahs/adminzlater/Model/Meals.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/krahs/adminzlater/Model/Quotes.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/krahs/adminzlater/Model/Quotes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/krahs/adminzlater/Fragments/UsersFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/krahs/adminzlater/Fragments/UsersFragment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/krahs/adminzlater/Model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/krahs/adminzlater/Model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/krahs/adminzlater/Services/AdminPolyfitServices.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/krahs/adminzlater/Services/AdminZlaterServices.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/krahs/adminzlater/Services/RetrofitClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/krahs/adminzlater/Services/RetrofitClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/krahs/adminzlater/Services/AdminZlaterServices.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/krahs/adminzlater/Services/AdminZlaterServices.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/krahs/adminzlater/Utils/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/krahs/adminzlater/Utils/Constants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/logo.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_finger_print.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_finger_print.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_splash_screen.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_splash_screen.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_add_dish.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_add_dish.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_add_exercises_fragment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_add_exercises_fragment.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_add_ingredient.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_add_ingredient.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_exercise.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_exercise.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_users.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_users.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../zlater_application/zlater/.gradle/5.4.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../zlater_application/zlater/.gradle/5.4.1/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../zlater_application/zlater/.gradle/5.4.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../zlater_application/zlater/.gradle/5.4.1/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../zlater_application/zlater/.gradle/5.4.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../zlater_application/zlater/.gradle/5.4.1/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../zlater_application/zlater/.gradle/5.4.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../zlater_application/zlater/.gradle/5.4.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../zlater_application/zlater/.gradle/5.4.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../zlater_application/zlater/.gradle/5.4.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../zlater_application/zlater/.gradle/5.4.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../zlater_application/zlater/.gradle/5.4.1/javaCompile/classAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../zlater_application/zlater/.gradle/5.4.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../zlater_application/zlater/.gradle/5.4.1/javaCompile/javaCompile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../zlater_application/zlater/.gradle/5.4.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../zlater_application/zlater/.gradle/5.4.1/javaCompile/taskHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../zlater_application/zlater/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../zlater_application/zlater/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../zlater_application/zlater/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../zlater_application/zlater/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../zlater_application/zlater/.gradle/6.1.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../zlater_application/zlater/.gradle/6.1.1/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../zlater_application/zlater/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/../zlater_application/zlater/.idea/caches/build_file_checksums.ser" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../zlater_application/zlater/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../zlater_application/zlater/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../zlater_application/zlater/app/app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../zlater_application/zlater/app/app.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../zlater_application/zlater/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../zlater_application/zlater/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../zlater_application/zlater/app/google-services.json" beforeDir="false" afterPath="$PROJECT_DIR$/../zlater_application/zlater/app/google-services.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../zlater_application/zlater/app/schemas/com.example.zlater.Service.local.ZlaterDatabase/13.json" beforeDir="false" afterPath="$PROJECT_DIR$/../zlater_application/zlater/app/schemas/com.example.zlater.Service.local.ZlaterDatabase/13.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../zlater_application/zlater/app/src/main/java/com/example/zlater/Activity/DishesTodayActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../zlater_application/zlater/app/src/main/java/com/example/zlater/Activity/DishesTodayActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../zlater_application/zlater/app/src/main/java/com/example/zlater/Activity/ExerciseDetailsActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../zlater_application/zlater/app/src/main/java/com/example/zlater/Activity/ExerciseDetailsActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../zlater_application/zlater/app/src/main/java/com/example/zlater/Activity/ExercisesActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../zlater_application/zlater/app/src/main/java/com/example/zlater/Activity/ExercisesActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../zlater_application/zlater/app/src/main/java/com/example/zlater/Activity/Login/LoginActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../zlater_application/zlater/app/src/main/java/com/example/zlater/Activity/Login/LoginActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../zlater_application/zlater/app/src/main/java/com/example/zlater/Activity/Login/StepOneSignUpActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../zlater_application/zlater/app/src/main/java/com/example/zlater/Activity/Login/StepOneSignUpActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../zlater_application/zlater/app/src/main/java/com/example/zlater/Activity/Login/StepTwoSignUpActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../zlater_application/zlater/app/src/main/java/com/example/zlater/Activity/Login/StepTwoSignUpActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../zlater_application/zlater/app/src/main/java/com/example/zlater/Activity/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../zlater_application/zlater/app/src/main/java/com/example/zlater/Activity/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../zlater_application/zlater/app/src/main/java/com/example/zlater/Activity/MealsActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../zlater_application/zlater/app/src/main/java/com/example/zlater/Activity/MealsActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../zlater_application/zlater/app/src/main/java/com/example/zlater/Activity/ReminderActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../zlater_application/zlater/app/src/main/java/com/example/zlater/Activity/ReminderActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../zlater_application/zlater/app/src/main/java/com/example/zlater/Activity/SplashScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/../zlater_application/zlater/app/src/main/java/com/example/zlater/Activity/SplashScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../zlater_application/zlater/app/src/main/java/com/example/zlater/Activity/TutorialActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../zlater_application/zlater/app/src/main/java/com/example/zlater/Activity/TutorialActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../zlater_application/zlater/app/src/main/java/com/example/zlater/Adapter/PagerAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../zlater_application/zlater/app/src/main/java/com/example/zlater/Adapter/PagerAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../zlater_application/zlater/app/src/main/java/com/example/zlater/Fragments/HomeFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/../zlater_application/zlater/app/src/main/java/com/example/zlater/Fragments/HomeFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../zlater_application/zlater/app/src/main/java/com/example/zlater/Fragments/ProfileFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/../zlater_application/zlater/app/src/main/java/com/example/zlater/Fragments/ProfileFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../zlater_application/zlater/app/src/main/java/com/example/zlater/Model/Converters.java" beforeDir="false" afterPath="$PROJECT_DIR$/../zlater_application/zlater/app/src/main/java/com/example/zlater/Model/Converters.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../zlater_application/zlater/app/src/main/java/com/example/zlater/Model/History.java" beforeDir="false" afterPath="$PROJECT_DIR$/../zlater_application/zlater/app/src/main/java/com/example/zlater/Model/History.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../zlater_application/zlater/app/src/main/java/com/example/zlater/Model/Reminder.java" beforeDir="false" afterPath="$PROJECT_DIR$/../zlater_application/zlater/app/src/main/java/com/example/zlater/Model/Reminder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../zlater_application/zlater/app/src/main/java/com/example/zlater/Model/Responses/HistoryResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/../zlater_application/zlater/app/src/main/java/com/example/zlater/Model/Responses/HistoryResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../zlater_application/zlater/app/src/main/java/com/example/zlater/Model/Responses/RoutineResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/../zlater_application/zlater/app/src/main/java/com/example/zlater/Model/Responses/RoutineResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../zlater_application/zlater/app/src/main/java/com/example/zlater/Model/Routine.java" beforeDir="false" afterPath="$PROJECT_DIR$/../zlater_application/zlater/app/src/main/java/com/example/zlater/Model/Routine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../zlater_application/zlater/app/src/main/java/com/example/zlater/Model/RoutineRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../zlater_application/zlater/app/src/main/java/com/example/zlater/Model/RoutineRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../zlater_application/zlater/app/src/main/java/com/example/zlater/Model/StepCount.java" beforeDir="false" afterPath="$PROJECT_DIR$/../zlater_application/zlater/app/src/main/java/com/example/zlater/Model/StepCount.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../zlater_application/zlater/app/src/main/java/com/example/zlater/Model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/../zlater_application/zlater/app/src/main/java/com/example/zlater/Model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../zlater_application/zlater/app/src/main/java/com/example/zlater/Service/Reminder/ReminderServices.java" beforeDir="false" afterPath="$PROJECT_DIR$/../zlater_application/zlater/app/src/main/java/com/example/zlater/Service/Reminder/ReminderServices.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../zlater_application/zlater/app/src/main/java/com/example/zlater/Service/local/DAO/ReminderDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../zlater_application/zlater/app/src/main/java/com/example/zlater/Service/local/DAO/ReminderDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../zlater_application/zlater/app/src/main/java/com/example/zlater/Service/local/DAO/RoutineDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../zlater_application/zlater/app/src/main/java/com/example/zlater/Service/local/DAO/RoutineDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../zlater_application/zlater/app/src/main/java/com/example/zlater/Service/local/DAO/StepDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../zlater_application/zlater/app/src/main/java/com/example/zlater/Service/local/DAO/StepDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../zlater_application/zlater/app/src/main/java/com/example/zlater/Service/local/DAO/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../zlater_application/zlater/app/src/main/java/com/example/zlater/Service/local/DAO/UserDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../zlater_application/zlater/app/src/main/java/com/example/zlater/Service/local/StepCountServices.java" beforeDir="false" afterPath="$PROJECT_DIR$/../zlater_application/zlater/app/src/main/java/com/example/zlater/Service/local/StepCountServices.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../zlater_application/zlater/app/src/main/java/com/example/zlater/Service/remote/MyFirebaseMessagingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../zlater_application/zlater/app/src/main/java/com/example/zlater/Service/remote/MyFirebaseMessagingService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../zlater_application/zlater/app/src/main/java/com/example/zlater/Service/remote/RoutineAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/../zlater_application/zlater/app/src/main/java/com/example/zlater/Service/remote/RoutineAPI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../zlater_application/zlater/app/src/main/java/com/example/zlater/Services/Reminder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../zlater_application/zlater/app/src/main/java/com/example/zlater/Utils/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/../zlater_application/zlater/app/src/main/java/com/example/zlater/Utils/Constants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../zlater_application/zlater/app/src/main/res/drawable/background_head_login.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../zlater_application/zlater/app/src/main/res/drawable/bg_header_home.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../zlater_application/zlater/app/src/main/res/drawable/header_gradient.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../zlater_application/zlater/app/src/main/res/drawable/ic_avatar.png" beforeDir="false" afterPath="$PROJECT_DIR$/../zlater_application/zlater/app/src/main/res/drawable/ic_avatar.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../zlater_application/zlater/app/src/main/res/layout/activity_exercises.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../zlater_application/zlater/app/src/main/res/layout/activity_exercises.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../zlater_application/zlater/app/src/main/res/layout/activity_main2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../zlater_application/zlater/app/src/main/res/layout/activity_main2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../zlater_application/zlater/app/src/main/res/layout/dialog_view_avatar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../zlater_application/zlater/app/src/main/res/layout/dialog_view_avatar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../zlater_application/zlater/app/src/main/res/layout/fragment_card_diet.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../zlater_application/zlater/app/src/main/res/layout/fragment_card_diet.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../zlater_application/zlater/app/src/main/res/layout/fragment_home.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../zlater_application/zlater/app/src/main/res/layout/fragment_home.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../zlater_application/zlater/app/src/main/res/layout/fragment_user.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../zlater_application/zlater/app/src/main/res/layout/fragment_user.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../zlater_application/zlater/app/src/main/res/values-vi-rVN/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../zlater_application/zlater/app/src/main/res/values-vi-rVN/strings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../zlater_application/zlater/app/src/main/res/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../zlater_application/zlater/app/src/main/res/values/colors.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../zlater_application/zlater/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../zlater_application/zlater/app/src/main/res/values/strings.xml" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="DefaultGradleProjectSettings">
-    <option name="isMigrated" value="true" />
-  </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="36bda316" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="192.168.1.72:5555" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -22808,84 +22726,13 @@
       </state>
     </system>
   </component>
-  <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_add_ingredient.xml">
-          <provider editor-type-id="android-designer2" />
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="94" column="79" selection-start-line="94" selection-start-column="79" selection-end-line="94" selection-end-column="79" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/krahs/adminzlater/Fragments/AddIngredientFragment.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1423">
-              <caret line="98" column="72" selection-start-line="98" selection-start-column="72" selection-end-line="98" selection-end-column="72" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/krahs/adminzlater/Fragments/AddExercisesFragment.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1394">
-              <caret line="89" column="46" selection-start-line="89" selection-start-column="46" selection-end-line="89" selection-end-column="46" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/krahs/adminzlater/Services/RetrofitClient.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="223">
-              <caret line="29" selection-start-line="29" selection-end-line="29" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/krahs/adminzlater/Utils/Constants.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/krahs/adminzlater/Fragments/AddDishFragment.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="110">
-              <caret line="440" column="33" selection-start-line="440" selection-start-column="33" selection-end-line="440" selection-end-column="33" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_add_dish.xml">
-          <provider editor-type-id="android-designer2" />
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="599">
-              <caret line="196" column="59" selection-start-line="196" selection-start-column="59" selection-end-line="196" selection-end-column="59" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_add_exercises_fragment.xml">
-          <provider editor-type-id="android-designer2" />
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="128">
-              <caret line="144" column="24" selection-start-line="144" selection-start-column="24" selection-end-line="144" selection-end-column="24" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="resourceFile" />
+      </list>
+    </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -22901,6 +22748,9 @@
       <find>AdminPolyFit</find>
       <find>PolyFit</find>
       <find>pol</find>
+      <find>Noti</find>
+      <find>admin@</find>
+      <find>fit</find>
     </findStrings>
     <replaceStrings>
       <replace>HS::</replace>
@@ -22910,127 +22760,31 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/app/src/main/java/com/krahs/adminpolyfit/Utils/Constants.java" />
-        <option value="$PROJECT_DIR$/app/google-services.json" />
-        <option value="$PROJECT_DIR$/app/src/androidTest/java/com/krahs/adminzlater/ExampleInstrumentedTest.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/krahs/adminzlater/Activity/SplashScreenActivity.java" />
-        <option value="$PROJECT_DIR$/settings.gradle" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_finger_print.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_splash_screen.xml" />
-        <option value="$PROJECT_DIR$/app/build/generated/res/google-services/debug/values/values.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/krahs/adminzlater/Fragments/ExerciseFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/krahs/adminzlater/Adapter/PagerAdapter.java" />
-        <option value="$PROJECT_DIR$/app/build.gradle" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_add_exercises_fragment.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_add_dish.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_add_ingredient.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/krahs/adminzlater/Fragments/AddIngredientFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/krahs/adminzlater/Fragments/AddDishFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/krahs/adminzlater/Fragments/AddExercisesFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/krahs/adminzlater/Services/RetrofitClient.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/krahs/adminzlater/Services/AdminZlaterServices.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/krahs/adminzlater/Utils/Constants.java" />
-      </list>
-    </option>
-  </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-15" />
-    <option name="y" value="-15" />
-    <option name="width" value="1735" />
-    <option name="height" value="935" />
-  </component>
+  <component name="ProjectId" id="1gPWpdSBTvBFnbIIVKces9wLomg" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
-  <component name="ProjectView">
-    <navigator proportions="" version="1">
-      <foldersAlwaysOnTop value="true" />
-    </navigator>
-    <panes>
-      <pane id="ProjectPane" />
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
-      <pane id="AndroidView">
-        <subPane>
-          <expand>
-            <path>
-              <item name="AdminZlater" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-            </path>
-            <path>
-              <item name="AdminZlater" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-            </path>
-            <path>
-              <item name="AdminZlater" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="com" type="cbb59c9e:AndroidPsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AdminZlater" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="com" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="krahs" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AdminZlater" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="com" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="krahs" type="462c0819:PsiDirectoryNode" />
-              <item name="adminzlater" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AdminZlater" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="com" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="krahs" type="462c0819:PsiDirectoryNode" />
-              <item name="adminzlater" type="462c0819:PsiDirectoryNode" />
-              <item name="Fragments" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AdminZlater" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="com" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="krahs" type="462c0819:PsiDirectoryNode" />
-              <item name="adminzlater" type="462c0819:PsiDirectoryNode" />
-              <item name="Utils" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-    </panes>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="adb_path" value="C:\Users\letra\AppData\Local\Android\Sdk\platform-tools\adb.exe" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/app/src/main/res/drawable" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../zlater_application/zlater" />
     <property name="project.structure.last.edited" value="Variables" />
     <property name="project.structure.proportion" value="0.17" />
     <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.krahs.adminzlater.Utils" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Zlater\zlater\Android\AdminZlater\app\src\main\res\drawable" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration default="true" type="AndroidJUnit" factoryName="Android JUnit">
@@ -23055,8 +22809,6 @@
       <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
       <option name="FORCE_STOP_RUNNING_APP" value="true" />
       <option name="TARGET_SELECTION_MODE" value="SHOW_DIALOG" />
-      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
-      <option name="PREFERRED_AVD" value="" />
       <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
       <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
       <option name="DEBUGGER_TYPE" value="Auto" />
@@ -23108,8 +22860,6 @@
       <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
       <option name="FORCE_STOP_RUNNING_APP" value="true" />
       <option name="TARGET_SELECTION_MODE" value="DEVICE_AND_SNAPSHOT_COMBO_BOX" />
-      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
-      <option name="PREFERRED_AVD" value="" />
       <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
       <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
       <option name="DEBUGGER_TYPE" value="Auto" />
@@ -23160,41 +22910,40 @@
     </task>
     <servers />
   </component>
-  <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <layout>
-      <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.2033557" />
-      <window_info id="Structure" order="2" side_tool="true" />
-      <window_info id="Favorites" order="3" side_tool="true" />
-      <window_info id="Build Variants" order="4" side_tool="true" />
-      <window_info id="Image Layers" order="5" />
-      <window_info id="Designer" order="6" />
-      <window_info id="Resources Explorer" order="7" />
-      <window_info id="Capture Tool" order="8" />
-      <window_info anchor="bottom" id="Version Control" order="0" />
-      <window_info anchor="bottom" id="Logcat" order="1" />
-      <window_info anchor="bottom" id="TODO" order="2" />
-      <window_info anchor="bottom" id="Terminal" order="3" />
-      <window_info anchor="bottom" id="Event Log" order="4" sideWeight="0.50067115" side_tool="true" weight="0.329429" />
-      <window_info anchor="bottom" id="Build" order="5" sideWeight="0.49932885" visible="true" weight="0.329429" />
-      <window_info anchor="bottom" id="Android Profiler" order="6" />
-      <window_info anchor="bottom" id="Run" order="7" weight="0.329429" />
-      <window_info anchor="bottom" id="Debug" order="8" />
-      <window_info anchor="bottom" id="Find" order="9" weight="0.329429" />
-      <window_info anchor="right" id="Device File Explorer" order="0" side_tool="true" />
-      <window_info anchor="right" id="Capture Analysis" order="1" />
-      <window_info anchor="right" id="Gradle" order="2" />
-      <window_info anchor="right" id="Theme Preview" order="3" />
-      <window_info anchor="right" id="Palette&#9;" order="4" />
-      <window_info anchor="right" id="Assistant" order="5" weight="0.3295302" />
-      <window_info anchor="right" id="Preview" order="6" weight="0.25302014" />
-    </layout>
-  </component>
   <component name="VcsManagerConfiguration">
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="349" y="167" key="AndroidCreateResourceFileDialog" timestamp="1598029331107">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="349" y="167" key="AndroidCreateResourceFileDialog/0.0.1536.824@0.0.1536.824" timestamp="1598029331107" />
+    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1598022575916">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1598022575916" />
+    <state width="1491" height="202" key="GridCell.Tab.0.bottom" timestamp="1598029750854">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1491" height="202" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1598029750854" />
+    <state width="1491" height="202" key="GridCell.Tab.0.center" timestamp="1598029750854">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1491" height="202" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1598029750854" />
+    <state width="1491" height="202" key="GridCell.Tab.0.left" timestamp="1598029750854">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1491" height="202" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1598029750854" />
+    <state width="1491" height="202" key="GridCell.Tab.0.right" timestamp="1598029750854">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1491" height="202" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1598029750854" />
+    <state x="425" y="187" key="run.anything.popup" timestamp="1598018969407">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1598018969407" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -23202,273 +22951,11 @@
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/krahs/adminzlater/Fragments/AddDishFragment.java</url>
           <line>391</line>
-          <properties class="com.krahs.adminzlater.Fragments.AddDishFragment" method="pushNotification">
-            <option name="EMULATED" value="true" />
-          </properties>
+          <properties class="com.krahs.adminzlater.Fragments.AddDishFragment" method="pushNotification" />
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
-  </component>
-  <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/krahs/adminzlater/Activity/FingerPrintHandle.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/androidTest/java/com/krahs/adminzlater/ExampleInstrumentedTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="27" selection-start-line="27" selection-end-line="27" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/krahs/adminzlater/Interface/ReloadDataExercise.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="68" selection-start-line="1" selection-start-column="68" selection-end-line="1" selection-end-column="68" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-manifest" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="36" selection-start-line="11" selection-start-column="36" selection-end-line="11" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/krahs/adminzlater/Fragments/ExerciseFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-60">
-          <caret line="244" column="59" selection-start-line="244" selection-start-column="59" selection-end-line="244" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/krahs/adminzlater/Fragments/IngredientFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="178" selection-start-line="178" selection-end-line="178" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/krahs/adminzlater/Services/MyFirebaseMessagingService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="30" column="13" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/krahs/adminzlater/Adapter/IngredientAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="53" column="76" selection-start-line="53" selection-start-column="76" selection-end-line="53" selection-end-column="76" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/krahs/adminzlater/Services/AdminZlaterServices.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="27" column="11" selection-start-line="27" selection-start-column="11" selection-end-line="27" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_finger_print.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="46" selection-start-line="13" selection-start-column="46" selection-end-line="13" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="29" column="44" selection-start-line="29" selection-start-column="44" selection-end-line="29" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_play_video.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="34" selection-start-line="7" selection-start-column="34" selection-end-line="7" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_splash_screen.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="338">
-          <caret line="36" column="54" selection-start-line="36" selection-start-column="54" selection-end-line="36" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/dialog_add_bodyparts.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/dialog_add_level.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/dialog_add_meals.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/dialog_add_quotes.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/dialog_delete.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_exercise.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_ingredient.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_mix.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/krahs/adminzlater/Activity/SplashScreenActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="81" selection-start-line="81" selection-end-line="81" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_quotes.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/krahs/adminzlater/Adapter/PagerAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="23" selection-start-line="23" selection-end-line="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/AppData/Local/Android/Sdk/platforms/android-29/android.jar!/android/view/View.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="219">
-          <caret line="378" column="16" selection-start-line="378" selection-start-column="16" selection-end-line="378" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_dish.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/krahs/adminzlater/Activity/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="697">
-          <caret line="65" selection-start-line="65" selection-end-line="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/local.properties">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gradle.properties">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/settings.gradle">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/proguard-rules.pro">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build.gradle">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1207">
-          <caret line="71" column="65" selection-start-line="71" selection-start-column="65" selection-end-line="71" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_add_dish.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="599">
-          <caret line="196" column="59" selection-start-line="196" selection-start-column="59" selection-end-line="196" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_add_exercises_fragment.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="144" column="24" selection-start-line="144" selection-start-column="24" selection-end-line="144" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_add_ingredient.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="94" column="79" selection-start-line="94" selection-start-column="79" selection-end-line="94" selection-end-column="79" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/krahs/adminzlater/Fragments/AddIngredientFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1423">
-          <caret line="98" column="72" selection-start-line="98" selection-start-column="72" selection-end-line="98" selection-end-column="72" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/krahs/adminzlater/Fragments/AddExercisesFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1394">
-          <caret line="89" column="46" selection-start-line="89" selection-start-column="46" selection-end-line="89" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/krahs/adminzlater/Services/RetrofitClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="29" selection-start-line="29" selection-end-line="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/krahs/adminzlater/Utils/Constants.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/krahs/adminzlater/Fragments/AddDishFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="440" column="33" selection-start-line="440" selection-start-column="33" selection-end-line="440" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
   </component>
   <component name="masterDetails">
     <states>

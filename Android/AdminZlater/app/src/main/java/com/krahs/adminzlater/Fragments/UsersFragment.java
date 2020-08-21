@@ -4,47 +4,59 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
+import android.widget.Toast;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+import com.krahs.adminzlater.Adapter.UserAdapter;
+import com.krahs.adminzlater.Model.Ingredients;
+import com.krahs.adminzlater.Model.User;
 import com.krahs.adminzlater.R;
+import com.krahs.adminzlater.Services.AdminZlaterServices;
+import com.krahs.adminzlater.Services.RetrofitClient;
 
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link UsersFragment.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link UsersFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
-public class UsersFragment extends Fragment {
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.lang.reflect.Type;
+import java.util.List;
+import java.util.Objects;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+
+public class UsersFragment extends Fragment implements View.OnClickListener{
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
-    // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-
+    private ImageView reloadUser;
+    private RecyclerView viewUser;
+    private Animation animation;
+    private AdminZlaterServices adminZlaterServices;
     private OnFragmentInteractionListener mListener;
+    private UserAdapter userAdapter;
 
     public UsersFragment() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment UsersFragment.
-     */
-    // TODO: Rename and change types and number of parameters
     public static UsersFragment newInstance(String param1, String param2) {
         UsersFragment fragment = new UsersFragment();
         Bundle args = new Bundle();
@@ -52,6 +64,12 @@ public class UsersFragment extends Fragment {
         args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
         return fragment;
+    }
+
+    private void connectView(View view){
+        reloadUser=view.findViewById(R.id.reloadUser);
+        reloadUser.setOnClickListener(this);
+        viewUser=view.findViewById(R.id.viewUser);
     }
 
     @Override
@@ -66,11 +84,14 @@ public class UsersFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_users, container, false);
+        View view=inflater.inflate(R.layout.fragment_users, container, false);
+        connectView(view);
+        Retrofit retrofit = RetrofitClient.getInstance();
+        adminZlaterServices = retrofit.create(AdminZlaterServices.class);
+        handleGetAllUser();
+        return view;
     }
 
-    // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
         if (mListener != null) {
             mListener.onFragmentInteraction(uri);
@@ -94,18 +115,61 @@ public class UsersFragment extends Fragment {
         mListener = null;
     }
 
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     * <p>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
-     */
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.reloadUser:
+                Log.e("HS::","Reload user");
+                handleGetAllUser();
+                break;
+        }
+    }
+
+    public void  handleGetAllUser() {
+        animation = AnimationUtils.loadAnimation(getActivity(),
+                R.anim.rotate);
+        reloadUser.startAnimation(animation);
+        adminZlaterServices.getAllUsers().enqueue(new Callback<String>() {
+            @Override
+            public void onResponse(Call<String> call, Response<String> response) {
+                if (response.isSuccessful()) {
+                    Log.e("HSUser::", response.body());
+                    JSONArray array = null;
+                    try {
+                        JSONObject obj = new JSONObject(response.body());
+                        array = obj.getJSONArray("Response");
+                    } catch (Throwable t) {
+                        Log.e("HS::", "Error!!!");
+                    }
+                    Gson gson = new Gson();
+                    String jsonOutput = array.toString();
+                    Type listType = new TypeToken<List<User>>() {
+                    }.getType();
+                    List<User> users = gson.fromJson(jsonOutput, listType);
+                    setData(users);
+                    Log.e("HSUser::", /*exercisesList.get(0).getId() +*/":: List user ::" + array);
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<String> call, Throwable t) {
+                Toast.makeText(getActivity(), "Please check your connection", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    public void setData(List<User> users){
+        viewUser.setHasFixedSize(true);
+        LinearLayoutManager mLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
+//        RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(getActivity(), 2);
+        viewUser.setLayoutManager(mLayoutManager);
+        userAdapter = new UserAdapter(users, getContext(), UsersFragment.this);
+        viewUser.setAdapter(userAdapter);
+        reloadUser.clearAnimation();
+    }
+
     public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
     }
 }

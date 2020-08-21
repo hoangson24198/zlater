@@ -7,6 +7,7 @@ import com.krahs.adminzlater.Model.Ingredients;
 import com.krahs.adminzlater.Model.Level;
 import com.krahs.adminzlater.Model.Meals;
 import com.krahs.adminzlater.Model.Quotes;
+import com.krahs.adminzlater.Model.User;
 
 import java.util.List;
 
@@ -200,5 +201,8 @@ public interface AdminZlaterServices {
 
     @GET("user/getOnlineUser")
     Call<String> getOnlineUser();
+
+    @DELETE("user/delete/{id}")
+    Call<User> deleteUser(@Path("id") int id);
 
 }

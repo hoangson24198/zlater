@@ -16,6 +16,7 @@ import android.widget.Toast;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.gson.Gson;
@@ -173,10 +174,10 @@ public class IngredientFragment extends Fragment implements View.OnClickListener
 
     public void setData(List<Ingredients> ingredientsList){
         viewIngredient.setHasFixedSize(true);
-//        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
+//        LinearLayoutManager mLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
         RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(getActivity(), 2);
         viewIngredient.setLayoutManager(mLayoutManager);
-        ingredientAdapter = new IngredientAdapter(ingredientsList, getContext(),IngredientFragment.this);
+        ingredientAdapter = new IngredientAdapter(ingredientsList, getContext(), IngredientFragment.this);
         viewIngredient.setAdapter(ingredientAdapter);
         reloadIngredient.clearAnimation();
     }

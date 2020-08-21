@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black"
-    tools:context=".Fragments.IngredientFragment">
+    tools:context=".Fragments.ExerciseFragment">
     <com.google.android.material.navigation.NavigationView
         app:itemTextColor="@color/white"
         android:visibility="gone"

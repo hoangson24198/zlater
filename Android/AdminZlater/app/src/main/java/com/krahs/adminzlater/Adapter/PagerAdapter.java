@@ -8,6 +8,7 @@ import com.krahs.adminzlater.Fragments.DishFragment;
 import com.krahs.adminzlater.Fragments.ExerciseFragment;
 import com.krahs.adminzlater.Fragments.IngredientFragment;
 import com.krahs.adminzlater.Fragments.MixFragment;
+import com.krahs.adminzlater.Fragments.UsersFragment;
 
 public class PagerAdapter extends FragmentStatePagerAdapter {
 
@@ -15,7 +16,7 @@ public class PagerAdapter extends FragmentStatePagerAdapter {
     int numberOfTabs;
 
     public PagerAdapter(FragmentManager fm, int numberOfTabs) {
-        super(fm,BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
+        super(fm);
         this.numberOfTabs = numberOfTabs;
     }
 
@@ -33,6 +34,9 @@ public class PagerAdapter extends FragmentStatePagerAdapter {
                 IngredientFragment ingredientFragment = new IngredientFragment();
                 return ingredientFragment;
             case 3:
+                UsersFragment usersFragment = new UsersFragment();
+                return usersFragment;
+            case 4:
                 MixFragment mixFragment = new MixFragment();
                 return mixFragment;
             default:
